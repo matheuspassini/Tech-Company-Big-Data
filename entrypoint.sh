@@ -15,14 +15,14 @@ then
   yarn --daemon start resourcemanager
 
   hdfs dfs -mkdir -p /opt/spark/data
-  hdfs dfs -mkdir -p /opt/spark/data/raw_layer
-  hdfs dfs -mkdir -p /opt/spark/data/processed_layer
-  hdfs dfs -mkdir -p /opt/spark/data/lineage_layer
+  hdfs dfs -mkdir -p /opt/spark/data/bronze_layer
+  hdfs dfs -mkdir -p /opt/spark/data/silver_layer
+  hdfs dfs -mkdir -p /opt/spark/data/gold_layer
   hdfs dfs -mkdir -p /data-lake-logs
 
   echo "Data folders created on HDFS"
 
-  hdfs dfs -copyFromLocal /opt/spark/data/* /opt/spark/data/raw_layer
+  hdfs dfs -copyFromLocal /opt/spark/data/* /opt/spark/data/bronze_layer
 
 elif [ "$SPARK_WORKLOAD" == "worker" ];
 then
