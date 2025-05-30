@@ -6,6 +6,7 @@ from pyspark.sql.functions import col, trim, when, regexp_replace, split, expr, 
 
 spark = SparkSession.builder.appName('Tech-Company-Application').getOrCreate()
 
+# Schema definition
 employee_schema = StructType([
     StructField("id", StringType(), True),
     StructField("name", StringType(), True),
@@ -39,12 +40,14 @@ employee_schema = StructType([
 
 df_employee = spark.read.schema(employee_schema).json('hdfs:///opt/spark/data/bronze_layer/employees.json', multiLine=True)
 
+# 1. Drop columns
 cols_to_drop = ['emergency_contact', 'email', 'name', "phone", "address", "emergency_phone", 'sick_days', 'attendance_rate', 'training_hours']
 df_employee = df_employee.drop(*cols_to_drop)
 
+# Add timestamp column
 df_employee = df_employee.withColumn('received_at', current_timestamp())
 
-# REFERENCIAL INTEGRITY DOES NOT ALLOW NULL OR EMPTY VALUES
+# 2. Drop null/empty values (Referential Integrity)
 df_employee = df_employee.filter(
     (col("id").isNotNull()) & (trim(col("id")) != "")
 )
@@ -60,10 +63,12 @@ df_employee = df_employee.filter(
 df_employee = df_employee.filter(
     (col("education").isNotNull()) & (trim(col("education")) != "")
 )
+
 df_employee = df_employee.filter(
     (col("hire_date").isNotNull()) & (trim(col("hire_date")) != "")
 )
 
+# 3. Date transformations
 df_employee = df_employee.withColumn(
     "hire_date",
     when(col("hire_date").isNull() | (trim(col("hire_date")) == ""), "0000-01-01").otherwise(col("hire_date"))
@@ -72,36 +77,12 @@ df_employee = df_employee.withColumn(
     "last_review_date",
     when(col("last_review_date").isNull() | (trim(col("last_review_date")) == ""), "0000-01-01").otherwise(col("last_review_date"))
 )
-
 df_employee = df_employee.withColumn(
     "next_review_date",
     when(col("next_review_date").isNull() | (trim(col("next_review_date")) == ""), "0000-01-01").otherwise(col("next_review_date"))
 )
 
-df_employee = df_employee.withColumn(
-    "skills",
-    when(
-        col("skills").isNull() | (size(col("skills")) == 0),
-        array(lit("No skills"))
-    ).otherwise(col("skills"))
-)
-
-df_employee = df_employee.withColumn(
-    "skills",
-    when(
-        col("skills").isNull() | (size(col("skills")) == 0),
-        array(lit("No skills"))
-    ).otherwise(col("skills"))
-)
-
-df_employee = df_employee.withColumn(
-    "projects_assigned",
-    when(
-        col("projects_assigned").isNull() | (trim(col("projects_assigned")) == 0),
-        0
-    ).otherwise(col("projects_assigned"))
-)
-
+# 4. Number transformations
 df_employee = df_employee.withColumn(
     "projects_assigned",
     when(
@@ -142,6 +123,15 @@ df_employee = df_employee.withColumn(
     ).otherwise(col("years_experience"))
 )
 
+# 5. Unknown/Other transformations
+df_employee = df_employee.withColumn(
+    "skills",
+    when(
+        col("skills").isNull() | (size(col("skills")) == 0),
+        array(lit("No skills"))
+    ).otherwise(col("skills"))
+)
+
 df_employee = df_employee.withColumn(
     "is_manager",
     when(
@@ -166,4 +156,5 @@ df_employee = df_employee.withColumn(
     ).otherwise(col("work_location"))
 )
 
+# Write to parquet
 df_employee.write.parquet("hdfs:///opt/spark/data/silver_layer/employee.parquet", mode="overwrite")
