@@ -1,0 +1,565 @@
+id,company_name,industry,contact_person,email,phone,address,country,contract_start_date,contract_value,status,account_manager_id,annual_revenue,employee_count,last_contact_date,customer_since,churn_risk_score,satisfaction_score,payment_history,contract_type,upsell_potential
+7fe2e946-f819-4082-93d1-a62ff43babd7,Hall-Daniels,Finance,Michael Garcia,victoriasilva@example.com,,"11516 Villarreal Port Apt. 765
+Jonathanhaven, NV 42986",Romania,2024-05-04,743830.0,Inactive,e2291255-5b24-4042-b735-3d654d4dba6d,75740065.0,2986.0,2025-03-11,,0.08,1.11,Good,Annual,
+,Stevenson Inc,Healthcare,Matthew Smith,hoelizabeth@example.org,324-781-8179,"USNS Smith
+FPO AP 79180",Canada,,189065.0,Inactive,3e954e8e-cd9d-43e5-b7c7-742f31d7417c,,4403.0,2025-04-08,2023-04-09,0.92,3.09,Good,,0.21
+62fdb942-45ed-4d75-a774-4e3953a00be5,Haney Inc,Retail,,,001-674-533-5083x9839,"37333 Brent Neck Suite 562
+Stewartstad, WV 29387",Cyprus,2024-12-06,,Inactive,6df7702b-2096-4ca6-a17d-b37f5fe38414,12555354.0,7076.0,2024-10-29,2024-07-21,0.65,1.44,Average,Monthly,0.04
+26810bfa-1684-48d5-bba6-00de5f91a3cb,,Energy,Christopher Schaefer,christinabriggs@example.com,+1-717-768-7961x1779,"513 Fields Drive
+Matthewsville, ND 87870",Lesotho,,889208.0,Inactive,70012e4a-b56f-4b3b-8cbd-e4175a42c7fa,14464744.0,5057.0,2024-08-22,2022-07-16,0.18,2.2,Poor,Annual,0.74
+f4a2f0fe-6e78-456e-abe5-1cf2ce8d1ff3,"Hawkins, Hansen and Townsend",Transportation,Shawn Green,lisachurch@example.com,(907)700-6239,"031 Grant Springs
+Ramoston, WA 03831",Equatorial Guinea,2023-03-21,903423.0,Inactive,cc39afe2-5f22-465c-8660-4965adb62831,11903924.0,2964.0,2025-03-11,2021-03-30,0.31,1.01,,,0.58
+792676c4-2167-4c16-aac7-12eb969e6d0e,Norton-Smith,Transportation,Stephanie Phillips,martinvictoria@example.org,001-433-869-8734x318,"3652 Black Summit
+Ramseyville, MN 21990",Israel,2025-03-11,226404.0,Churned,97aeb793-6bc8-4a1a-83d0-e64dea46622d,93942152.0,9590.0,2025-03-29,2022-03-01,0.64,3.37,Poor,Annual,0.01
+92f9f552-6145-4fc5-a3eb-6017fe49d919,Martin LLC,Healthcare,Angela Lynn,rodneybates@example.com,933.667.7593,"64486 Washington Fork Suite 558
+Deborahberg, SD 58353",New Caledonia,2023-05-28,985398.0,Active,4e49880b-f651-4d0e-9ac0-f02bc3ecbc4d,95392522.0,9903.0,2024-09-08,2024-06-17,0.92,1.89,Good,Monthly,0.95
+85cd3576-7f44-4ac5-8959-e43ef8bbdfc7,"Thompson, Myers and Costa",Energy,Brittany Howard,steven53@example.com,485.427.9628x801,"27691 Barton Gateway Apt. 517
+Ortizmouth, NE 45822",Czech Republic,2023-11-08,778542.0,Prospect,cc39afe2-5f22-465c-8660-4965adb62831,71903419.0,2009.0,2025-05-06,2024-01-31,0.33,1.33,Poor,Multi-year,0.77
+50e10846-3e05-445a-a5e8-02f21ead8c72,"Arnold, Cruz and Perez",Healthcare,,rileyjorge@example.com,001-361-535-7175x3419,"45128 David Overpass Apt. 907
+Velezstad, AK 53030",Norfolk Island,2022-10-22,191229.0,Active,3f06efb7-4a40-4de3-bea0-e67be4edec0e,65998816.0,,2024-12-15,2024-11-18,0.76,2.86,Poor,Annual,0.51
+394ab920-42ef-4afd-857f-f267a8df4267,"Obrien, Silva and Morales",Technology,Justin Paul,arthur71@example.com,410.606.9802x3626,"96791 Munoz Branch
+Johnsonfort, MO 94279",China,2022-12-03,446221.0,,cb6a2691-5185-4492-a78f-743d4f02a35a,14691386.0,4303.0,2024-07-26,2022-01-11,0.45,4.17,Good,Monthly,0.24
+0f574cc2-bfd4-420f-9abd-1071f8bdf688,"Murray, Green and Alvarado",Technology,Andrew Martin,michellesmith@example.net,+1-399-241-2028x09552,"534 May Gateway
+North Ericton, PA 66675",Austria,2023-10-06,,Active,0286a45e-fe1b-4f06-ba71-a9b99a437e34,25890369.0,4729.0,2025-03-25,,0.54,2.59,Average,Annual,0.94
+8daab5e0-4aa6-4831-a2da-ece2f4e9980a,Johnson-Reyes,Manufacturing,John Lopez,webercourtney@example.com,(865)817-6802x55032,"453 Ross Mountain
+Port Carolineport, MA 34452",Hong Kong,2023-04-13,,Prospect,a57917b4-9174-4b36-ae79-97d9000ae43c,22997988.0,3972.0,2024-10-13,2022-01-01,0.86,1.89,Average,Monthly,
+0a055bff-6e91-41e7-a921-7f1e2aa36b96,Wells Ltd,Media,Richard Price,tinalarsen@example.org,571-875-6928x927,,Central African Republic,2023-01-27,769706.0,,3e954e8e-cd9d-43e5-b7c7-742f31d7417c,43020569.0,6783.0,,2024-03-05,0.84,4.23,Good,Multi-year,0.12
+c2f41a52-d37b-402c-a535-93a2163246ee,Matthews LLC,Healthcare,David Lambert,mindy15@example.org,4424182885,,Cote d'Ivoire,2022-06-11,716211.0,,,61051749.0,3032.0,,,0.88,4.87,Poor,Annual,0.02
+130cb109-0320-4ac3-9281-410816b77949,,Energy,Tina Matthews,bdaniels@example.com,+1-763-550-1505x50877,"47022 Chad Oval
+South Michellemouth, GA 93579",,2024-10-07,472678.0,,4e49880b-f651-4d0e-9ac0-f02bc3ecbc4d,52291845.0,5449.0,2024-10-06,2023-10-09,0.62,2.71,Good,Monthly,0.01
+cae1006e-d531-443f-8675-af4be1d4a8e9,"Ellis, Payne and Barry",Retail,Pamela Harmon,mccannallison@example.org,642.735.7890,"735 Elizabeth Prairie
+Davidmouth, DC 24947",Haiti,,191896.0,Churned,,27722227.0,4780.0,2024-08-27,2022-05-19,0.99,3.09,Good,Multi-year,0.36
+db4309dd-483f-47a7-a51c-64aeb89c17fd,Scott and Sons,Transportation,Gary Johnson,otaylor@example.com,476.486.7176,"86569 Hailey Stream
+South Jessica, LA 16698",Thailand,2023-03-25,156863.0,Prospect,83c9512a-0888-4b3a-b2ad-964727511763,24438161.0,8801.0,2025-01-20,2022-03-21,0.79,4.86,Good,Quarterly,0.92
+dcb471cd-d7f4-41a9-b8dd-2524086efa60,,Transportation,Jillian Patterson,mcclurezachary@example.org,229.253.6949,"Unit 8743 Box 0615
+DPO AP 41444",Kazakhstan,2023-06-06,492655.0,Prospect,,,4789.0,2025-02-25,2023-11-07,0.04,3.09,Poor,Annual,0.85
+bae1cb1b-cb8b-48b6-bd6d-dd8bbfbea212,"Hoffman, Brown and Thomas",Healthcare,Corey Mayer,robert55@example.com,6879867037,"26439 Estrada Tunnel Suite 879
+East Susanport, IN 53474",Netherlands Antilles,2022-12-17,906096.0,Prospect,70012e4a-b56f-4b3b-8cbd-e4175a42c7fa,17495295.0,215.0,,2023-06-11,0.27,4.95,Poor,,0.06
+39b5a8a8-09a8-47fe-871f-ca830f8ad5c4,Reilly-Peck,Energy,,michael51@example.net,915-309-9072,"8555 Norris Cliffs Suite 672
+Cassandratown, WV 91729",Indonesia,2023-10-03,528665.0,Prospect,70012e4a-b56f-4b3b-8cbd-e4175a42c7fa,55964563.0,4533.0,2024-09-20,,0.41,2.29,Poor,Quarterly,
+4b961360-ea81-468f-b3f3-dffda0147fa5,,Technology,Stacey Elliott,amanda46@example.com,969-854-3510,"027 Williams Prairie
+Anitahaven, NH 96149",Djibouti,2024-04-28,189220.0,Churned,97aeb793-6bc8-4a1a-83d0-e64dea46622d,47506946.0,99.0,2025-02-06,2022-11-06,0.56,3.13,Average,Quarterly,0.21
+,Ford Group,Energy,Pamela Oneal,tstewart@example.org,(864)886-1026x448,"4409 Mary Mount
+Hensleyshire, NE 76075",British Indian Ocean Territory (Chagos Archipelago),2023-07-15,461051.0,Churned,3e954e8e-cd9d-43e5-b7c7-742f31d7417c,16720382.0,4083.0,2025-02-08,2021-02-23,0.61,5.0,,Annual,0.32
+52dd24bb-cd51-424d-bb00-1e7325fb5b7b,Christensen-Pennington,Energy,Mary Duncan,dale87@example.org,929-302-1022x2717,"8744 Allen Springs
+Lake Josephport, UT 19004",Romania,2024-02-20,66669.0,Inactive,3e954e8e-cd9d-43e5-b7c7-742f31d7417c,1449704.0,2247.0,2024-07-12,2021-11-10,0.98,2.72,Poor,Quarterly,0.05
+012d806e-df88-4f3d-9d6f-c858f4be5722,Jones-Lee,Technology,Anna Jordan,thomas77@example.com,925-579-6170x199,,Algeria,2023-09-24,,,3e954e8e-cd9d-43e5-b7c7-742f31d7417c,88210100.0,3568.0,2025-01-09,2021-05-27,0.77,2.16,Good,,0.71
+17b46e36-ed73-4305-b7fb-968e522c79c4,Wallace Group,Transportation,Kelly Brown,deborahmitchell@example.org,245-272-1807x9475,"4330 Lindsay Shores Apt. 535
+Hudsonfurt, GA 67588",Bermuda,2024-10-15,162779.0,,4e49880b-f651-4d0e-9ac0-f02bc3ecbc4d,97255585.0,3020.0,2025-01-24,2023-05-15,0.2,3.24,Poor,Monthly,0.33
+a9e5c296-20d7-44c7-800c-a9be44333763,"Watson, Williams and Gamble",Education,Haley Cunningham,rebeccadavidson@example.com,(228)279-8163,"810 Richard Hills Suite 022
+Port Gregoryview, GA 75841",,2025-03-07,,Churned,3f06efb7-4a40-4de3-bea0-e67be4edec0e,27105893.0,3650.0,2025-03-23,2024-10-05,,1.66,Good,Multi-year,
+81f2ba7a-4804-4fe5-9a6d-08997efe1e80,Leach-Lynch,Education,David Willis,john14@example.org,+1-589-973-9717x845,"144 Danielle Skyway Apt. 361
+Gregoryland, DE 21210",Cocos (Keeling) Islands,2023-09-17,452262.0,Active,97aeb793-6bc8-4a1a-83d0-e64dea46622d,16653578.0,1689.0,2024-05-29,,0.66,1.45,Average,Quarterly,0.13
+adf298ff-b4c7-49be-944c-cc7a4f50bd03,Hale LLC,Media,Jessica Vasquez,zjames@example.org,626-737-6406x9062,"87207 Darryl Throughway Apt. 253
+West Paulmouth, NV 73801",,2024-05-10,118595.0,Churned,3af1c294-2610-4ede-8873-9f8dd2ef161e,55775610.0,4415.0,2025-04-04,2024-01-20,0.28,2.63,Good,Annual,0.78
+ed8e94b6-3713-4698-ad2e-485b63eb2041,Larson LLC,Media,Kendra Lopez,dmclaughlin@example.net,,"8974 Deborah Mill
+Chaneybury, MT 41147",Montserrat,2024-09-29,665167.0,Prospect,3af1c294-2610-4ede-8873-9f8dd2ef161e,42299323.0,,2025-04-21,2023-01-02,0.09,1.02,Good,Quarterly,0.68
+912d576b-f405-4d1d-a573-954feef75931,Edwards-King,,Lisa Baker,diane72@example.net,516.905.8750x9470,,Maldives,2023-05-06,522760.0,Inactive,b9bc0f89-1fa7-4306-812f-780f6e69384a,80316702.0,6252.0,,2022-11-23,0.82,3.61,Poor,Monthly,0.17
+8bfc102c-9d58-49da-91d5-c6fd3380656d,Black PLC,Manufacturing,Jonathan Hernandez,tcooper@example.com,219.275.1422x630,,British Virgin Islands,2025-04-25,364082.0,Prospect,4e49880b-f651-4d0e-9ac0-f02bc3ecbc4d,5171072.0,,2025-03-18,2025-03-21,0.78,2.22,Good,Monthly,0.68
+71120852-a063-4c3b-88b9-5916b7e466c9,Freeman-Martin,Education,Christian Burke,jeremy94@example.com,296.340.4871x339,"108 Cox Forges Apt. 813
+West Amandaport, OH 85388",,2024-10-20,524267.0,Active,3bfdec12-4fa5-4bb8-bbad-5cd45152df62,7310309.0,3689.0,2024-10-19,2022-11-29,0.57,4.58,Poor,Multi-year,0.25
+76cb6889-6ec0-4467-ba0b-f7b89760e6d1,Cain and Sons,Telecommunications,Richard Nelson,,(288)694-0611x650,"63367 Ashley Rapid
+Sandersmouth, AZ 45233",Uzbekistan,2024-08-27,834402.0,,70012e4a-b56f-4b3b-8cbd-e4175a42c7fa,42790308.0,2242.0,2024-05-30,,0.31,,Average,Quarterly,0.47
+b8a82026-de67-473c-877d-b2178c509085,"Gray, Brown and Dickson",Finance,Matthew Mcbride,,800-996-2004x085,"90897 Tammy Burgs Suite 760
+North Karenchester, PA 87278",Cuba,2024-11-04,612678.0,Prospect,4e49880b-f651-4d0e-9ac0-f02bc3ecbc4d,38562782.0,192.0,,2020-11-29,0.06,4.42,Poor,Multi-year,0.77
+3d90e268-2719-4f19-955e-db18e942846a,Bryant-Sellers,Energy,James Howard,,,"722 Edwards Cove
+Kimtown, CT 87973",Equatorial Guinea,2022-09-20,870881.0,Inactive,cc39afe2-5f22-465c-8660-4965adb62831,31134679.0,7186.0,2025-05-05,2021-02-25,0.99,3.95,,Quarterly,0.02
+858564d0-a018-4363-a476-3da638321cf1,Christian Ltd,,Lisa Maldonado,patriciarogers@example.org,001-276-725-6314x5812,"30351 David Lodge
+Vegaview, NH 10912",American Samoa,,443305.0,Churned,b0f6d0e1-02bc-40c9-95a2-9a8221bc69e6,44622514.0,4481.0,2024-06-06,2020-06-09,0.73,4.92,Poor,Annual,0.71
+50981534-ab39-4e8c-b5c2-6ae67d56a20a,"Hart, Lewis and White",Technology,Susan Pacheco,ogardner@example.org,(778)657-2142x164,"40202 Norma Locks
+Vargaston, AZ 66127",Guadeloupe,2025-04-24,549568.0,Churned,3f06efb7-4a40-4de3-bea0-e67be4edec0e,30457835.0,2290.0,2024-06-04,2023-05-28,0.45,3.8,Good,Quarterly,
+1c18c895-67d5-4320-9a72-544c5fbbce3a,"Lopez, Mosley and Ellis",Finance,Lauren Kim,russoyvette@example.com,570.229.8019,"01789 Jones Green Apt. 190
+Charlesburgh, IA 33424",Tuvalu,2023-09-15,,Active,3e954e8e-cd9d-43e5-b7c7-742f31d7417c,64942806.0,7521.0,2025-05-15,2020-09-01,0.26,4.99,Average,Monthly,0.6
+7f4b550a-8bfd-4fce-a70b-51ac7173ff21,Perez-Johnson,Transportation,Edward Andrews,lmartin@example.org,8852695480,,Sri Lanka,2022-08-10,913123.0,Churned,70012e4a-b56f-4b3b-8cbd-e4175a42c7fa,41227152.0,3624.0,2025-03-14,2022-06-19,0.7,3.21,Average,Annual,0.99
+6938bd09-b363-4a64-b909-e88506a8ef82,"Jones, Gutierrez and Clark",Manufacturing,Dr. Mallory Leon,hardymark@example.com,356-519-6337,"388 Megan Station
+Lake Sallytown, SC 74549",French Polynesia,,761950.0,Inactive,3af1c294-2610-4ede-8873-9f8dd2ef161e,12482046.0,8224.0,2025-04-06,2022-12-11,0.17,3.36,Poor,Monthly,0.02
+b1efe91b-b30b-409e-9962-76bddd1b3d06,Taylor-Jackson,Energy,Laura Kirby,,+1-582-619-3034,"401 Anderson Well Suite 052
+Kendraland, ME 63676",Lesotho,2025-04-10,373619.0,,cc39afe2-5f22-465c-8660-4965adb62831,38612419.0,1060.0,2025-05-23,2023-12-17,0.32,4.02,Good,,0.24
+3160e86e-50a3-4b82-8cba-cf30bbb6fbdf,Mcdaniel LLC,Manufacturing,Ana Miles,cordovaalex@example.net,+1-664-902-4614x5277,"3695 Lawrence Island Suite 615
+Debramouth, DE 53924",Sweden,2022-07-13,465354.0,Active,3e954e8e-cd9d-43e5-b7c7-742f31d7417c,4153820.0,4323.0,,2024-05-10,0.54,3.36,Poor,Monthly,0.45
+7ca91a60-5a93-407f-a7cc-718847f1556f,Taylor-Weaver,Transportation,,lindaanderson@example.net,(610)799-3418x71376,"Unit 9036 Box 0972
+DPO AA 84751",Panama,2023-11-01,938156.0,Active,cb6a2691-5185-4492-a78f-743d4f02a35a,7999405.0,5410.0,2025-01-25,2024-05-22,0.54,1.89,Average,,
+,Woods-Green,Manufacturing,Robert Wilson,halljames@example.org,3454466319,"593 Brent Radial
+Port Victor, TX 83097",Bermuda,2024-02-05,82714.0,Churned,cc39afe2-5f22-465c-8660-4965adb62831,2857802.0,2226.0,2024-08-19,2022-05-07,0.84,,Poor,Quarterly,0.23
+d9bbbf99-ea28-4fee-a470-31e0c17c9544,Sanders Ltd,Energy,Andrew Guerra,todd64@example.org,(595)771-7219x49106,"5089 Campbell Run Suite 759
+East Lanceton, GA 67816",Puerto Rico,2024-12-02,304376.0,Prospect,a57917b4-9174-4b36-ae79-97d9000ae43c,1367330.0,4295.0,2024-05-30,2021-09-11,0.33,4.18,Good,Monthly,0.96
+e5a4400a-a49a-45db-9cf0-e94b5680b5a1,Williams Inc,Healthcare,Cassandra Thompson,brittanyyang@example.com,001-786-509-4627x24866,"052 Pham Cape Suite 910
+Port Jenniferfort, OK 07545",Bahamas,2023-01-14,500762.0,Active,97aeb793-6bc8-4a1a-83d0-e64dea46622d,86202763.0,7838.0,,2023-08-31,0.88,4.29,Poor,Annual,0.51
+6c4696a0-312e-43e1-84e9-cfaf170c6e86,"Coleman, Tyler and Mckinney",Media,,kwhite@example.com,831-399-4049,"57933 Duncan Grove Apt. 416
+Timothyborough, WV 34002",,2023-01-29,468491.0,Prospect,0286a45e-fe1b-4f06-ba71-a9b99a437e34,21079624.0,1553.0,,2023-10-26,0.95,1.87,Good,Monthly,0.55
+3ab640aa-5bc8-4770-8095-9180c38c54f6,Jones Inc,Technology,Kimberly Warner,walkerpatricia@example.net,879.939.1209x801,"124 Collins Radial
+Kimberg, VI 72287",Germany,2024-12-14,907130.0,Active,0286a45e-fe1b-4f06-ba71-a9b99a437e34,,7249.0,2024-06-19,2023-11-17,0.97,3.9,Poor,Multi-year,0.06
+e99b62e2-5f9e-4085-8327-0b38a7462e27,Wallace-Martinez,,Ryan Smith,htownsend@example.com,685-409-6299,"USNS Callahan
+FPO AA 93298",Cyprus,2022-12-03,165002.0,Inactive,83c9512a-0888-4b3a-b2ad-964727511763,33885860.0,1657.0,2025-05-02,2021-08-04,,3.97,,Monthly,0.63
+,Mcguire and Sons,Education,Samantha Torres,robert19@example.com,389-924-9125x047,"318 Holmes Rue Suite 392
+North Nicholas, MH 77432",Cote d'Ivoire,2023-02-26,623804.0,Prospect,cc39afe2-5f22-465c-8660-4965adb62831,6990338.0,2961.0,2024-11-19,2023-10-01,0.46,3.45,Good,Multi-year,0.24
+6a87b76a-d05b-4527-8b5e-38b80f230cfa,"Davis, Hamilton and Walker",Telecommunications,Timothy Mccarthy,xkhan@example.org,001-717-737-6455x718,"144 Christopher Ferry Suite 726
+North Carriemouth, MD 63689",,2023-10-05,550642.0,Prospect,70012e4a-b56f-4b3b-8cbd-e4175a42c7fa,67237176.0,4823.0,2024-12-10,2025-03-06,0.76,4.74,Good,Multi-year,0.04
+eae0a6c5-6128-40c1-8e81-7915c7d73cc7,Bryant Inc,,Kevin Santos,trujillomelanie@example.net,7419846759,"65991 Romero Hill
+Randolphview, IN 69515",Bangladesh,2025-05-16,244483.0,Prospect,e2291255-5b24-4042-b735-3d654d4dba6d,14235175.0,4256.0,2025-01-14,,0.79,4.84,Poor,Annual,
+63c4430b-4d9e-44d7-963e-30bba993a33f,Burns-Anderson,Education,,turnercharles@example.org,(483)237-7360x766,"8895 Cuevas Viaduct Apt. 051
+Lake Sethfurt, KS 71878",Seychelles,2024-07-23,583291.0,Prospect,3af1c294-2610-4ede-8873-9f8dd2ef161e,25571515.0,5738.0,2025-03-30,2022-07-23,0.25,1.16,Good,Multi-year,0.97
+1192a151-edd2-49c2-9c95-1b425a44d020,"Garcia, Jones and Taylor",Education,Christopher Shannon,kennedywilliam@example.com,501-223-5932x7406,"5372 Jason Islands Suite 003
+West Valerieland, ID 75526",Senegal,2024-01-04,714951.0,Prospect,6df7702b-2096-4ca6-a17d-b37f5fe38414,,5833.0,2024-11-23,2022-09-03,0.75,3.02,Poor,Quarterly,0.49
+04f4b355-0b52-4d4a-8145-b13259e5706e,Garza Inc,Retail,Michelle Schmidt,lopezbrian@example.org,001-936-828-2580x6507,"46057 Chambers Knolls Apt. 250
+Olsonview, CO 71994",Turkmenistan,2025-04-14,,Churned,0286a45e-fe1b-4f06-ba71-a9b99a437e34,,9466.0,2025-04-24,2020-11-26,0.38,1.57,Poor,,0.1
+f35a8af4-7022-4510-b7e7-69593fb84fdc,Martin-Moore,Healthcare,Michael Ramirez,dhays@example.net,281.946.7723x47758,"8224 Jason Rue Apt. 792
+Stephanieview, FM 02880",Qatar,2024-10-27,618061.0,Active,cc39afe2-5f22-465c-8660-4965adb62831,12516047.0,7082.0,2025-05-15,2023-02-21,0.62,1.84,Poor,,0.63
+dd21f63a-7ef9-487e-9bcc-e79c65772432,Carpenter Group,Education,Douglas Jones,danielwhite@example.net,+1-330-808-9522x327,"66332 Johnson Prairie
+Vincentmouth, NM 00712",Comoros,2022-12-08,,Churned,4b63185c-f8f6-40ae-bd1c-b0f9f6ced746,82785641.0,9719.0,2024-06-02,2021-02-15,0.28,2.28,Good,Quarterly,0.46
+4d7df4bb-027a-412f-a84c-a5e6019de077,"Walls, Robinson and Nunez",Media,Felicia Torres,tjones@example.org,,"14009 Kimberly Burg
+West Amy, WA 31080",Togo,2025-05-18,598769.0,Inactive,b0f6d0e1-02bc-40c9-95a2-9a8221bc69e6,51538059.0,156.0,2024-11-21,,0.71,3.83,Good,Quarterly,0.25
+50733369-4527-402d-b032-c36be2fe37b4,Fields LLC,Finance,Danielle Pierce,slester@example.com,965-355-3107x207,"005 Amanda Mountains Suite 277
+East Jasonchester, PA 06024",Nicaragua,2023-06-10,407386.0,Active,b977b44b-047b-4d3e-95bd-520b44b99d69,84848543.0,429.0,2024-06-16,2025-05-06,,,,Annual,0.41
+461b7d4c-1347-4c7e-b687-0659deaa916e,Williams Group,Telecommunications,Kevin Santos,woodscynthia@example.org,,"486 Wilson Road Apt. 557
+Gilbertport, PW 64477",Guinea-Bissau,2022-06-24,349645.0,Prospect,6df7702b-2096-4ca6-a17d-b37f5fe38414,55754085.0,2355.0,2025-03-23,2021-09-12,0.66,4.12,Poor,,0.49
+f8b0a17e-5cdd-429b-8951-114c4bde3e74,Murphy-Smith,Media,Tristan Conner,ericphillips@example.com,001-610-448-4010x537,"679 Walker Viaduct
+North Rogerbury, AS 00687",India,2022-06-12,262222.0,Prospect,b9bc0f89-1fa7-4306-812f-780f6e69384a,67157647.0,3630.0,2024-09-25,2023-04-12,0.24,2.63,Good,Annual,0.48
+b97644a2-77e4-4ac4-bf1a-3456bfde3041,Romero-Pearson,Finance,Janet Robbins,,,,Peru,2022-11-08,897885.0,Prospect,cc39afe2-5f22-465c-8660-4965adb62831,70194755.0,1230.0,2024-07-04,2024-01-25,0.2,2.19,Poor,Quarterly,0.88
+e94e2823-6003-4bf2-a95d-c92f1e689316,Williams PLC,Media,Brandon Webb,dylan19@example.net,810.240.8187x00597,"PSC 5566, Box 9388
+APO AE 51301",,2025-01-22,421351.0,Inactive,b0f6d0e1-02bc-40c9-95a2-9a8221bc69e6,5182131.0,73.0,2025-01-07,2022-05-18,0.81,3.72,Poor,Annual,0.65
+a37db2d3-48bc-4331-aab8-832424494f31,Hale-Edwards,Technology,Ashley Brown,jordanmata@example.net,(557)272-0783x13973,"PSC 7752, Box 3386
+APO AP 99135",Tokelau,2022-07-26,671324.0,Inactive,3f06efb7-4a40-4de3-bea0-e67be4edec0e,54863793.0,7157.0,2024-11-19,2025-02-17,0.99,3.65,Average,Multi-year,0.17
+95efe1a9-852d-4204-8db6-357c1846e3cc,"Solis, Smith and Taylor",Manufacturing,John Johnson,oliviaparsons@example.org,+1-419-900-3432x678,"04194 David Highway
+West Vickieport, VI 44268",Ecuador,2025-05-21,189503.0,Prospect,4b63185c-f8f6-40ae-bd1c-b0f9f6ced746,,4195.0,2024-10-29,2025-03-19,0.49,2.26,Good,,0.64
+938e06dd-5e2a-4c83-bb15-e0e712914c24,Cooper-Schwartz,Manufacturing,Sandy Harding,eric64@example.net,949-346-2084x5898,"557 Jennings Trail
+South Williebury, ME 59511",Japan,2024-10-13,809830.0,Active,0286a45e-fe1b-4f06-ba71-a9b99a437e34,75065931.0,594.0,2025-03-03,2021-12-12,0.98,,,Multi-year,0.73
+7b3679ba-8f77-4aa6-ae02-4e5a75730ccd,Hall Inc,Education,Dr. Cheryl Price,carolinelevy@example.org,(658)348-0350,,Bosnia and Herzegovina,2024-04-21,859928.0,Inactive,b0f6d0e1-02bc-40c9-95a2-9a8221bc69e6,69286219.0,1930.0,2024-10-14,2025-05-13,0.25,2.54,,Monthly,0.78
+d503bde0-7336-48a0-844d-0c492d1fb7e0,Hogan Inc,,Ronald Garcia,ryanfischer@example.com,001-470-833-9196x845,"8393 Stephens Rest Suite 538
+Deniseshire, SD 67229",Israel,2024-09-29,134219.0,,6df7702b-2096-4ca6-a17d-b37f5fe38414,56195563.0,7709.0,2024-08-30,2021-06-10,0.47,3.32,Average,Monthly,
+b910c22c-90f5-4349-9c78-eafb2da9f714,"Green, Bridges and Kelley",Education,Chad Nguyen,hjohnson@example.net,9833489719,"416 Anne Turnpike Suite 912
+Thompsonmouth, IA 31068",Netherlands Antilles,2024-06-06,101781.0,Active,3e954e8e-cd9d-43e5-b7c7-742f31d7417c,32002505.0,4767.0,2024-07-15,2023-08-31,0.87,1.25,Poor,Quarterly,0.07
+69aa5ed2-78f3-431c-a722-c80e91d413e3,"Walters, Foster and Warren",Manufacturing,Troy Wood,julia27@example.com,797-674-8356x94659,"415 Hunt Ridges Apt. 277
+Robertmouth, KY 40242",,2023-06-14,763843.0,Active,3af1c294-2610-4ede-8873-9f8dd2ef161e,31786835.0,,2024-09-10,,0.52,2.12,Poor,Annual,0.98
+97b2441c-3dcb-4532-865b-185296cdf433,Williams PLC,Manufacturing,Erica Perry,dianafox@example.org,6989214621,"USNV Estrada
+FPO AA 65193",Saint Lucia,,386108.0,Prospect,,55057192.0,,2024-06-30,2024-04-08,,3.16,Good,Quarterly,0.27
+,Russell-Newman,Transportation,Rachel Robertson,bforbes@example.com,,"8195 Cohen Squares Apt. 740
+Hardingfurt, CO 10681",Suriname,2024-05-16,684731.0,Inactive,a57917b4-9174-4b36-ae79-97d9000ae43c,48976313.0,9839.0,2024-11-03,2021-12-12,0.9,4.44,Poor,Monthly,0.92
+6204ae97-c041-452e-abd8-8e9c42e9cf62,Williams-Galloway,Healthcare,Aaron Dyer,bensonleonard@example.com,(857)712-9178x52406,"4174 Sanchez Mountains Suite 409
+Port Andrew, MT 38294",Turkey,2024-03-04,609671.0,Prospect,b0f6d0e1-02bc-40c9-95a2-9a8221bc69e6,73854511.0,6442.0,2024-07-28,2025-01-23,0.55,1.16,Average,,0.57
+ac7eed3f-b3b1-4a10-96ca-a46f7360662c,Mccormick-Rodriguez,Finance,Douglas Wong,natalie61@example.com,(931)897-1898,"40790 Davis Villages
+Port Lauren, VT 60088",Bahamas,2025-03-26,266239.0,Inactive,3af1c294-2610-4ede-8873-9f8dd2ef161e,,6647.0,2024-09-18,2023-10-26,0.64,2.75,Poor,Monthly,0.62
+,,Energy,Donald Kent,lisa91@example.com,699-410-8908x84437,"043 Booth Courts Suite 633
+Michelleview, WV 68420",Ireland,2022-10-16,165855.0,Prospect,3af1c294-2610-4ede-8873-9f8dd2ef161e,46790995.0,9768.0,2024-06-04,2023-05-04,,,Good,Annual,0.48
+cfa20789-1698-4f52-a0ff-85b5c57e631e,Butler LLC,Transportation,Malik Schmitt,,485-865-4278x636,"7190 Brady Meadows Suite 210
+West Lindsey, PW 19604",Tajikistan,2025-04-21,544892.0,Active,b0f6d0e1-02bc-40c9-95a2-9a8221bc69e6,,665.0,2024-12-04,2021-01-10,0.44,3.0,Poor,Monthly,0.78
+c1b13f3c-2566-4ab2-be7d-4bed7886ec3e,"Cortez, Jordan and Stafford",Finance,Lori Becker,donald19@example.org,,"2348 Christina Common Apt. 111
+Silvachester, GA 30135",Sierra Leone,2023-04-14,54016.0,Prospect,0286a45e-fe1b-4f06-ba71-a9b99a437e34,,3692.0,2025-05-20,2025-01-31,0.55,3.76,Poor,Quarterly,0.3
+2f24fee5-2221-43f5-8557-6a3ef017141d,Lane-Davenport,Energy,Danielle Gonzalez,david61@example.com,+1-225-958-2410,"24983 Kenneth Branch Apt. 899
+Coxburgh, CO 55828",Latvia,2024-05-14,,Churned,97aeb793-6bc8-4a1a-83d0-e64dea46622d,51738752.0,,2025-05-21,2023-02-08,0.16,4.61,Poor,Quarterly,0.44
+e1122557-b03c-4e15-98d5-e224a68d32d3,"Brown, Gibson and Fox",Technology,Mr. Louis Sanchez,nicole95@example.net,,"57526 Taylor Shore Apt. 864
+Powersborough, MO 42931",Chad,2023-07-05,478276.0,Churned,,6273700.0,6602.0,2024-11-15,2023-07-28,0.61,,Average,Monthly,0.48
+,,Transportation,Katherine Gross,laurathompson@example.net,3995738356,"386 Angela Square Suite 252
+Wardborough, CA 90308",United States Minor Outlying Islands,2023-11-28,961677.0,Prospect,3af1c294-2610-4ede-8873-9f8dd2ef161e,50295492.0,,2025-01-02,,0.88,,Poor,Monthly,0.84
+f603ae0d-e0cd-4dc3-aea5-aec3114e728c,"Crawford, Martinez and French",,Shannon Evans,christophermurphy@example.org,390.917.2662x3315,"406 Ellen Lodge
+Benjaminport, PA 96314",Lesotho,2023-03-04,101929.0,,cb6a2691-5185-4492-a78f-743d4f02a35a,97511688.0,3138.0,2024-12-21,2021-06-23,0.83,3.51,Good,,0.15
+8851d117-e411-492f-93e1-c90cf55ae575,Brown-Cantrell,Telecommunications,Colton Miller,,829-779-4212x7432,"927 Gonzalez Roads Apt. 718
+North Kayla, OH 49445",,2023-08-14,562052.0,,b9bc0f89-1fa7-4306-812f-780f6e69384a,96121425.0,,2025-01-15,2024-07-25,0.95,1.23,Poor,,0.86
+21ce3a48-8c3d-42cb-980a-e15a882273f7,Lucas Inc,Energy,Nicole Hernandez,jennifergraham@example.net,427-859-9552,"22505 Wendy Prairie Suite 434
+Ebonyville, ND 07155",Martinique,2025-05-18,581736.0,Inactive,cc39afe2-5f22-465c-8660-4965adb62831,29101153.0,5991.0,2024-12-05,2025-05-04,0.18,1.19,Poor,Annual,0.99
+,"Moore, Cooper and Weaver",Media,Juan Castillo,,(359)250-6575x7149,"PSC 5153, Box 5324
+APO AE 84754",Norfolk Island,2024-04-17,,Inactive,4b63185c-f8f6-40ae-bd1c-b0f9f6ced746,29689885.0,8208.0,2024-12-01,2021-06-12,0.64,3.03,Average,Quarterly,0.77
+9f5c3acf-adcb-41f6-a46a-67b7863eaf0d,Martinez-Snyder,Media,Eddie Knight,christopher39@example.com,3584437122,"Unit 2829 Box 3394
+DPO AE 81282",Malawi,2023-02-10,571442.0,,cb6a2691-5185-4492-a78f-743d4f02a35a,71327405.0,701.0,2024-08-29,2024-12-29,0.64,3.76,Good,Multi-year,0.0
+2f48cd35-349a-47e8-aab2-4cd66287214d,"Brown, Bond and Harrell",Retail,Alex Nelson,vdennis@example.org,587-595-5847,"75520 Cain Springs
+Harrisonhaven, NM 34689",Grenada,,676739.0,Inactive,b977b44b-047b-4d3e-95bd-520b44b99d69,52403269.0,9822.0,2024-10-16,2021-03-11,0.46,2.87,Average,Quarterly,0.13
+d4b0e38a-e2bc-421c-9095-031aa0242e72,"Jones, Costa and Reed",Media,David Harris,denisedouglas@example.com,388-469-6575x8972,"4345 Joseph Fall Suite 182
+Davidtown, AZ 84848",,2024-04-17,802730.0,Active,e2291255-5b24-4042-b735-3d654d4dba6d,92864172.0,4298.0,,2022-11-23,0.83,2.33,Poor,Monthly,0.35
+92003ee4-1b2d-49dd-9ba8-a115faa48b2e,,Telecommunications,Elizabeth Carrillo,,7256435653,"561 Taylor Islands Apt. 121
+Tiffanyfort, MN 12042",Sri Lanka,2025-04-29,739039.0,Churned,70012e4a-b56f-4b3b-8cbd-e4175a42c7fa,42967997.0,3673.0,2024-06-05,2024-12-31,0.95,2.63,Good,Quarterly,0.33
+b90c663f-74fa-42e2-9136-3e07474c6483,Kane Inc,Telecommunications,Veronica Sullivan,sflores@example.com,5409131579,"PSC 7799, Box 6965
+APO AE 58857",Cote d'Ivoire,2022-12-29,355863.0,Prospect,b9bc0f89-1fa7-4306-812f-780f6e69384a,,8696.0,2024-06-23,2020-09-27,0.23,4.68,Poor,Multi-year,0.1
+e85cd624-8e1e-45ce-9654-5b74fd5c6e5a,Luna Group,Healthcare,John Ford,xcampbell@example.com,001-410-610-0613x609,"94955 Thomas Meadow Suite 085
+West Bryanbury, MS 26223",Dominican Republic,2024-10-06,623468.0,Active,70012e4a-b56f-4b3b-8cbd-e4175a42c7fa,6705778.0,8809.0,2024-06-20,2024-06-15,0.06,4.35,Poor,Monthly,
+6f9de554-43a5-4697-8f61-3d51e9a27b03,Ramos-Brown,Technology,Richard Henry,daniel37@example.com,(423)222-6899,"9139 Andrew Tunnel Apt. 484
+Brookestad, WY 15412",Wallis and Futuna,2023-02-02,833387.0,Prospect,4e49880b-f651-4d0e-9ac0-f02bc3ecbc4d,20927197.0,9351.0,2025-03-26,2022-08-16,,3.81,Good,Annual,0.19
+8479660c-0c5c-4124-97db-78a36f826e65,Mcdonald-Blankenship,Education,Kristy Ramos,eric42@example.net,(943)497-0005,,,2022-06-13,289921.0,Active,3bfdec12-4fa5-4bb8-bbad-5cd45152df62,21680145.0,97.0,2025-01-07,2023-11-18,0.18,1.67,,Quarterly,0.98
+98bb809e-8bc2-4d3c-91a4-02a1df27b33a,Carter Ltd,Retail,Tyler Cowan,jeffersontracy@example.org,+1-872-560-4284x93233,"2402 Kevin Tunnel
+East Robin, MH 85749",Bangladesh,2023-05-28,961249.0,Inactive,cc39afe2-5f22-465c-8660-4965adb62831,80868772.0,365.0,2025-05-05,2023-11-10,0.43,,Average,Quarterly,0.88
+e4f18a17-1ec7-448a-944d-043acfecac59,Smith-Ford,Manufacturing,Kimberly Williams,mike77@example.com,542.460.5633,"90714 Cook Radial Apt. 686
+Michaelfort, NY 04237",Algeria,2022-09-25,388853.0,Active,3e954e8e-cd9d-43e5-b7c7-742f31d7417c,8942567.0,1355.0,2024-06-17,2023-08-22,0.56,2.76,Poor,Monthly,0.62
+,Carr-Castaneda,Manufacturing,Timothy Turner,,384.322.5069,"56234 Jennifer Prairie
+New Michael, IN 98848",United Arab Emirates,2023-03-22,624808.0,Prospect,,,6036.0,2025-01-15,2023-04-30,0.68,4.89,Good,Annual,0.97
+5c2c9d15-e43c-45a0-8c67-6587f837d58c,Bruce-Chen,Finance,Robert Powell,kaylalewis@example.net,(869)361-6254,"573 Martin Springs
+Bennettview, DC 55680",Saint Pierre and Miquelon,2022-06-24,95353.0,Prospect,0286a45e-fe1b-4f06-ba71-a9b99a437e34,84361092.0,3941.0,,2025-01-06,0.72,1.48,,Quarterly,0.75
+,Carroll-Allen,Media,,amy18@example.org,001-572-535-9155x2183,"57381 Brittany Coves Apt. 669
+Levybury, KS 03092",Vanuatu,2022-09-18,477645.0,Active,3f06efb7-4a40-4de3-bea0-e67be4edec0e,49771583.0,1673.0,2024-09-03,,0.48,1.62,Average,Quarterly,0.28
+caeb82f2-8616-4d09-9bad-9e1604bfe712,"Johnson, Little and Richards",Education,Lawrence Harris,dzhang@example.com,894-730-7843,"919 Christopher Tunnel Apt. 645
+West Louis, DC 13172",Montenegro,2024-10-30,285479.0,Prospect,3e954e8e-cd9d-43e5-b7c7-742f31d7417c,44784138.0,9938.0,,2024-04-25,,2.35,Poor,,
+,"Nelson, Neal and Campbell",Manufacturing,Steve Jenkins II,ahopkins@example.net,503.282.8359x13612,"693 Flores Radial
+New Edwinfurt, CO 96575",Zimbabwe,2022-06-24,857153.0,,b0f6d0e1-02bc-40c9-95a2-9a8221bc69e6,28257562.0,1825.0,,2023-01-23,0.04,2.79,,,0.09
+84805bad-7a9e-4db5-831b-c1e9a4220c3c,"Lutz, Moon and Anderson",Education,Sean Dominguez,pittmanadam@example.com,,"3003 Olsen Station
+Jenniferhaven, NY 47506",Korea,2023-07-07,144792.0,Active,,,6839.0,2025-03-12,,0.7,3.49,Average,Quarterly,0.55
+00180508-2952-409f-bae8-63a4cf2b2199,"Benjamin, Allen and Morgan",Media,Teresa Ward,randall42@example.org,911-891-8323x906,"7949 Choi Circle Suite 146
+New Mark, UT 49797",Costa Rica,2022-06-30,629939.0,Active,cb6a2691-5185-4492-a78f-743d4f02a35a,32478124.0,3216.0,2024-10-15,2022-12-22,0.72,2.52,Average,Annual,0.63
+cef0aa55-853e-48da-a692-a98791bc18bf,Thomas-Thompson,Finance,Matthew Lester,rhenderson@example.org,,"319 Pope Mission Suite 387
+North Lisa, CA 96958",Montserrat,,276204.0,Churned,b977b44b-047b-4d3e-95bd-520b44b99d69,,4041.0,2024-10-07,,0.4,3.9,Good,Annual,0.76
+1223a91b-a183-4b0c-93d1-8a78ef4cecdb,"Hunt, Kelly and Stewart",Technology,Laura Hernandez,sarah07@example.com,001-332-908-2782x713,"6655 Beck Courts Apt. 734
+South William, KS 24587",Dominica,2024-05-15,181920.0,Prospect,3f06efb7-4a40-4de3-bea0-e67be4edec0e,19543915.0,3843.0,2025-01-16,2023-10-07,0.3,4.15,Average,,0.51
+4a299398-8359-4508-b837-d43a22a90342,,Energy,,juanwolfe@example.com,251-613-6229,"7986 Taylor Key Apt. 867
+Robertsfort, MD 92848",Russian Federation,2023-03-20,630867.0,Active,4e49880b-f651-4d0e-9ac0-f02bc3ecbc4d,3994954.0,9699.0,2024-12-07,2024-09-09,0.31,1.31,Average,Multi-year,0.29
+f9bca728-d54f-4467-b946-fa9d8698f382,Dennis PLC,Energy,,yallison@example.org,882-931-4958,"49564 Arnold Glens
+West Robertborough, WA 10742",Guatemala,2022-06-05,637066.0,Inactive,0286a45e-fe1b-4f06-ba71-a9b99a437e34,58707808.0,4074.0,,2020-08-08,,4.08,Poor,Annual,0.43
+ce5ed948-9ce7-42c1-ad73-1966f2e99ba9,"Nixon, Brown and Meyer",Finance,Michael Harvey,jclark@example.org,(625)938-2343,"08259 Jacqueline Village Suite 775
+Lake Daniel, NJ 85967",Congo,2022-11-12,441078.0,Inactive,4e49880b-f651-4d0e-9ac0-f02bc3ecbc4d,83550014.0,6588.0,2024-11-05,2021-10-12,0.47,1.28,Good,Annual,0.59
+,"Cook, Tucker and Stewart",Technology,Rachel Mclean,ayalakara@example.com,826-794-5729,"2179 Sandra Underpass Suite 856
+Charlestown, VT 26733",,2025-01-16,395385.0,Prospect,,11090949.0,4363.0,2024-12-21,2022-09-11,0.47,3.24,Average,,
+0fca074e-d315-44e5-8d93-0676d0256bfd,Knight-Taylor,Retail,Katherine Brown,rodriguezlisa@example.com,001-821-945-5590x06444,,,2023-11-29,843570.0,Prospect,6df7702b-2096-4ca6-a17d-b37f5fe38414,97995238.0,6557.0,2024-08-16,2024-09-24,0.51,4.3,,Quarterly,0.32
+741d952e-b46a-4243-aca4-49beef24cd9c,"Humphrey, Gonzalez and Torres",Healthcare,James Barajas,aaronmoreno@example.org,545-995-9080,"1703 Malone Pines
+Lake Caitlin, TN 22746",Gambia,,785557.0,Prospect,,21785911.0,7762.0,2025-05-01,2021-08-21,0.11,3.18,Good,Monthly,0.03
+c6faadb6-4913-4991-89ce-b56fa00d1b74,Griffin Inc,Healthcare,Bryan Andersen,kevinsmith@example.org,(641)458-2300,"405 Kathleen Camp
+Catherineberg, VI 58962",Hong Kong,,276451.0,Churned,3f06efb7-4a40-4de3-bea0-e67be4edec0e,25279870.0,346.0,,2022-11-25,0.68,4.61,Average,,0.77
+3f557af3-46fb-44d7-b9e5-3e1ddaf85023,Miller-Miller,Media,Alicia Walker,jamessanchez@example.com,001-721-557-6203x10035,"5400 Newman Loaf
+Delgadoborough, ID 98296",Somalia,2024-09-01,726369.0,Active,70012e4a-b56f-4b3b-8cbd-e4175a42c7fa,45900902.0,4302.0,2024-09-18,2023-10-16,0.07,3.16,Poor,Monthly,0.96
+,Nguyen Ltd,Healthcare,,bobbyweiss@example.net,001-497-353-4815x95290,"6237 King Wall
+Port Kevinbury, PW 28609",Nicaragua,2023-04-01,394092.0,Active,a57917b4-9174-4b36-ae79-97d9000ae43c,29327797.0,4094.0,2024-07-11,2024-03-17,0.99,3.12,Good,Annual,0.69
+89e3b418-477a-4933-8ff6-366bc48a3636,Leblanc-Hopkins,Education,Kelly Murphy,michaelwatson@example.net,783.370.6955x195,"103 Jackson Harbors
+Lake Christineview, WI 66690",Macao,2024-06-29,96617.0,Prospect,4b63185c-f8f6-40ae-bd1c-b0f9f6ced746,35405811.0,1711.0,2025-02-06,2024-12-09,0.56,1.35,,Annual,0.28
+7446469d-8efd-483c-bc45-68f1c52318dd,Gilbert-Mercado,,Kenneth Young,matthewmatthews@example.org,364-768-1976x9619,"PSC 2282, Box 2736
+APO AA 24968",Paraguay,2023-07-01,,,cc39afe2-5f22-465c-8660-4965adb62831,40915511.0,5424.0,2024-07-31,2022-12-21,0.85,2.03,Good,Quarterly,
+2bc18e79-329c-4557-952b-3f55e0157027,Villanueva-Bennett,Transportation,Spencer Taylor,,,"486 Kent Isle
+Richardsonstad, OK 65516",French Polynesia,2024-05-21,928551.0,Inactive,3e954e8e-cd9d-43e5-b7c7-742f31d7417c,37126037.0,9129.0,2025-04-09,2023-08-03,0.44,3.84,Good,Quarterly,
+195e3a34-3848-4c40-a18c-cfa87120b958,,,Julie Munoz,gjensen@example.org,001-570-700-6760,"2631 Miller Knolls Suite 309
+West Kimburgh, GU 98965",Norfolk Island,2025-01-12,421011.0,Churned,3f06efb7-4a40-4de3-bea0-e67be4edec0e,61502502.0,4893.0,2025-02-13,2021-06-20,0.69,3.01,,Monthly,0.78
+c7669118-fafa-4e80-988d-72243f000ece,Brown Ltd,Finance,Amber Farmer,,+1-812-424-8598,"442 Keith Tunnel
+Josefort, ID 73152",Saint Kitts and Nevis,2024-10-09,197549.0,Inactive,b9bc0f89-1fa7-4306-812f-780f6e69384a,83399288.0,6493.0,2024-11-26,2023-07-07,0.41,3.66,Average,Multi-year,0.7
+d3a601dc-e3b2-4586-9fa5-999d320a8ed4,"Taylor, Barnett and Marshall",Media,Heather Wall MD,xlawrence@example.com,,"629 Rodriguez Road Suite 173
+Joeborough, ME 99171",Lebanon,2022-07-19,517630.0,Active,,27226950.0,1065.0,2025-01-19,,0.68,1.3,,Multi-year,0.73
+97bef204-cf83-47d0-9296-433d82d97621,Barajas-Stephens,Telecommunications,,richard29@example.com,430.712.3320x7010,"3226 Michele Light
+Davidview, PA 48079",Afghanistan,2022-12-20,207361.0,,,88721207.0,9059.0,2024-12-13,2020-08-26,0.02,,Good,Quarterly,
+516e8e89-1da3-4d4c-8505-f10b29849c72,Bell-Love,,Melissa Green,,,"7618 Kristy Trace Apt. 226
+Port Daniel, UT 92773",Botswana,2025-05-27,706409.0,Prospect,83c9512a-0888-4b3a-b2ad-964727511763,60571396.0,4680.0,2024-07-12,2021-06-09,,3.04,Poor,Multi-year,0.91
+72ea577d-bc1c-48d9-bbd7-26b517a5e322,Klein-Hughes,Education,Mrs. Michelle Sanchez,icrawford@example.org,533-404-9527,"2069 Pearson Overpass
+Vanessafort, AZ 79219",Uzbekistan,,942168.0,Inactive,83c9512a-0888-4b3a-b2ad-964727511763,77364318.0,4349.0,2025-01-06,2020-08-17,0.65,1.88,Average,Annual,0.79
+019b5b23-9d8e-4fbe-9f5b-e5e34159e8ac,"Wilson, Crosby and Phillips",Manufacturing,Jennifer Lane,ndiaz@example.net,001-992-272-2311x3707,"Unit 0854 Box 9365
+DPO AE 60402",,2022-06-24,416529.0,Prospect,0286a45e-fe1b-4f06-ba71-a9b99a437e34,64376381.0,101.0,,2022-06-13,0.51,4.48,Poor,Multi-year,0.09
+52da5b61-9274-48a6-ab9a-f098545a1d55,Long Ltd,,Justin Forbes,wgarcia@example.net,(693)382-5433x7548,"0367 Patel Square
+Huberville, AL 53260",Cook Islands,2023-01-10,663045.0,Churned,b0f6d0e1-02bc-40c9-95a2-9a8221bc69e6,46412378.0,2800.0,2025-05-03,2024-03-19,0.64,3.9,Good,Annual,0.43
+27b841c1-4b53-4ee7-8696-3a0bd68268c8,Thomas-Jones,,Shelly Graham,cbrown@example.org,001-303-333-5555x2399,"581 Nunez Camp Suite 823
+Dominguezfurt, MP 04223",Indonesia,,260014.0,Churned,97aeb793-6bc8-4a1a-83d0-e64dea46622d,37361982.0,368.0,2024-07-29,2024-06-25,0.45,2.65,Average,Annual,0.48
+08ce2520-3b78-4e64-95e3-7faf3b6c8480,Raymond-Diaz,Media,James Snow,,001-549-445-0568x581,,Samoa,2023-10-30,523932.0,Inactive,4e49880b-f651-4d0e-9ac0-f02bc3ecbc4d,51308028.0,5186.0,2024-12-29,2020-09-11,0.12,1.29,Good,Quarterly,0.07
+285ba6b5-b1c4-45a6-9f88-1bee92a05b57,"Thompson, Garza and Valdez",Media,Suzanne Lynch,daniel06@example.net,535.732.9984x02619,"955 Michelle Stream
+South Desiree, IA 89093",New Caledonia,2023-01-03,242189.0,Inactive,cb6a2691-5185-4492-a78f-743d4f02a35a,53969726.0,226.0,2024-07-24,2021-03-28,,4.97,Average,Quarterly,0.42
+fbefa2a6-5e20-4d0d-bd71-38e86e35328b,"Bowen, Lopez and Thompson",Education,,martinezcharles@example.net,8944260678,"811 Madison Shoals Apt. 195
+Hillmouth, OH 05661",Timor-Leste,2024-09-13,142573.0,Active,e2291255-5b24-4042-b735-3d654d4dba6d,,2920.0,2024-11-09,2023-06-03,0.54,2.45,Average,Multi-year,0.15
+,,,Miranda Green,nataliehaney@example.org,(443)309-4918x15771,,Lao People's Democratic Republic,2022-08-06,671789.0,Churned,83c9512a-0888-4b3a-b2ad-964727511763,63546139.0,722.0,2024-06-07,2021-06-05,,2.0,Poor,Annual,0.0
+065b356a-34ee-44bb-b55c-57d73a41478b,Hernandez-Mills,Media,Victoria English,stacy69@example.com,545.574.0188,"5114 Luna Forges
+Joshuatown, FL 18433",Cambodia,2024-04-04,697408.0,,3af1c294-2610-4ede-8873-9f8dd2ef161e,66156953.0,9468.0,2024-11-06,2024-03-27,0.86,3.2,Average,Multi-year,0.38
+7e2a9ccf-96eb-49cf-b9fd-45ef6e689068,"Gibson, Bell and Kennedy",Media,Troy Moore,judithmiller@example.org,350-742-0785,"499 Gibson Lakes Apt. 443
+East Derrick, ID 02508",Tuvalu,2024-12-14,478611.0,,3f06efb7-4a40-4de3-bea0-e67be4edec0e,8003212.0,3075.0,2024-12-02,2024-10-26,0.17,1.82,,,0.93
+eb385b87-e1ca-45cd-bac6-ae04ce68b38a,,Retail,John Flores,umartin@example.com,522-222-8685x5465,"732 Mays Parkway Apt. 302
+Christinatown, NH 83422",Togo,2024-03-14,421850.0,Inactive,3bfdec12-4fa5-4bb8-bbad-5cd45152df62,,8546.0,2024-11-14,2023-03-27,0.44,1.54,Poor,Monthly,0.19
+5b706459-151f-4d14-8bee-fa13fb73c660,Merritt-Murphy,Education,Allison Campbell,patrickmartin@example.org,(754)810-7480x341,,United States Minor Outlying Islands,2022-07-09,725745.0,,0286a45e-fe1b-4f06-ba71-a9b99a437e34,,2740.0,2024-11-20,2021-02-24,,1.13,Average,Monthly,0.75
+,"Lopez, Taylor and Haney",Healthcare,David Patterson,alexandercaleb@example.org,721.971.5956x483,"57046 Norton Road Apt. 326
+Woodsberg, OR 22293",Thailand,2023-06-01,948808.0,,0286a45e-fe1b-4f06-ba71-a9b99a437e34,74166075.0,9714.0,2025-01-11,2024-11-17,0.67,2.73,Poor,Multi-year,0.47
+726490e6-6830-48ca-9c42-e38409676d80,"Campbell, Miller and Allen",Telecommunications,Allison White,mflores@example.com,507-415-1940x4913,"08667 Erin Court
+Austinstad, VA 52494",Vanuatu,2024-12-20,,Churned,3af1c294-2610-4ede-8873-9f8dd2ef161e,56648951.0,5068.0,2025-02-25,2020-09-02,0.5,1.7,Poor,Multi-year,0.58
+817f5e2d-f3b4-49ed-ba66-5835deea82bb,Todd-Martin,Education,Jesus Martinez,mford@example.org,+1-734-802-0765x8041,"457 Robbins Square Apt. 936
+Chavezside, AZ 36940",Japan,,323397.0,,cc39afe2-5f22-465c-8660-4965adb62831,64205345.0,826.0,2024-10-17,2021-09-22,0.66,1.78,Good,Multi-year,0.26
+d0b3fea2-6d82-46b2-aa5d-1296ecfcdd23,"Wilkins, Allen and Santiago",Transportation,Michael Navarro,thart@example.net,848.508.6442,"948 Margaret Ports
+Port Emilystad, GU 30677",American Samoa,2022-09-24,979229.0,Prospect,e2291255-5b24-4042-b735-3d654d4dba6d,84271906.0,4304.0,2024-10-05,2023-01-17,0.23,1.63,Poor,Multi-year,0.96
+9c7937fa-d11a-4bf4-9a45-804358ce7f6d,Williams LLC,Finance,Jennifer Henderson,kenneth28@example.net,001-249-210-7349x920,"080 Ronald Motorway
+New Kellyville, NC 35324",Swaziland,2023-01-13,568837.0,Inactive,cc39afe2-5f22-465c-8660-4965adb62831,30825068.0,5151.0,2024-11-20,2025-01-11,0.91,1.84,Poor,Multi-year,0.69
+ac829954-fe39-4f1a-923c-7652b7e49fdb,Marshall-Hill,Telecommunications,Steven Barber,zfrazier@example.com,(663)970-8269x02287,"75457 Nunez Mission
+Port Michael, VA 15145",Bolivia,2025-05-22,,Prospect,cb6a2691-5185-4492-a78f-743d4f02a35a,84818226.0,5704.0,2024-06-23,2021-06-25,0.25,1.92,Good,Multi-year,0.88
+76474920-a594-4c9f-b63f-307b67268b9f,Bowman-Shaw,Transportation,Robert Williams,ellisraymond@example.com,964-530-6099x1493,"USCGC Jones
+FPO AP 32541",Congo,2024-09-04,210036.0,,4e49880b-f651-4d0e-9ac0-f02bc3ecbc4d,40605695.0,2479.0,2024-11-26,2022-12-03,0.49,1.35,Good,,0.35
+5ff8604e-09b6-4999-8b6e-77bf3cd57f5c,Foster-Russell,Manufacturing,Bailey Alvarez,deborah48@example.net,+1-259-841-6546x1307,,Saint Helena,,239484.0,,b977b44b-047b-4d3e-95bd-520b44b99d69,39614653.0,4805.0,2025-02-01,2024-08-30,0.18,4.98,Good,,0.56
+09e9cd1e-6941-4f21-869a-27995fcca009,Eaton Ltd,Education,Jessica Rodriguez,kevinpowell@example.org,982-988-3907,"434 Jones Fields Apt. 036
+Flemingmouth, FM 91458",Lebanon,,,Churned,b977b44b-047b-4d3e-95bd-520b44b99d69,45983777.0,4737.0,2024-08-31,2021-01-07,0.21,1.67,Average,Annual,0.32
+0bad63e7-7416-4803-9b88-6a6b36bf1bd3,Jimenez Group,Education,Jamie Allen,tiffany30@example.com,676.689.2591,"673 Wayne Plains Apt. 494
+South Kayla, AK 45906",Pakistan,2023-12-22,219436.0,Churned,cc39afe2-5f22-465c-8660-4965adb62831,41853591.0,,2025-02-03,2024-01-04,0.44,3.21,Good,,0.37
+27071cf3-d9b0-4829-83f9-3677607e0cc0,"Randolph, Patel and Howell",Media,Vincent Hoffman,bhansen@example.org,578-995-7721,,,2023-08-08,627744.0,Inactive,,3802891.0,9553.0,2024-07-11,2020-10-24,0.36,3.15,Poor,Monthly,0.87
+8746859e-d7f1-4482-9428-9af1ac72ebd8,"Anthony, Stone and Hester",Transportation,Robert Stephenson,francodaniel@example.com,001-484-396-3086x4369,"Unit 4252 Box 2073
+DPO AE 79347",Timor-Leste,2024-07-19,742592.0,Inactive,cc39afe2-5f22-465c-8660-4965adb62831,51636166.0,707.0,,2021-11-15,0.87,1.78,Poor,Annual,0.09
+a77253fa-814b-4e9d-9352-15344c39f59a,Rodriguez PLC,Manufacturing,Andrew Macias,karencollins@example.com,001-634-921-6318x06786,"72097 Garcia Islands
+Port Erikaberg, AS 23149",Trinidad and Tobago,2023-04-25,467911.0,,b9bc0f89-1fa7-4306-812f-780f6e69384a,71483604.0,3753.0,2025-01-25,2024-05-08,0.46,4.89,Poor,,0.57
+ee59e1a0-6411-4447-8392-53b4f34a2efe,Mcdonald and Sons,Finance,Mark Dunn,brookehuber@example.org,+1-808-693-5657x338,"162 Carr Run
+South Heather, IA 44135",Benin,2023-03-26,180869.0,Churned,,41467319.0,513.0,2024-08-22,2023-08-16,0.24,1.29,,Monthly,0.49
+49a25de1-c24c-4b8e-a40d-b5866080d460,Mason Inc,Telecommunications,Julie Adkins,lchaney@example.org,791-315-8450,,,2023-09-14,178012.0,Active,,14948789.0,801.0,2024-11-09,2024-04-19,0.98,1.15,Average,,0.43
+ada67227-dff7-47fb-a1b0-929627705397,"Olsen, Frost and Duncan",Manufacturing,Morgan Bradley,jessica68@example.org,+1-303-388-8478x3461,"1364 Gabriel Spurs
+Zacharyburgh, WY 15793",United States of America,2022-08-31,759743.0,Inactive,3af1c294-2610-4ede-8873-9f8dd2ef161e,14970366.0,2817.0,2024-10-22,2023-12-13,0.86,2.08,Average,Annual,0.63
+a32c0ffc-29eb-4a39-bfc7-4a166f6c7017,Melendez-Wilson,Media,,zoeward@example.net,001-450-458-1873x7797,"8418 Sarah Summit Suite 804
+South Lauren, MO 79130",Tunisia,2024-04-15,,Prospect,70012e4a-b56f-4b3b-8cbd-e4175a42c7fa,22252842.0,7890.0,2024-11-28,2024-06-07,,4.94,Good,Annual,
+d14e7e44-9e0f-4eea-b648-97e88024cb6f,Garcia and Sons,Healthcare,Michael Lee,gonzalesanthony@example.org,+1-418-788-4842x74996,"70082 Nguyen Extensions Suite 604
+Fishershire, MD 56005",El Salvador,2023-10-21,135388.0,Prospect,e2291255-5b24-4042-b735-3d654d4dba6d,89308492.0,4617.0,,2021-05-29,0.46,3.74,Good,Multi-year,0.15
+8f057819-619d-4e2c-be55-88161c525239,,Telecommunications,Donald Wright,,001-235-338-0773x97324,"4605 Long Parkway Suite 838
+South David, NM 11605",United States of America,2022-06-14,,Prospect,97aeb793-6bc8-4a1a-83d0-e64dea46622d,30014434.0,8638.0,2025-04-04,2022-02-19,0.26,,Good,Multi-year,0.43
+d10d8166-42ee-4743-b941-d6a0658071ca,Moran PLC,Retail,James Contreras,,334-389-3088,"PSC 8791, Box 2530
+APO AP 93013",Mauritius,,450671.0,Inactive,4b63185c-f8f6-40ae-bd1c-b0f9f6ced746,81551185.0,2064.0,2024-10-03,2023-07-12,,3.48,,Annual,0.96
+4356516f-0786-45b8-be70-7f530453cd5b,Washington-Tucker,Education,Jamie Cline,amyharvey@example.org,2923378598,"PSC 1183, Box 4790
+APO AE 57051",Gibraltar,2023-09-03,812856.0,Prospect,4b63185c-f8f6-40ae-bd1c-b0f9f6ced746,89016674.0,8434.0,2025-01-01,2020-10-16,,2.82,Average,Monthly,
+aeff72a4-2a04-437d-9b3e-7fa97df23e66,Bowen Ltd,Transportation,Samuel Molina,phillipsbethany@example.org,(357)649-5768x038,,Cote d'Ivoire,2023-07-18,591800.0,Prospect,e2291255-5b24-4042-b735-3d654d4dba6d,19476710.0,7530.0,2025-02-20,,0.5,2.5,Good,Monthly,0.18
+67fed12b-6b53-44bd-a048-be4b2cc151a9,Smith Inc,Technology,Holly Deleon,christopher20@example.com,7799732155,"224 Caleb Haven
+Lake Meganport, IN 36737",Mauritius,2024-01-13,458755.0,Inactive,e2291255-5b24-4042-b735-3d654d4dba6d,,8723.0,2025-05-13,2022-03-02,0.6,1.89,Poor,Quarterly,0.83
+fe2a0a89-774d-418c-abbf-0357d3f923cb,Singleton-Carey,Energy,Sara Allen,adam98@example.net,287.390.4871x8473,"828 Moore Rest
+New Amytown, VI 04502",Yemen,,145100.0,Inactive,6df7702b-2096-4ca6-a17d-b37f5fe38414,6725546.0,5844.0,2025-04-26,2024-02-16,0.47,2.02,Poor,Multi-year,0.12
+6a223964-1e8d-47af-bfcb-123bd3e816f6,Smith-Flores,Media,Lauren Dixon,,479-740-9902,"5663 Garza Via Apt. 780
+Solomonmouth, WA 88960",Yemen,2023-12-22,296539.0,,3bfdec12-4fa5-4bb8-bbad-5cd45152df62,45874597.0,8328.0,2024-06-11,2022-02-14,0.31,,Average,Monthly,
+fa7759ea-c7f8-4ded-99f1-f01f3340830a,Simpson PLC,Healthcare,Matthew Rogers,esmith@example.com,670-210-2393x527,"460 Susan Fork Suite 853
+West Kimberly, AL 70870",Reunion,2025-04-10,194518.0,Active,cb6a2691-5185-4492-a78f-743d4f02a35a,5906055.0,9912.0,2024-06-01,2023-08-26,0.75,2.36,,Monthly,0.0
+f16c99bc-5e78-439a-955c-e72e1a12b311,Cook-Schroeder,Finance,Juan Todd,catherinescott@example.com,(697)877-1330x6045,"24174 Hoffman Freeway
+Lewisburgh, WV 12099",Nauru,2022-12-06,537542.0,Churned,a57917b4-9174-4b36-ae79-97d9000ae43c,47876191.0,3186.0,2024-07-23,2020-12-14,0.38,2.05,Poor,Annual,1.0
+f4dc1885-f715-46a0-9efc-6750673882e8,"Keith, Watts and Jones",,,jtorres@example.com,001-304-736-9362x22742,"437 Brooks Passage
+Arielberg, UT 01904",Angola,2022-10-26,942459.0,Prospect,4e49880b-f651-4d0e-9ac0-f02bc3ecbc4d,,2107.0,2025-01-21,2024-02-11,0.0,3.6,Average,Multi-year,0.9
+,Reed-Harvey,Technology,Kenneth Bray,xeverett@example.org,(712)932-0772x1886,,Andorra,2023-01-20,153031.0,Churned,83c9512a-0888-4b3a-b2ad-964727511763,68349600.0,8247.0,2024-10-06,2023-04-25,0.42,4.99,Average,Multi-year,
+,Rice and Sons,,Hayley Torres,simmonsdebbie@example.net,+1-217-728-9175,,Fiji,2022-10-08,768666.0,Prospect,4b63185c-f8f6-40ae-bd1c-b0f9f6ced746,20531627.0,9191.0,2025-03-10,2020-08-08,0.68,1.42,Good,Quarterly,0.32
+69e36d8c-277f-4cd3-ab90-e4256dc4080d,Walker-Fischer,,Evan Nunez,stewarttimothy@example.org,790-951-9510x845,"5968 Anderson Neck Suite 614
+South Robert, AL 27602",Honduras,2023-12-06,725130.0,Inactive,cc39afe2-5f22-465c-8660-4965adb62831,78286491.0,8132.0,2024-07-31,2024-07-03,0.32,3.38,Poor,Quarterly,0.53
+d77993e9-816f-4ed4-9869-dc9b9bd031e4,"Marshall, Richardson and Ward",Technology,Jaime Myers,tanyawright@example.org,+1-784-822-6423x06702,"713 Graves Lodge
+South Bryanfurt, MI 55069",Moldova,2024-12-31,997109.0,Churned,3f06efb7-4a40-4de3-bea0-e67be4edec0e,49816582.0,,,2023-08-31,0.87,3.4,Poor,Monthly,0.91
+8968d896-4c43-4e35-b221-ac981f90cb9c,"Ingram, Taylor and Lucas",Technology,Cynthia Wilson,wallacejeffrey@example.com,,"066 Daniel Valleys Apt. 187
+Marcshire, NH 95559",Uganda,2023-02-01,215696.0,Inactive,97aeb793-6bc8-4a1a-83d0-e64dea46622d,,4055.0,2025-02-26,2023-05-21,0.83,1.15,Average,Monthly,0.52
+9c9dd8b5-f457-4b22-b149-159bb292f6e0,,,Lauren Mcpherson,ypark@example.org,,"14349 Mark Pine Apt. 367
+Warnershire, WI 07096",,2025-01-10,401488.0,Churned,97aeb793-6bc8-4a1a-83d0-e64dea46622d,51449398.0,5507.0,2024-10-10,2022-09-18,0.03,2.59,Good,Annual,0.62
+ab49a77e-a4f0-4ef5-97ee-cec150095291,"Love, Gonzalez and Bernard",Technology,Brenda Sosa,luis21@example.net,001-798-671-2313x346,"61611 Jennifer Villages
+Willisport, GU 27320",Angola,2024-10-22,243998.0,Active,97aeb793-6bc8-4a1a-83d0-e64dea46622d,80338699.0,6931.0,,2023-11-26,,1.54,,Multi-year,
+80207f42-736b-4a88-a4f0-d7869dcc87f3,Rivera PLC,Energy,Troy Parsons,hallolivia@example.org,001-451-819-4076x547,"77905 Phillip Corner
+Erikport, IL 23011",Jordan,2025-01-25,299267.0,Prospect,e2291255-5b24-4042-b735-3d654d4dba6d,,1177.0,,2021-09-17,1.0,4.64,Poor,Monthly,0.12
+22952bdd-5774-42ff-a3f7-cc3078148a68,"Russell, Roy and Mccullough",Retail,Valerie Rush,leslie90@example.net,9795987908,"0437 Cook Village Apt. 162
+Port Curtishaven, UT 80663",Guatemala,2025-02-18,695268.0,Churned,3af1c294-2610-4ede-8873-9f8dd2ef161e,50591271.0,835.0,2024-08-12,,0.39,1.6,Average,Annual,0.84
+17ba70bd-ff7e-42c7-858d-d751535e9c1a,"Hughes, Sawyer and Cole",Healthcare,Rebecca Howe,dshort@example.net,286-717-3068x42348,"257 Robert Mission
+Lanemouth, FM 19953",French Polynesia,2025-05-27,608261.0,Churned,3f06efb7-4a40-4de3-bea0-e67be4edec0e,76202117.0,2875.0,2024-12-27,,0.28,3.03,Average,Annual,0.21
+6ddb284c-c1b8-4fa5-8a43-adb6b3162c5c,Owens-Gregory,Technology,Mrs. Emma Lowery,tashaprice@example.org,553-493-5811x6837,"11169 Mullins Mount Suite 564
+West Adrianchester, PA 14249",Italy,,812292.0,Inactive,,20352380.0,8510.0,2024-11-21,2024-09-28,0.72,1.44,Good,Annual,0.49
+,"Gonzales, Henry and Ford",Finance,Benjamin Espinoza,smithtimothy@example.net,793-704-6803x398,,Jersey,2022-11-09,355897.0,Churned,b9bc0f89-1fa7-4306-812f-780f6e69384a,15920171.0,9675.0,2025-05-06,2024-06-13,0.3,,Average,Quarterly,0.54
+100b2aa7-e347-457b-ace3-4a5b22323d5c,Armstrong-Vaughn,Energy,Patricia Long,,+1-627-340-1164x306,"68290 Carlson Mews
+East Robert, WA 65428",Anguilla,2025-01-26,807834.0,Prospect,3f06efb7-4a40-4de3-bea0-e67be4edec0e,97486029.0,4333.0,,2020-10-16,0.89,4.75,Average,Annual,0.03
+6e8727e0-f2b4-4280-9db1-28f6c0ef2352,"Marquez, Sloan and Dominguez",Energy,Christopher Jones,brownalexander@example.net,403-773-4869x3416,"07357 Phillips Meadows
+Adamton, PW 90934",Micronesia,2023-06-07,296886.0,Active,0286a45e-fe1b-4f06-ba71-a9b99a437e34,40325140.0,938.0,2024-09-28,2020-08-02,,1.59,Good,Multi-year,0.1
+38f0cded-8dc1-4b00-95b0-8a77326419c5,Nixon-Smith,Media,Joy Sherman,melissa21@example.com,571.461.2353x086,"78277 Jesus Hills Apt. 695
+North Jamesbury, WY 02656",Hong Kong,2024-12-28,646816.0,Churned,6df7702b-2096-4ca6-a17d-b37f5fe38414,64444735.0,7720.0,2025-05-09,,0.1,4.49,Poor,Annual,0.69
+,"Nguyen, Jones and Baker",,John Hines,monicameyer@example.org,(572)910-7336x7816,"1058 Amy Hill
+Johnsontown, WI 72805",Hungary,2023-11-09,631112.0,Active,83c9512a-0888-4b3a-b2ad-964727511763,35318286.0,3308.0,2024-12-16,2023-06-12,0.02,,Average,Annual,
+904c6c66-54a9-4fa7-b256-afa3492e879c,Brown-Kennedy,Healthcare,Rebecca Bennett,caseypaula@example.com,001-270-412-7683,"0767 Cynthia Overpass Apt. 940
+Port Johnland, PR 67949",Syrian Arab Republic,2022-08-03,,Inactive,0286a45e-fe1b-4f06-ba71-a9b99a437e34,57971348.0,7906.0,2024-09-09,2025-03-19,0.78,4.12,Poor,Annual,0.75
+2105589f-8c06-46eb-aa79-a33776cd924c,Johnson LLC,Transportation,,richardclark@example.org,+1-668-362-2259,"59816 Samantha Knoll
+East Kristin, AS 26806",Montenegro,2024-12-01,698550.0,Churned,3e954e8e-cd9d-43e5-b7c7-742f31d7417c,38204197.0,9626.0,,,0.51,2.52,Average,Monthly,0.06
+7e64167c-3bdb-4ecc-a205-24ead98acbc0,"Sanders, Davis and Schaefer",Energy,,ashleythomas@example.org,001-803-541-6386x416,"896 Kevin Avenue Suite 144
+Camposchester, WV 80750",Ecuador,2023-05-22,741462.0,Prospect,e2291255-5b24-4042-b735-3d654d4dba6d,41933137.0,,2024-07-02,2025-04-04,0.55,4.16,Average,Quarterly,0.28
+4e5922bd-5d2c-4b08-a2c4-4c2ca18a4d21,"Rodriguez, Lee and Stafford",Manufacturing,Alexandra Navarro,scottwiley@example.com,+1-462-480-9464x0698,"Unit 8023 Box 2440
+DPO AA 69826",French Polynesia,2023-07-01,250665.0,Inactive,4e49880b-f651-4d0e-9ac0-f02bc3ecbc4d,62741927.0,7645.0,2024-08-26,2024-10-15,0.08,3.8,Good,Annual,
+731922bf-acf1-4ae2-9c65-09612fb65b87,"Velazquez, Whitehead and Charles",Education,James Velez,,521.742.6349,"290 Anthony Point
+North Emilystad, SC 49806",Djibouti,2025-01-11,632602.0,Prospect,b977b44b-047b-4d3e-95bd-520b44b99d69,54224240.0,8514.0,2024-06-13,2022-05-23,0.64,3.96,Good,Quarterly,0.4
+bdc2c6c3-3341-4cd3-84d0-fb539716f842,"White, Johnson and Tucker",Education,Megan Sullivan,hudsonteresa@example.org,408.973.6723,"987 Carol Streets
+North Christopher, DC 78284",Kenya,2023-01-07,735790.0,Churned,,61551088.0,2900.0,2025-01-23,2022-02-25,0.49,2.01,Good,Annual,0.86
+ffbff4df-c3d5-4d0b-ac64-bdc4f24c35bf,Thompson and Sons,Retail,Jared Caldwell,lindaellis@example.com,330-974-9425x6498,"3000 Powell Squares
+Whitemouth, TN 68356",Tanzania,2025-03-26,562967.0,Inactive,6df7702b-2096-4ca6-a17d-b37f5fe38414,,8833.0,2025-02-01,2025-05-10,0.14,3.76,Average,Annual,0.08
+5b89093f-4751-4e8f-b50c-e86cf1ee9670,Lambert PLC,Telecommunications,,steven56@example.org,001-344-483-1152x9891,"97938 Rodney Points Suite 687
+Rothside, AR 48064",Brazil,2024-09-22,80430.0,Prospect,3af1c294-2610-4ede-8873-9f8dd2ef161e,26432303.0,3831.0,2025-02-04,2023-01-04,0.5,4.83,,Monthly,0.42
+6232c68d-c5c2-4ba7-878f-78f51a94d3fa,Flores-Murray,Manufacturing,Deborah King,dayveronica@example.net,(348)506-8794,"75929 Christopher Way Suite 989
+Smithhaven, PA 47327",United States Minor Outlying Islands,2023-07-13,622880.0,Churned,b0f6d0e1-02bc-40c9-95a2-9a8221bc69e6,,8445.0,2024-08-30,2025-01-29,,3.63,,Quarterly,0.86
+3097319c-bbdf-4d71-8312-ae91d60cd38e,"Johnson, Long and Smith",Finance,Linda Meza,hendersonandre@example.com,631-420-6165,"Unit 7889 Box 0459
+DPO AA 61810",New Caledonia,2024-05-15,,Churned,3bfdec12-4fa5-4bb8-bbad-5cd45152df62,1978969.0,3526.0,2025-03-09,2025-01-30,0.46,4.87,Average,Monthly,0.58
+7559125c-115a-4767-a388-58ad6a4a9a65,Smith PLC,Telecommunications,Wendy Howell,,(228)946-0884x02051,"968 Dean Shores Suite 709
+New Samanthaberg, NV 34743",Sri Lanka,2023-12-13,364740.0,Churned,6df7702b-2096-4ca6-a17d-b37f5fe38414,23883600.0,5928.0,2024-06-30,2024-12-11,0.29,2.78,Good,,0.34
+930817ea-8bac-43ca-bdde-14d89c97a89b,Koch Group,Finance,Erin Scott,emilygarrison@example.org,819-942-1984,,Svalbard & Jan Mayen Islands,2024-06-21,312985.0,Prospect,4b63185c-f8f6-40ae-bd1c-b0f9f6ced746,56213091.0,2431.0,2025-03-26,2024-10-30,0.69,2.84,Poor,Annual,0.77
+fd3b5417-0123-419c-819c-dd41a9d840b3,Brown-Adams,,Michael Beasley,carmenlindsey@example.net,+1-826-357-1244x513,"2833 Scott Extension
+South Toddland, SC 77735",Anguilla,2022-06-18,725374.0,Inactive,b0f6d0e1-02bc-40c9-95a2-9a8221bc69e6,73754545.0,6625.0,2024-07-02,,0.51,1.14,Average,Monthly,0.94
+61018bc4-6552-47fd-a7b4-7053d510a420,Mitchell-Mcconnell,Telecommunications,,fordsean@example.org,001-669-895-2078,"36548 Andrew Radial Apt. 293
+Wilsonhaven, DC 99264",Iceland,2023-09-27,,Churned,b0f6d0e1-02bc-40c9-95a2-9a8221bc69e6,38706357.0,3516.0,2025-02-03,2020-10-03,0.44,2.85,Poor,Quarterly,0.9
+,"Cruz, Davis and Barrera",,,wharris@example.net,(234)464-7072,"055 Tara Curve Suite 502
+Bowmanview, MN 19885",Seychelles,2025-05-18,60851.0,Inactive,,84116708.0,5269.0,,2020-10-23,0.66,3.92,Average,Quarterly,0.13
+038407ab-6ee2-4a73-a1ae-5094300eb8b4,Fisher-Blair,Telecommunications,Amber Moore,jjohnson@example.net,(969)422-0686x9455,"390 Hester Plains Apt. 242
+Ashleyhaven, ND 18050",Jordan,2023-07-30,660721.0,Active,b977b44b-047b-4d3e-95bd-520b44b99d69,40147583.0,9230.0,2024-06-03,2021-12-30,0.85,4.86,Average,Annual,
+bba6ee8a-aeb4-4f52-83a8-3dab5253d3b0,Edwards LLC,Finance,Brianna Gutierrez,hhughes@example.com,,"PSC 4345, Box 2975
+APO AA 20047",Iceland,2023-04-05,373601.0,Inactive,b977b44b-047b-4d3e-95bd-520b44b99d69,,2548.0,2025-05-15,2024-12-13,0.88,2.92,Poor,Quarterly,0.75
+907b6190-b6f4-458c-983b-38ce7064ee24,"Molina, Williams and Page",Transportation,Elaine Wright,robert66@example.com,263-856-6361,"317 Kyle Port
+North Kevin, UT 73477",Monaco,2024-04-13,885258.0,Churned,6df7702b-2096-4ca6-a17d-b37f5fe38414,77794621.0,9618.0,2024-12-11,2024-05-23,0.71,1.44,Average,Multi-year,0.97
+acf5d0f0-4b57-4c58-960e-5b8a567d9afe,,Education,Sara Alexander,kingtara@example.org,(685)951-8977x02921,"169 Davidson Lane
+Maldonadomouth, UT 29923",Bolivia,2024-01-07,57201.0,Active,b977b44b-047b-4d3e-95bd-520b44b99d69,7611526.0,6109.0,2024-09-12,2020-06-06,0.85,,Poor,Annual,0.38
+,Nelson Inc,Transportation,Caroline Torres,,,"70504 Rachel Hill Apt. 854
+Lake Alexander, KY 66485",France,2023-11-22,,Prospect,b9bc0f89-1fa7-4306-812f-780f6e69384a,48697988.0,9991.0,2025-01-27,2022-04-12,,3.07,Poor,Multi-year,0.18
+cb63950e-9639-49a2-acdf-6fa70b85a461,Brown-Madden,Telecommunications,Joseph Larson,adamsmichael@example.net,(869)739-5320,"27074 Adams Groves Apt. 333
+Lake Ericport, NC 72712",Egypt,2024-02-19,827636.0,Active,a57917b4-9174-4b36-ae79-97d9000ae43c,,,2025-02-22,2024-08-01,0.49,2.7,,Annual,
+dda55d02-7948-48d5-9e2b-017b608be155,Morgan-Gaines,Media,Scott Mccoy,nicholas08@example.com,(397)371-9082x4648,"456 Sonya Crescent Apt. 565
+Calvinhaven, DE 85057",Turkey,2025-03-06,,Churned,3af1c294-2610-4ede-8873-9f8dd2ef161e,77617309.0,4800.0,2025-02-06,2022-02-01,0.68,3.93,Average,Multi-year,0.27
+8fd5a1ce-7e4b-4415-8535-83d9d5a0efef,"Jacobs, Bradley and Hess",Energy,Anthony Grimes,susan45@example.com,630-716-7058x38555,"USNS Wood
+FPO AE 11017",Malaysia,2024-03-09,389113.0,Active,b977b44b-047b-4d3e-95bd-520b44b99d69,81463220.0,6400.0,2025-05-24,2020-09-22,0.78,1.88,Poor,Monthly,0.92
+bb60592b-bbf9-4a6e-b459-7088699f5718,Buckley-Mendez,Transportation,Jessica Ortiz,bennettchristopher@example.com,001-274-581-4401x8310,"9057 Luke Field Apt. 528
+Simpsonfurt, OH 52349",El Salvador,2024-08-04,,Prospect,83c9512a-0888-4b3a-b2ad-964727511763,95235779.0,2008.0,2025-03-07,2023-08-27,0.52,3.86,Average,Multi-year,0.44
+853c759a-605e-42ce-8b99-2648c6a821d2,"Mendoza, Allen and Barker",Transportation,Jimmy Patterson,stevenharrison@example.org,+1-748-601-6665x74443,"35281 Rogers Walk
+Lake Donaldchester, KY 69137",United States of America,,592316.0,Churned,3f06efb7-4a40-4de3-bea0-e67be4edec0e,84399328.0,3573.0,2024-06-20,2020-12-14,0.4,2.25,Average,Annual,0.72
+,,Telecommunications,Shirley Solis,andrewgordon@example.net,+1-537-863-1802x809,"USNS Obrien
+FPO AA 64265",French Polynesia,2024-12-26,681616.0,,b977b44b-047b-4d3e-95bd-520b44b99d69,68528335.0,5724.0,,2021-12-31,,3.48,Poor,,0.24
+a7e4c327-c25f-42ab-b9b2-2fdcbd39009a,Tucker-Burke,Education,Cynthia Kelly,gomezmelanie@example.net,,"629 Rice Plaza Apt. 274
+New Ronaldstad, OR 37764",Philippines,2024-07-12,255124.0,Inactive,b9bc0f89-1fa7-4306-812f-780f6e69384a,52683465.0,,2024-10-20,2021-10-17,0.45,3.23,Poor,Monthly,0.14
+,"Horton, Lawson and Guerrero",Manufacturing,Holly Harper,,468.910.9336,"6027 Alexander Branch Apt. 269
+Colleenchester, MP 09604",Bermuda,2024-01-06,241303.0,,3bfdec12-4fa5-4bb8-bbad-5cd45152df62,73118414.0,367.0,2025-01-17,2021-05-14,0.55,4.25,Poor,Multi-year,0.52
+7997fbf6-04e7-4084-ac85-153e5b132c79,Lee-Norris,Energy,Jacob Bradley,,(540)580-0134,"20549 Samuel Drives Apt. 586
+Port Corey, CO 65192",Bulgaria,2023-11-21,659358.0,Prospect,0286a45e-fe1b-4f06-ba71-a9b99a437e34,,198.0,2025-05-04,2020-06-19,0.09,3.67,,Annual,0.75
+436a36f9-dcf6-4621-97d7-4eb23a526ac5,Sullivan LLC,Healthcare,Laura Hoffman,wbell@example.org,8917750880,"81054 Nicholas Drives Apt. 954
+Timothyton, NC 72435",Kyrgyz Republic,2022-12-02,605529.0,Prospect,6df7702b-2096-4ca6-a17d-b37f5fe38414,6616171.0,3348.0,2024-09-07,2021-04-24,0.62,3.73,Poor,,
+925f33b5-ce27-4528-99be-b5a871b83263,"Ortiz, Burke and Novak",Healthcare,Phillip Hall,,(877)398-2220x24476,"2739 Lindsay Lodge
+Camachoberg, NE 18959",Liberia,2023-03-05,955210.0,Inactive,4e49880b-f651-4d0e-9ac0-f02bc3ecbc4d,47143635.0,2512.0,2025-05-25,2022-10-30,0.91,2.86,Poor,Monthly,0.8
+aaa9a6be-88c5-4e5b-a499-cb83563ede2c,Ross-Johnson,Technology,Lori Adams,dennis45@example.org,,"61428 Robert Fords Apt. 802
+Lake Jeffreyberg, OR 72181",Malta,2024-05-26,795250.0,Prospect,b977b44b-047b-4d3e-95bd-520b44b99d69,,3796.0,2025-01-01,2022-05-12,0.49,3.48,Average,Annual,0.28
+097e072d-f4ce-42cf-acd6-a0beeb1fa9a6,,Technology,Kimberly Vaughn,kevin37@example.org,,"2453 Bryant Fort
+West Reginald, OR 39452",Benin,2022-08-08,824793.0,Inactive,b0f6d0e1-02bc-40c9-95a2-9a8221bc69e6,14476195.0,132.0,2025-05-06,2024-09-15,0.54,,Average,Multi-year,0.25
+52d23261-b599-4355-895d-ea5186ecb0c8,"Webb, Ward and Bailey",Transportation,Vanessa Fields,langeric@example.com,305-736-0617x518,"835 Patricia Key Apt. 550
+West Williamland, MS 87565",Pakistan,2023-10-04,552366.0,Inactive,b0f6d0e1-02bc-40c9-95a2-9a8221bc69e6,10003486.0,2386.0,2024-09-28,2021-04-07,0.58,2.57,Good,Monthly,0.71
+22f8fae7-e2c1-4172-b984-49034a88efed,"Hunt, Moreno and Lee",,Joseph Shields,hernandezsamantha@example.com,685.536.4684,"1029 Michael Spurs
+North Elijah, SC 04832",,2024-06-30,64671.0,Active,4b63185c-f8f6-40ae-bd1c-b0f9f6ced746,19643949.0,,2024-06-29,2024-12-21,0.29,1.01,Average,Annual,0.02
+053de799-0a07-4c41-b84e-9838bd5eb770,Gonzalez-Charles,Retail,Mark Wilson,scottcampos@example.com,+1-946-579-1150x0808,"04974 Kaitlyn Way
+South Sarah, NY 01544",Seychelles,2024-04-08,498725.0,Prospect,e2291255-5b24-4042-b735-3d654d4dba6d,44233204.0,6729.0,2024-10-12,2024-06-26,0.1,1.01,Average,Quarterly,0.67
+e927967b-4e28-4541-bc18-70b748b086ab,"Marks, Williams and Sanchez",Manufacturing,Kylie Graham,stephanie72@example.net,7145494230,"Unit 0245 Box 5103
+DPO AP 84883",Ireland,2022-10-20,586851.0,Inactive,0286a45e-fe1b-4f06-ba71-a9b99a437e34,4170955.0,4891.0,2025-04-04,,,3.2,,Multi-year,0.97
+c483714d-2415-4760-ad16-e6b03b63f8ca,"Oliver, Johnson and Chase",Energy,Jessica Washington,kenneth89@example.com,001-588-996-4212x11518,,Switzerland,2023-10-30,600827.0,Inactive,6df7702b-2096-4ca6-a17d-b37f5fe38414,96470653.0,9696.0,2024-07-11,2025-01-13,0.36,2.61,Good,Annual,0.71
+b52e53ee-722b-4484-a74d-2e5b607b9d74,Bowen PLC,Energy,Joseph Simon,markrodriguez@example.net,,"08080 Clayton Avenue
+Lake Courtney, SC 41502",,2024-11-04,731239.0,,e2291255-5b24-4042-b735-3d654d4dba6d,,1957.0,2024-08-12,2023-03-28,0.37,3.94,Poor,Annual,0.81
+,"Goodman, Nixon and Alvarado",Manufacturing,Tyler Gomez,dsmith@example.com,8965404572,"416 Patrick Forges
+Jeffreyburgh, KY 09430",Reunion,2022-06-14,,Inactive,3af1c294-2610-4ede-8873-9f8dd2ef161e,10462138.0,6015.0,2024-06-09,,0.47,2.14,Poor,Annual,0.05
+98a9679b-9a88-4dcd-bb09-4b73bad62489,Rodriguez-Moore,,Anthony Jones,,,"73856 Patrick Manors
+Rodriguezfurt, GU 17979",Dominica,2024-09-15,114995.0,Churned,,66591531.0,5022.0,2024-12-14,2024-03-05,0.54,3.58,Average,Quarterly,0.3
+6b607c4c-d34a-4572-9e7a-fbc444197d3f,,Education,Christina Smith,,(781)643-4013x924,"63905 Watts Avenue
+Lake Jameston, LA 29599",Malta,2022-08-22,515472.0,Prospect,cb6a2691-5185-4492-a78f-743d4f02a35a,34910600.0,,2024-11-18,2024-08-19,0.88,1.43,Good,Monthly,0.12
+9e3e4c84-af5b-4d04-8a9e-fd6d6b8d7b0d,"Johnson, Yu and Mcdaniel",Education,Sara Terry,michaelvincent@example.org,791-629-5832,,Lebanon,2024-09-24,704567.0,Churned,4b63185c-f8f6-40ae-bd1c-b0f9f6ced746,8958305.0,9284.0,2025-04-16,2025-03-13,0.17,4.69,Good,Multi-year,0.73
+1ba1cda3-74fc-4c85-9339-2f88f4cf74d3,"Jordan, Huang and Compton",Manufacturing,Joshua Murphy IV,nataliehurst@example.com,536.570.1119,"56839 Perkins Keys Apt. 085
+West Randystad, MT 15048",Svalbard & Jan Mayen Islands,2022-06-11,823197.0,Churned,a57917b4-9174-4b36-ae79-97d9000ae43c,82991892.0,2681.0,2025-03-23,2022-11-02,0.99,3.2,Good,Monthly,0.49
+d7c519c7-6340-4d8e-9f78-4bca1f5b0990,"Larson, Fernandez and Doyle",Retail,Lindsey Wheeler,,+1-729-213-0098x2265,"4500 Clark Mews Apt. 735
+Michaelville, MH 43797",Mozambique,2024-10-13,914011.0,Inactive,83c9512a-0888-4b3a-b2ad-964727511763,,5112.0,2024-12-11,2023-07-28,0.56,2.4,Good,Quarterly,0.92
+2d2ab971-5e59-4525-bbe5-d0a48514e3ba,Hobbs and Sons,Technology,Scott Erickson,tbrown@example.net,,,Jordan,,857793.0,Inactive,,85444944.0,9623.0,2024-05-31,2023-09-15,0.33,,Good,Annual,0.63
+,"Allen, Wilkinson and Walker",Telecommunications,,fsolomon@example.org,,"3911 Gregory Road Suite 414
+Lake Rachelburgh, DC 76168",Guernsey,2024-04-28,663521.0,Prospect,3af1c294-2610-4ede-8873-9f8dd2ef161e,,1513.0,2025-01-20,2021-06-23,0.54,2.92,,Quarterly,0.66
+6406208f-2632-4f85-988b-51e8c70bb9c1,Jordan-Black,,Laura Rojas,chris75@example.com,,"0742 Jones Neck Apt. 588
+Robertberg, AL 64524",Egypt,2022-12-25,,Prospect,4e49880b-f651-4d0e-9ac0-f02bc3ecbc4d,67991810.0,,2025-03-06,2020-11-24,0.02,2.98,Good,Multi-year,0.41
+2a95fee8-074a-46fe-b839-79c469487bde,Smith-Robinson,Retail,Christopher Donovan,moorerichard@example.org,609-843-8286x1827,"85721 Jordan Path
+Reedbury, NV 73123",Namibia,,854346.0,Active,b977b44b-047b-4d3e-95bd-520b44b99d69,63556653.0,9955.0,2024-07-15,2024-12-05,0.42,1.89,Good,Multi-year,0.28
+b56af817-7ab9-4738-87fe-b874a2b66c34,Harper-Miller,Retail,Stephanie Berry,asanchez@example.net,7988366809,"572 Ford Port
+East Davidmouth, AR 56126",,2022-12-29,927897.0,Churned,4e49880b-f651-4d0e-9ac0-f02bc3ecbc4d,38722041.0,909.0,2024-11-03,2022-01-09,0.23,3.83,Good,Multi-year,0.9
+7630ef73-99f4-4367-aac5-15cbd4b63b1e,"Patel, Oliver and Johns",Education,Timothy Blevins,yjacobs@example.net,877-744-9178x646,"308 John Glen Suite 771
+Stephensfurt, PW 17889",United States of America,2023-02-08,593258.0,Inactive,97aeb793-6bc8-4a1a-83d0-e64dea46622d,60602425.0,6683.0,2025-05-22,2020-12-13,0.36,2.87,Average,Monthly,0.6
+e85ff510-8786-45c3-af42-f334d219be71,"Davis, Davis and Spencer",,Anna Morris,brooke26@example.net,+1-503-451-7924x916,"680 Michelle Views
+Jonestown, WY 51962",Niue,2024-11-28,157708.0,Inactive,83c9512a-0888-4b3a-b2ad-964727511763,33161696.0,7158.0,,2020-11-10,0.1,3.15,Good,Multi-year,0.11
+ba1a795a-edca-4aa5-9401-e1b78f7d1532,Henderson-Shah,Education,Eduardo Bennett,richard91@example.net,716-601-1657x696,"95738 Amy Parks
+Barrettview, CO 30502",Western Sahara,2022-10-25,981918.0,,b977b44b-047b-4d3e-95bd-520b44b99d69,35353373.0,,2024-06-13,2022-08-08,0.62,2.62,Poor,Annual,0.71
+469f5ae7-e108-40d1-afea-5a57136cd9f0,Brown-Wilson,Telecommunications,Brian Miller,marksalexis@example.org,(762)695-2088,"6315 Lambert Spur
+Scottfort, NE 90527",Guinea,2024-01-16,805326.0,Churned,,57142959.0,8603.0,2025-05-09,2022-05-06,0.71,1.99,Poor,Quarterly,0.19
+,Johnson-Donaldson,,Jeffrey Tucker,,+1-467-495-8079x24102,"331 Mary Drive Suite 941
+Kevinberg, OR 46783",Zimbabwe,2023-03-10,756840.0,Inactive,83c9512a-0888-4b3a-b2ad-964727511763,55006138.0,,2024-12-31,2021-01-02,0.34,1.09,Average,Annual,0.1
+ceb69e04-c8eb-41e6-8a48-94f809cd2668,Matthews Inc,Healthcare,Melissa Francis,regina24@example.com,+1-588-317-7884,"773 Hurley Burgs
+New Susan, NH 83055",Turks and Caicos Islands,2022-08-13,90568.0,Prospect,6df7702b-2096-4ca6-a17d-b37f5fe38414,30892259.0,,2025-01-15,2024-12-09,0.73,2.15,Average,,1.0
+12574634-ff52-41a9-97a8-7d4597fe7b29,Hill-Garza,Manufacturing,Crystal Weaver,,701-485-1256,"255 Clark Pine Suite 159
+Joneshaven, RI 67402",Macao,,817084.0,Active,3bfdec12-4fa5-4bb8-bbad-5cd45152df62,40014641.0,3344.0,2024-11-13,2023-06-08,0.11,3.02,Good,Monthly,0.14
+,"Vazquez, Mcbride and Roberts",Telecommunications,Dennis Cunningham,,790-305-8851x569,"9787 Keith Isle
+New Andrew, DC 92898",Bosnia and Herzegovina,,826762.0,Active,3f06efb7-4a40-4de3-bea0-e67be4edec0e,,113.0,2025-05-03,,0.08,3.0,,Multi-year,0.29
+a2d4832e-efff-494c-bf1a-23d1bc7e08dc,Perry-Williams,Media,,,941.412.1069x9741,"754 Walker Drive Apt. 292
+Kramerfort, MO 71369",Croatia,2023-02-14,231087.0,Prospect,b9bc0f89-1fa7-4306-812f-780f6e69384a,67459761.0,9146.0,2024-07-17,2023-01-10,0.98,4.52,Average,Annual,0.54
+,"Harrington, Gray and Harris",Finance,Nicole Lewis,gillshawn@example.net,,"0961 Burgess Walk
+Annettemouth, RI 30873",China,2023-12-05,471435.0,Inactive,b977b44b-047b-4d3e-95bd-520b44b99d69,47224202.0,,2024-12-09,2021-09-07,0.34,2.86,Average,Monthly,0.39
+3a6e45ae-cfae-49fb-a893-afd615dc3375,"King, Fields and Powell",Healthcare,David Gamble,mooneytimothy@example.org,876-796-2295,"2151 Nelson Prairie Suite 082
+Ruthshire, VT 67126",Cape Verde,2023-09-06,,Inactive,3f06efb7-4a40-4de3-bea0-e67be4edec0e,33143959.0,74.0,,2022-12-31,0.2,3.62,,,0.87
+,Wilson and Sons,Finance,Gregory Carr,,(750)340-1524,"21746 Long Hill Suite 015
+Timothybury, IL 66255",Guernsey,,421930.0,Inactive,4e49880b-f651-4d0e-9ac0-f02bc3ecbc4d,6854042.0,3613.0,2024-11-23,2021-06-07,0.26,4.3,Average,Multi-year,0.88
+f5632a95-bcc9-4ed1-b611-8af78ddbf49b,"Huffman, Greene and Brown",Retail,,,,"419 Diaz Summit
+Fernandezbury, DE 65849",Tokelau,,397371.0,,4b63185c-f8f6-40ae-bd1c-b0f9f6ced746,71640854.0,,2024-07-20,2020-07-04,0.34,3.0,Average,Annual,0.09
+187074ff-8602-41fa-83ca-7ecdb9df68cb,Allison-Salas,Healthcare,Mrs. Morgan Stafford,jacksonlisa@example.com,909.232.2620,"04023 Brock Crest
+South Courtneyton, SC 90375",Holy See (Vatican City State),2022-07-12,97245.0,Inactive,3bfdec12-4fa5-4bb8-bbad-5cd45152df62,88645508.0,440.0,2025-01-25,2021-06-06,0.6,,Poor,Annual,0.33
+68a7fd7e-937f-47dc-b1e4-84cdbc2d745b,Lawrence-Melendez,Healthcare,Diana Phelps,ethomas@example.net,,"5756 Robinson Center Apt. 753
+South Jennifer, WY 55643",Mauritania,2022-08-18,734601.0,,3bfdec12-4fa5-4bb8-bbad-5cd45152df62,49562596.0,3228.0,2025-03-28,2021-09-11,0.37,2.12,Poor,Multi-year,
+bb0ebe96-3dc6-4af2-a76e-a094f48d466f,"Mann, Boyd and Howell",Education,Donna Nielsen DDS,omar66@example.net,760.811.7176x336,"263 Sanders Groves
+Hammondburgh, ME 78538",Syrian Arab Republic,2022-07-22,718381.0,Prospect,6df7702b-2096-4ca6-a17d-b37f5fe38414,25084229.0,961.0,2024-12-06,2023-04-26,0.17,1.62,Average,Multi-year,0.33
+4d2a2720-c628-45d1-9650-bccf0a3d4a47,,Media,Vickie Watson,clarkharold@example.org,848.856.8679x035,,Uganda,2022-10-23,420124.0,Active,a57917b4-9174-4b36-ae79-97d9000ae43c,92845218.0,5246.0,2025-04-11,2024-06-11,0.41,2.62,Poor,Quarterly,0.77
+ab825095-9bf6-44a7-90ff-6453f218337b,Lewis LLC,Media,William White,sharon92@example.net,330.973.1720,,Antarctica (the territory South of 60 deg S),2024-11-01,607853.0,Active,,,1755.0,2025-04-27,2023-04-24,,3.31,Good,Monthly,0.45
+b9e51906-8029-4217-b63d-6b4c5df47965,Perez-Castro,Finance,Jennifer Burns,lwebb@example.com,+1-575-997-2847x4183,"68625 Patricia Inlet
+Michaelmouth, MS 15008",Greenland,2023-03-03,243140.0,Active,83c9512a-0888-4b3a-b2ad-964727511763,58837488.0,1676.0,2025-04-25,2023-07-28,0.41,2.81,Poor,Annual,0.08
+,Payne-Webster,Healthcare,Cynthia Ortiz,caitlin36@example.org,625.312.5070,"9026 Wayne Street Apt. 264
+South Ronaldport, CA 44085",Equatorial Guinea,2024-10-29,222511.0,,3f06efb7-4a40-4de3-bea0-e67be4edec0e,38169698.0,8638.0,2024-12-26,2022-04-08,0.42,4.53,Good,Annual,0.97
+578e680f-3fbc-42b1-94e5-1c350dccaefa,"May, Gross and Rogers",Media,Marcus Griffin,,001-543-590-2920x03330,,South Africa,2025-05-03,559014.0,Prospect,e2291255-5b24-4042-b735-3d654d4dba6d,92761874.0,,,2023-09-19,0.17,4.81,Poor,Annual,0.22
+ee3fefc7-ee77-45b4-9e3d-4bb8ec6b2abe,Sullivan-Mclean,Education,Tim West MD,ashley78@example.org,512-660-8613,,Belgium,2024-04-05,79730.0,Active,cc39afe2-5f22-465c-8660-4965adb62831,21469269.0,3694.0,2025-02-09,,0.98,1.04,Average,Quarterly,0.71
+e13938c6-b359-46d0-b39a-6285870518ab,"Perry, Goodwin and Gibson",Technology,Heather Humphrey,brendagonzalez@example.com,241.576.9562x19975,"96485 James Common
+Port Robert, AR 66242",Turkey,2024-12-03,553228.0,Active,6df7702b-2096-4ca6-a17d-b37f5fe38414,23304919.0,3759.0,2025-04-22,2021-06-17,0.29,3.54,,Monthly,0.98
+f29c858a-1362-4d03-8105-6943d5d66502,"Dyer, Summers and Pugh",Healthcare,Vicki Bryan,wsilva@example.com,001-385-412-2270,"5799 Best Prairie
+West Jamesbury, NE 66863",Guinea-Bissau,2022-06-23,115781.0,Prospect,,36570513.0,3244.0,2025-05-19,2024-09-28,0.98,1.47,Good,Annual,0.9
+68ee7e2e-bef1-4875-ac11-b26c6dc6fa50,"Donaldson, Patterson and Clark",Retail,Cody Calderon,bradleyking@example.org,594-903-6495,"68091 Jacqueline Lodge Suite 075
+East Sethchester, NM 66969",Saint Pierre and Miquelon,2024-05-12,745975.0,Inactive,b9bc0f89-1fa7-4306-812f-780f6e69384a,67797327.0,7768.0,2024-12-20,2022-12-31,0.12,3.78,Good,Quarterly,0.1
+b2c9d17d-8f5c-4bfa-ad92-57993750a704,"Sparks, Wallace and Mayer",Manufacturing,Reginald Walker,joshua91@example.org,(965)998-0203x3302,"151 Amber Lock Apt. 643
+Corteztown, MT 98844",Costa Rica,2024-07-22,873954.0,,3e954e8e-cd9d-43e5-b7c7-742f31d7417c,70370360.0,1721.0,,2024-03-03,0.06,4.98,Good,Monthly,0.62
+44d9eb07-0ed4-4e3b-8bef-bf5dae928b30,"Curry, Jenkins and Duncan",Telecommunications,Daniel Cook,nataliesmith@example.net,(488)331-4316x60784,"347 Lori Camp
+Michelehaven, AZ 53693",Canada,2023-09-12,446524.0,Prospect,cb6a2691-5185-4492-a78f-743d4f02a35a,48216545.0,8813.0,2024-09-29,2025-03-23,0.14,,Average,Multi-year,0.44
+838626eb-d925-40c1-86b3-654b226f1397,Pugh Inc,Energy,Cindy Shannon,johnny18@example.com,952.888.4728x764,"Unit 0875 Box 1482
+DPO AE 02697",American Samoa,2023-12-08,120379.0,Prospect,4b63185c-f8f6-40ae-bd1c-b0f9f6ced746,72742784.0,5223.0,2025-03-06,,0.16,,Poor,Annual,0.95
+777c203f-d2c5-4fc1-9557-35fc3375d564,Miranda PLC,Energy,Susan Russell,ramirezjames@example.com,,"1401 John Haven Suite 657
+Wrightville, AS 73850",Grenada,2023-09-27,304275.0,Churned,3e954e8e-cd9d-43e5-b7c7-742f31d7417c,,3533.0,2024-09-08,2022-11-10,0.36,4.34,Poor,Annual,0.8
+7f85812b-47b7-4742-818b-72d3d31c4aed,Hogan Group,Finance,,sierra37@example.net,+1-937-574-5936x9529,"714 Hampton Path Apt. 411
+East Albertborough, WA 57555",Guatemala,2024-04-29,464487.0,Prospect,b0f6d0e1-02bc-40c9-95a2-9a8221bc69e6,62263733.0,8201.0,2025-04-02,2021-01-16,0.64,3.18,Average,Quarterly,
+8439611a-3b9f-4cca-afdc-e1f6eb4053bc,"Smith, Oneal and Jackson",Healthcare,Mr. Joel Hunt,,458.983.9587x98776,"226 Chang Gardens Apt. 265
+New George, MT 74509",Georgia,2022-08-26,376328.0,Inactive,cb6a2691-5185-4492-a78f-743d4f02a35a,17895070.0,8463.0,2024-06-28,2020-12-28,0.48,,Poor,Quarterly,0.2
+ea07b6e0-c1ef-4f06-8420-fda84c4f5a98,"Andrews, Hawkins and Smith",Energy,James Cherry,martinezjohn@example.org,581-461-7352x098,"77190 John Locks
+East Thomasbury, AS 78224",Seychelles,,178102.0,Active,4b63185c-f8f6-40ae-bd1c-b0f9f6ced746,83450870.0,9002.0,2025-02-07,2023-09-12,,2.57,Average,Monthly,0.2
+,"Baldwin, Jones and Smith",Telecommunications,Melissa Morrison,sean83@example.net,(336)895-7659,"184 Steven Villages Apt. 890
+Port Tracy, CA 61026",Nicaragua,2024-08-07,458744.0,Inactive,,28324853.0,1787.0,2025-03-16,2021-11-12,,2.4,Poor,Multi-year,0.57
+5907024e-79fc-45eb-8262-a61853146d24,,,Jordan Campbell,rachelwhite@example.com,862.246.3951,,Cote d'Ivoire,2023-03-15,688080.0,Inactive,3af1c294-2610-4ede-8873-9f8dd2ef161e,76646813.0,,2024-12-11,2024-12-20,0.0,2.02,Good,Multi-year,
+a355323a-7fee-44eb-abf1-a978eef9dee5,Allen LLC,Healthcare,Timothy Beltran,,001-594-787-9395x1201,"65325 Page Plain Suite 709
+Jamesfort, VI 80771",,2024-06-12,432577.0,Prospect,cb6a2691-5185-4492-a78f-743d4f02a35a,32835344.0,5629.0,2024-12-09,2022-10-06,0.53,1.72,Average,Monthly,0.69
+a593b437-bebc-4482-a5e6-3251e84cad3b,"Morales, Curry and Richardson",Media,Michael Rivera,timothysanders@example.net,001-234-649-7922x27988,"9753 Wolf Shores
+Rogerstown, MI 98594",Gabon,,211162.0,Inactive,97aeb793-6bc8-4a1a-83d0-e64dea46622d,22871620.0,3374.0,2025-04-23,,,2.37,Good,,0.96
+b3777815-064f-457c-9315-864dae4300ae,"Hale, Thompson and Smith",Healthcare,,bjones@example.com,(590)425-1104x51198,"0053 Christopher Lakes Suite 248
+Harristown, ND 75846",,2022-06-14,932877.0,Prospect,70012e4a-b56f-4b3b-8cbd-e4175a42c7fa,70047070.0,3075.0,2025-03-13,2024-10-17,0.8,2.49,,Multi-year,0.47
+bb6d1f44-d3be-45bd-a139-6ebbd2ecf0af,Jenkins Inc,Media,Rebecca Wood,michelle86@example.org,(876)523-6196,"150 Joseph Plain
+Tracyshire, NY 61931",Niue,2023-06-26,373012.0,Prospect,b0f6d0e1-02bc-40c9-95a2-9a8221bc69e6,13158424.0,9827.0,2024-07-19,2023-12-16,0.91,2.83,Good,Multi-year,1.0
+fe02a63d-ed89-43f1-a834-e0fef4486ad8,Howell LLC,Retail,April Leach,raymondwilliamson@example.com,888-832-8885x9590,,Hungary,2024-03-27,225898.0,Churned,,87442374.0,106.0,2024-06-26,2021-11-27,0.78,,Good,Annual,0.02
+7ca30d21-abdc-4df2-b807-c18c85fe78e0,"Garza, Sherman and Pittman",Media,Megan Simpson,sanfordsusan@example.net,621-238-6570,,Honduras,,394568.0,,,,678.0,2025-01-28,,0.71,4.22,Poor,Monthly,0.28
+8a87d1f7-2d5c-4461-99f1-2ef256b855c8,"Rose, Johnson and Walker",Manufacturing,Gregory Thompson,swilliams@example.net,348.277.6895x58953,"2081 Blake Light Apt. 014
+New Matthewhaven, IA 02976",American Samoa,2024-11-29,,,b9bc0f89-1fa7-4306-812f-780f6e69384a,65412918.0,7163.0,2025-01-08,2021-08-13,0.64,1.62,Good,Quarterly,0.92
+c7913123-916c-487b-b98a-0f571f2a6c82,Carr-Johnson,Energy,Sean Hernandez PhD,alexaheath@example.com,,"944 Koch Cape
+Herreratown, FM 06729",Trinidad and Tobago,2024-06-06,385331.0,Active,cc39afe2-5f22-465c-8660-4965adb62831,31755301.0,6495.0,2025-05-09,2021-08-19,0.19,2.72,Poor,Quarterly,0.93
+30e76190-9899-4cf6-871e-b7af6165f50d,"Hudson, Young and Mathis",Manufacturing,,shaynes@example.org,712-548-5444,"925 Nguyen Glens Apt. 148
+Sheristad, ND 60396",,2024-09-21,402145.0,Churned,0286a45e-fe1b-4f06-ba71-a9b99a437e34,17118165.0,500.0,2024-11-05,2021-02-21,0.98,2.06,Good,Quarterly,0.81
+b3bf61d8-2d69-4e02-8263-67a0ec46a5f4,Evans-Wilson,Healthcare,Rhonda Hernandez,rodriguezcheyenne@example.com,+1-942-625-9266x462,"07266 Karen Heights
+Simmonsberg, IN 22526",Liberia,2022-09-02,,Inactive,b9bc0f89-1fa7-4306-812f-780f6e69384a,75329914.0,5680.0,2024-08-14,2020-11-22,0.37,4.28,Good,Quarterly,0.17
+e58dd190-f594-4ee3-9df6-6aba48a7870f,,Finance,Willie Adams,,(772)579-4199x691,"2295 Johnson Square
+Port Amy, OK 27202",Philippines,2024-04-05,978764.0,Active,b0f6d0e1-02bc-40c9-95a2-9a8221bc69e6,29594355.0,5992.0,2024-06-03,2022-01-27,0.2,3.27,Average,Multi-year,0.49
+,"Mcdonald, Harding and Hopkins",Technology,Matthew Cruz,whitesarah@example.net,295-951-8279x22310,"9287 Bishop Junction Suite 945
+Garybury, MA 03632",Northern Mariana Islands,2024-01-04,211607.0,Prospect,83c9512a-0888-4b3a-b2ad-964727511763,41537600.0,3793.0,2024-06-03,2021-06-28,0.13,3.42,Poor,Annual,0.9
+d01c5ce5-969c-441b-93eb-9508c149e104,Miller Inc,Education,,ythomas@example.org,(663)206-1984x57857,"43163 James Station Apt. 338
+North James, WY 67612",Mexico,2023-08-09,,Inactive,a57917b4-9174-4b36-ae79-97d9000ae43c,28129236.0,4384.0,2025-02-27,2021-03-03,0.57,1.47,Poor,Multi-year,0.84
+1af661a3-da0b-4395-a61c-04d7f6be5173,,Education,Brittany Miles,robertware@example.com,446.793.8503x22467,"6216 Kevin Prairie
+Lake Kennethberg, CT 08140",Swaziland,2023-01-30,506511.0,Prospect,e2291255-5b24-4042-b735-3d654d4dba6d,41678549.0,4565.0,2024-08-07,2021-01-15,0.69,4.2,Good,,0.29
+3c6da50a-a15d-40f6-bd20-11990ea0c312,"Wilson, Davis and Greene",Telecommunications,,cantrellkenneth@example.net,(763)326-8884,"31901 Chandler Turnpike Suite 653
+Wrightville, KS 52658",San Marino,2024-12-09,766206.0,Inactive,6df7702b-2096-4ca6-a17d-b37f5fe38414,52395250.0,8397.0,2025-05-25,2023-05-15,,1.02,Good,Monthly,0.88
+60ff81f7-9da9-487d-ae84-65f0208f1b52,"Miller, Keller and House",Healthcare,April Watts,mtravis@example.org,904.201.7158x598,"168 Andrew Curve Suite 907
+Lake Shaneshire, DC 93274",Equatorial Guinea,2022-06-24,800256.0,Churned,3af1c294-2610-4ede-8873-9f8dd2ef161e,70266803.0,5750.0,2025-02-11,2024-01-27,0.2,1.88,Good,Monthly,0.81
+3c095a0f-3ac0-4763-9215-f3ccc71f5937,,Manufacturing,Karen Vega,nwhite@example.org,+1-685-476-5881x708,"84604 Collins Route Suite 056
+South Cheyenneside, MT 02508",,2023-07-04,247008.0,Active,3e954e8e-cd9d-43e5-b7c7-742f31d7417c,61682679.0,2742.0,2024-09-08,2024-06-02,0.05,4.28,Poor,Annual,0.97
+d43aa577-c729-4764-9566-349b3377aaae,,Transportation,,marklloyd@example.net,001-874-257-1715x44940,"215 Potter Wells
+Maryfurt, LA 11890",Denmark,2022-06-28,939311.0,Inactive,b0f6d0e1-02bc-40c9-95a2-9a8221bc69e6,5904073.0,8467.0,2024-06-16,2021-03-27,0.82,,Good,Monthly,0.75
+6ebf25d5-3325-4ca6-9abc-c1937ddbf4d4,"Dixon, Delacruz and White",Energy,Alyssa Lynn,,001-883-396-6204x523,,Bangladesh,2024-09-26,568330.0,Inactive,3af1c294-2610-4ede-8873-9f8dd2ef161e,53649231.0,,,2023-04-24,0.82,1.76,Poor,Multi-year,0.82
+47a476bf-be54-4b0b-8871-6c2388386f9b,"Johnson, Moore and Jacobs",Manufacturing,Margaret Lynn,christy55@example.net,304.218.5809x7711,"1302 Ronald Freeway Apt. 503
+Taylorton, OK 06776",Brunei Darussalam,2024-06-08,669778.0,Inactive,0286a45e-fe1b-4f06-ba71-a9b99a437e34,76751703.0,,2024-06-03,2024-02-05,0.46,2.39,Poor,Quarterly,0.18
+d794932b-f955-4cb6-83c2-67d6ae2b2810,"Fox, Brown and Travis",Media,Jennifer Fletcher,ccarpenter@example.com,+1-209-900-8078x173,"PSC 3215, Box 8159
+APO AE 19133",Ukraine,2022-08-26,848041.0,Inactive,83c9512a-0888-4b3a-b2ad-964727511763,4611946.0,4560.0,2024-06-30,2021-04-17,0.09,4.79,Average,Annual,0.24
+8d3bd715-102c-4eb5-8506-e3709b3ecc47,"Herrera, Soto and Chapman",Technology,John Taylor,hgarcia@example.net,+1-956-580-3593x83145,,Andorra,2022-10-11,432174.0,Prospect,3bfdec12-4fa5-4bb8-bbad-5cd45152df62,99264755.0,8768.0,2025-01-05,2025-05-01,0.17,1.21,Good,Monthly,0.52
+2adf40c5-28b5-4204-90b9-36ec303fe0ba,Ramirez-Henry,Retail,Kathryn Ballard,reginaldmitchell@example.org,257-291-0496x31731,"7169 Johnathan Rest Apt. 240
+North Yeseniachester, ID 35083",Uzbekistan,2023-06-11,265044.0,Prospect,3bfdec12-4fa5-4bb8-bbad-5cd45152df62,95602100.0,3981.0,2025-04-11,2022-02-17,0.12,4.46,Average,Multi-year,0.03
+61866b02-356e-475d-ac7d-d922dfaa4182,"Carroll, Stevenson and Campbell",Retail,Jason Moreno,hernandezjennifer@example.com,+1-926-457-5037,"485 Allen Spring
+Ramirezville, OR 80402",Guinea,2024-02-15,599483.0,Churned,3e954e8e-cd9d-43e5-b7c7-742f31d7417c,88510155.0,4224.0,2025-02-23,2020-06-22,0.21,3.95,Poor,Monthly,0.32
+65acc000-3deb-4083-a1eb-14a7b0692022,Rodriguez-Dalton,Media,Paul Snyder,jennifer65@example.com,001-870-559-5886,"0976 Jenny Bypass
+Brittanymouth, MI 26234",United States Virgin Islands,2022-07-24,494991.0,Inactive,cb6a2691-5185-4492-a78f-743d4f02a35a,77670504.0,3286.0,2025-04-14,2024-03-19,0.21,,Poor,Quarterly,0.12
+6cb43d1e-27da-4b06-a758-dcda8bc79ddb,Harris-Mullins,Energy,David Sanchez,justin94@example.com,,"759 Thornton Rest Suite 514
+Ruizmouth, GA 09234",Belarus,2023-12-11,276908.0,Active,b0f6d0e1-02bc-40c9-95a2-9a8221bc69e6,55718352.0,7128.0,2024-11-20,2023-06-06,0.22,,Good,Multi-year,0.91
+6ebe082b-5020-4d4d-9647-c8ff151d99e9,"Williams, Glenn and Johnston",Media,Matthew Robinson,matthew67@example.org,+1-208-329-6629x055,,Peru,2023-04-18,399362.0,Prospect,a57917b4-9174-4b36-ae79-97d9000ae43c,99403669.0,3013.0,,2020-06-18,,1.78,Poor,Monthly,0.51
+0c8775d0-5f68-493d-8956-8b8522678bf9,Joyce-Johnson,Media,Robert Huynh,tbutler@example.org,(614)828-8818x8427,"5121 Brenda Greens
+North Nathan, SC 54849",Bahrain,2025-02-15,553841.0,Prospect,83c9512a-0888-4b3a-b2ad-964727511763,,3888.0,2025-03-15,2023-04-09,0.63,1.66,Good,Annual,0.36
+14c72fec-d670-44b7-bcc6-bcb656e6ac0f,Raymond-Obrien,Manufacturing,John Bradshaw,bmatthews@example.com,883-372-5710,"8968 Karen Parkway
+Jacksonbury, MT 08734",Turks and Caicos Islands,2023-09-11,887943.0,Prospect,b0f6d0e1-02bc-40c9-95a2-9a8221bc69e6,98723791.0,247.0,2024-06-06,2022-05-18,0.06,4.52,Average,Quarterly,0.78
+8e244ff0-d5e4-4367-b418-a8aaae595861,"Pham, Padilla and Vasquez",Education,,jessicadavis@example.org,7986280753,"53859 Burns Isle
+East Michael, NH 92172",United States Virgin Islands,2024-10-21,264709.0,,6df7702b-2096-4ca6-a17d-b37f5fe38414,83182298.0,3016.0,2025-03-10,2023-09-17,0.4,4.21,Poor,Annual,0.89
+f4e3e610-5e54-4871-b912-4b183fbbbb01,,,Ryan Baird,laceywheeler@example.org,(709)949-2260,"660 Wagner Mountain Apt. 301
+Jacksonberg, MA 21984",Burundi,2022-11-02,73725.0,Churned,3f06efb7-4a40-4de3-bea0-e67be4edec0e,44868716.0,7843.0,2025-01-06,2020-12-09,0.37,4.17,Good,Multi-year,0.59
+4d880b4d-80b1-43c5-97bc-a117503e2cae,"Salinas, Patel and Chapman",Technology,Danielle Love,plawrence@example.com,001-919-491-6290x563,"PSC 6524, Box 1286
+APO AE 32259",Korea,2022-07-30,585275.0,Churned,83c9512a-0888-4b3a-b2ad-964727511763,42017173.0,6480.0,2025-05-29,2020-07-11,0.97,4.82,Average,Multi-year,
+06cecbbe-f406-4966-97be-ff6333a765cf,"Brown, Chaney and Kent",Telecommunications,Devin Long,nhuynh@example.net,845.302.2419x36887,"966 Aguirre Freeway Suite 106
+Martinezborough, PA 64118",Georgia,,646674.0,Active,e2291255-5b24-4042-b735-3d654d4dba6d,57217800.0,5351.0,2024-11-14,2024-07-23,0.59,3.4,Good,Annual,0.89
+83b8002a-0352-4fa8-862f-7f50fd536254,Chen-Nelson,Energy,Jeffrey Bates,scottjohnson@example.net,420.944.7025x5484,"7227 Sarah Mount
+North Ashlee, NJ 87821",Norfolk Island,2024-09-28,714166.0,Active,,84105695.0,,2024-06-22,2022-08-23,0.93,4.89,Average,Annual,
+cd5cce28-c06f-44a4-a917-2b37da44ee53,"Mendez, Thompson and Clark",Energy,Kimberly Davis,leepaul@example.com,413-743-8942x1503,,Yemen,,823354.0,Active,e2291255-5b24-4042-b735-3d654d4dba6d,44704157.0,8829.0,2024-10-19,2023-06-15,0.69,2.02,Average,Annual,0.95
+92a41bc8-efd4-43fa-9497-c00d842df13b,"Brown, Melton and Lopez",,Noah Carter,josemorris@example.net,795-487-7849,,British Indian Ocean Territory (Chagos Archipelago),2025-01-17,,Prospect,70012e4a-b56f-4b3b-8cbd-e4175a42c7fa,,1944.0,,2025-04-26,0.39,2.07,Poor,,0.95
+6f3556d0-7d7d-4006-ae24-1c3ccdb972e5,"Morris, Smith and Delacruz",Retail,Karen Walter,orrroger@example.com,816-334-3378,"8500 Martinez Circle Apt. 617
+Morrishaven, MD 85127",Kazakhstan,2023-03-16,807647.0,Active,3af1c294-2610-4ede-8873-9f8dd2ef161e,80727256.0,3311.0,2024-10-06,2024-02-03,0.1,2.49,Average,Monthly,0.08
+75776c9c-4ac9-4667-aee3-54db7c4aae13,Green-Miles,Finance,Gloria Gray,jennaharper@example.com,001-558-335-4857x2673,"PSC 6393, Box 1350
+APO AA 60858",Lithuania,2024-10-27,837139.0,Churned,3bfdec12-4fa5-4bb8-bbad-5cd45152df62,91755437.0,,2024-07-22,2024-11-03,,1.86,Good,Annual,0.94
+04c2638d-2313-4594-9cf1-33c0fe080ac6,Hammond-Hutchinson,Transportation,Erin Byrd,georgemora@example.org,,"345 Samuel Cove Apt. 878
+Robertton, AZ 35009",Solomon Islands,,527010.0,Churned,70012e4a-b56f-4b3b-8cbd-e4175a42c7fa,18846737.0,2945.0,2024-12-29,2023-04-30,0.4,4.55,,,0.89
+c0d6a202-4ac8-465f-9929-cff01b66ddac,Wright-Andersen,Education,Thomas Nichols,jennifer41@example.net,,"3367 Davenport Islands
+New Christinaview, OR 88244",Panama,2022-10-27,909085.0,Inactive,3af1c294-2610-4ede-8873-9f8dd2ef161e,45627367.0,855.0,2025-05-24,2021-03-19,0.23,2.58,Poor,Monthly,0.92

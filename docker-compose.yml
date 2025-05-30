@@ -1,0 +1,49 @@
+version: '3.8'
+
+services:
+  master:
+    container_name: tech-data-lake-master
+    build:
+      dockerfile: Dockerfile
+      context: .
+    image: tech-data-lake-image
+    entrypoint: ['./entrypoint.sh', 'master']
+    volumes:
+      - ./data:/opt/spark/data
+      - ./jobs:/opt/spark/apps
+      - data-lake-logs:/opt/spark/data-lake-events
+    env_file:
+      - .env.data-lake
+    ports:
+      - '9091:8080'
+      - '9871:9870'
+      - '7071:7077'
+      - '8081:8088'
+
+  history-server:
+    container_name: tech-data-lake-historyserver
+    image: tech-data-lake-image
+    entrypoint: ['./entrypoint.sh', 'history']
+    depends_on:
+      - master
+    env_file:
+      - .env.data-lake
+    volumes:
+      - data-lake-logs:/opt/spark/data-lake-events
+    ports:
+      - '18081:18080'
+
+  worker:
+    image: tech-data-lake-image
+    entrypoint: ['./entrypoint.sh', 'worker']
+    depends_on:
+      - master
+    env_file:
+      - .env.data-lake
+    volumes:
+      - ./data:/opt/spark/data
+      - ./jobs:/opt/spark/apps
+      - data-lake-logs:/opt/spark/data-lake-events
+
+volumes:
+  data-lake-logs:
