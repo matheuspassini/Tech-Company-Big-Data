@@ -42,3 +42,8 @@ cd projeto3
 ```bash
 docker-compose -p tech-data-lake -f docker-compose.yml up -d --scale worker=3
 ```
+
+3. Run the Spark job:
+```bash
+docker exec master spark-submit --deploy-mode client ./apps/employee_silver_layer.py
+```
