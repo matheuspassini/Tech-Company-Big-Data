@@ -20,31 +20,29 @@ salary_history_schema = StructType([
     StructField("stock_options", LongType(), True)
 ])
 
-# Ler o arquivo parquet
+# 0. Read Parquet file
 df_salary_history = spark.read.schema(salary_history_schema).parquet("hdfs:///opt/spark/data/bronze_layer/salary_history.parquet")
 
+# 1. Transform empty strings in null values
+df_salary_history = df_salary_history.select([
+    when(col(c) == "", None).otherwise(col(c)).alias(c) for c in df_salary_history.columns
+])
 
-# Add timestamp column
+# 2. Add timestamp column
 df_salary_history = df_salary_history.withColumn('received_at', current_timestamp())
 
-# 1. Ensure referential integrity (not null/not empty for key fields)
-df_salary_history = df_salary_history.filter(
-    (col("id").isNotNull()) & (trim(col("id")) != "")
-)
-df_salary_history = df_salary_history.filter(
-    (col("employee_id").isNotNull()) & (trim(col("employee_id")) != "")
-)
-df_salary_history = df_salary_history.filter(
-    (col("department_id").isNotNull()) & (trim(col("department_id")) != "")
-)
+# 3. Drop null values (Referential Integrity)
+df_salary_history = df_salary_history.filter(col("id").isNotNull())
+df_salary_history = df_salary_history.filter(col("employee_id").isNotNull())
+df_salary_history = df_salary_history.filter(col("department_id").isNotNull())
 
-# 2. Handle null/empty dates
+# 4. Handle null dates
 df_salary_history = df_salary_history.withColumn(
     "effective_date",
-    when(col("effective_date").isNull() | (trim(col("effective_date").cast("string")) == ""), "0000-01-01").otherwise(col("effective_date"))
+    when(col("effective_date").isNull(), "0000-01-01").otherwise(col("effective_date"))
 )
 
-# 3. Handle null/empty numbers
+# 5. Handle null numbers
 df_salary_history = df_salary_history.withColumn(
     "salary",
     when(col("salary").isNull(), 0).otherwise(col("salary"))
@@ -58,20 +56,18 @@ df_salary_history = df_salary_history.withColumn(
     when(col("stock_options").isNull(), 0).otherwise(col("stock_options"))
 )
 
-# 4. Handle null/empty strings
+# 6. Handle null strings
 df_salary_history = df_salary_history.withColumn(
     "change_reason",
-    when(col("change_reason").isNull() | (trim(col("change_reason")) == ""), "No reason provided").otherwise(col("change_reason"))
+    when(col("change_reason").isNull(), "No reason provided").otherwise(col("change_reason"))
 )
-
 df_salary_history = df_salary_history.withColumn(
     "position",
-    when(col("position").isNull() | (trim(col("position")) == ""), "Unknown").otherwise(col("position"))
+    when(col("position").isNull(), "Unknown").otherwise(col("position"))
 )
-
 df_salary_history = df_salary_history.withColumn(
     "currency",
-    when(col("currency").isNull() | (trim(col("currency")) == ""), "Unknown").otherwise(col("currency"))
+    when(col("currency").isNull(), "Unknown").otherwise(col("currency"))
 )
 
 df_salary_history.write.parquet("hdfs:///opt/spark/data/silver_layer/salary_history.parquet", mode="overwrite")

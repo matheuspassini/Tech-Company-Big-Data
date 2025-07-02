@@ -23,41 +23,44 @@ tasks_schema = StructType([
     StructField("tags", StringType(), True)
 ])
 
-# Read JSON file with header
+# 0. Read JSON file with header
 df_tasks = spark.read.schema(tasks_schema).json('hdfs:///opt/spark/data/bronze_layer/tasks.json', multiLine=True)
 
-# Add timestamp column
+# 1. Transform empty strings in null values
+df_tasks = df_tasks.select([
+    when(col(c) == "", None).otherwise(col(c)).alias(c) for c in df_tasks.columns
+])
+
+# 2. Add timestamp column
 df_tasks = df_tasks.withColumn('received_at', current_timestamp())
 
-# 2. Drop null/empty values (Referential Integrity)
+# 3. Drop null values (Referential Integrity)
 df_tasks = df_tasks.filter(
-    (col("id").isNotNull()) & (trim(col("id")) != "")
+    col("id").isNotNull()
+)
+df_tasks = df_tasks.filter(
+    col("project_id").isNotNull()
+)
+df_tasks = df_tasks.filter(
+    col("assigned_to").isNotNull()
 )
 
-df_tasks = df_tasks.filter(
-    (col("project_id").isNotNull()) & (trim(col("project_id")) != "")
-)
-
-df_tasks = df_tasks.filter(
-    (col("assigned_to").isNotNull()) & (trim(col("assigned_to")) != "")
-)
-
-# 3. Date transformations
+# 4. Date transformations
 df_tasks = df_tasks.withColumn(
     "created_date",
-    when(col("created_date").isNull() | (trim(col("created_date")) == ""), "0000-01-01").otherwise(col("created_date"))
+    when(col("created_date").isNull(), "0000-01-01").otherwise(col("created_date"))
 )
 
 df_tasks = df_tasks.withColumn(
     "due_date",
-    when(col("due_date").isNull() | (trim(col("due_date")) == ""), "0000-01-01").otherwise(col("due_date"))
+    when(col("due_date").isNull(), "0000-01-01").otherwise(col("due_date"))
 )
 
-# 4. Number transformations
+# 5. Number transformations
 df_tasks = df_tasks.withColumn(
     "estimated_hours",
     when(
-        col("estimated_hours").isNull() | (trim(col("estimated_hours")) == 0),
+        col("estimated_hours").isNull(),
         0
     ).otherwise(col("estimated_hours"))
 )
@@ -65,7 +68,7 @@ df_tasks = df_tasks.withColumn(
 df_tasks = df_tasks.withColumn(
     "actual_hours",
     when(
-        col("actual_hours").isNull() | (trim(col("actual_hours")) == 0),
+        col("actual_hours").isNull(),
         0
     ).otherwise(col("actual_hours"))
 )
@@ -73,16 +76,16 @@ df_tasks = df_tasks.withColumn(
 df_tasks = df_tasks.withColumn(
     "dependencies",
     when(
-        col("dependencies").isNull() | (trim(col("dependencies")) == 0),
+        col("dependencies").isNull(),
         0
     ).otherwise(col("dependencies"))
 )
 
-# 5. Array transformations
+# 6. Array transformations
 df_tasks = df_tasks.withColumn(
     "tags",
     when(
-        col("tags").isNull() | (trim(col("tags")) == ""),
+        col("tags").isNull(),
         array(lit("No tags"))
     ).otherwise(
         split(col("tags"), ",\\s*")
@@ -97,11 +100,11 @@ df_tasks = df_tasks.withColumn(
     ).otherwise(col("tags"))
 )
 
-# 6. String transformations
+# 7. String transformations
 df_tasks = df_tasks.withColumn(
     "name",
     when(
-        col("name").isNull() | (trim(col("name")) == ""),
+        col("name").isNull(),
         "Unknown"
     ).otherwise(col("name"))
 )
@@ -109,7 +112,7 @@ df_tasks = df_tasks.withColumn(
 df_tasks = df_tasks.withColumn(
     "description",
     when(
-        col("description").isNull() | (trim(col("description")) == ""),
+        col("description").isNull(),
         "No description available"
     ).otherwise(col("description"))
 )
@@ -117,7 +120,7 @@ df_tasks = df_tasks.withColumn(
 df_tasks = df_tasks.withColumn(
     "status",
     when(
-        col("status").isNull() | (trim(col("status")) == ""),
+        col("status").isNull(),
         "No status available"
     ).otherwise(col("status"))
 )
@@ -125,7 +128,7 @@ df_tasks = df_tasks.withColumn(
 df_tasks = df_tasks.withColumn(
     "priority",
     when(
-        col("priority").isNull() | (trim(col("priority")) == ""),
+        col("priority").isNull(),
         "Low"
     ).otherwise(col("priority"))
 )

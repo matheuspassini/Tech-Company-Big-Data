@@ -38,122 +38,80 @@ employee_schema = StructType([
     StructField("vacation_days_remaining", IntegerType(), True),
 ])
 
+# 0. Read JSON file with header
 df_employee = spark.read.schema(employee_schema).json('hdfs:///opt/spark/data/bronze_layer/employees.json', multiLine=True)
 
-# 1. Drop columns
+# 1. Transform empty strings in null values
+df_employee = df_employee.select([
+    when(col(c) == "", None).otherwise(col(c)).alias(c) for c in df_employee.columns
+])
+
+# 2. Drop columns
 cols_to_drop = ['emergency_contact', 'email', 'name', "phone", "address", "emergency_phone", 'sick_days', 'attendance_rate', 'training_hours']
 df_employee = df_employee.drop(*cols_to_drop)
 
-# Add timestamp column
+# 3. Add timestamp column
 df_employee = df_employee.withColumn('received_at', current_timestamp())
 
-# 2. Drop null/empty values (Referential Integrity)
-df_employee = df_employee.filter(
-    (col("id").isNotNull()) & (trim(col("id")) != "")
-)
+# 4. Drop null values (Referential Integrity)
+df_employee = df_employee.filter(col("id").isNotNull())
+df_employee = df_employee.filter(col("department_id").isNotNull())
+df_employee = df_employee.filter(col("employment_type").isNotNull())
+df_employee = df_employee.filter(col("education").isNotNull())
+df_employee = df_employee.filter(col("hire_date").isNotNull())
 
-df_employee = df_employee.filter(
-    (col("department_id").isNotNull()) & (trim(col("department_id")) != "")
-)
-
-df_employee = df_employee.filter(
-    (col("employment_type").isNotNull()) & (trim(col("employment_type")) != "")
-)
-
-df_employee = df_employee.filter(
-    (col("education").isNotNull()) & (trim(col("education")) != "")
-)
-
-df_employee = df_employee.filter(
-    (col("hire_date").isNotNull()) & (trim(col("hire_date")) != "")
-)
-
-# 3. Date transformations
+# 5. Date transformations
 df_employee = df_employee.withColumn(
     "hire_date",
-    when(col("hire_date").isNull() | (trim(col("hire_date")) == ""), "0000-01-01").otherwise(col("hire_date"))
+    when(col("hire_date").isNull(), "0000-01-01").otherwise(col("hire_date"))
 )
 df_employee = df_employee.withColumn(
     "last_review_date",
-    when(col("last_review_date").isNull() | (trim(col("last_review_date")) == ""), "0000-01-01").otherwise(col("last_review_date"))
+    when(col("last_review_date").isNull(), "0000-01-01").otherwise(col("last_review_date"))
 )
 df_employee = df_employee.withColumn(
     "next_review_date",
-    when(col("next_review_date").isNull() | (trim(col("next_review_date")) == ""), "0000-01-01").otherwise(col("next_review_date"))
+    when(col("next_review_date").isNull(), "0000-01-01").otherwise(col("next_review_date"))
 )
 
-# 4. Number transformations
+# 6. Number transformations
 df_employee = df_employee.withColumn(
     "projects_assigned",
-    when(
-        col("projects_assigned").isNull() | (trim(col("projects_assigned")) == 0),
-        0
-    ).otherwise(col("projects_assigned"))
+    when(col("projects_assigned").isNull(), 0).otherwise(col("projects_assigned"))
 )
-
 df_employee = df_employee.withColumn(
     "overtime_hours",
-    when(
-        col("overtime_hours").isNull() | (trim(col("overtime_hours")) == 0),
-        0
-    ).otherwise(col("overtime_hours"))
+    when(col("overtime_hours").isNull(), 0).otherwise(col("overtime_hours"))
 )
-
 df_employee = df_employee.withColumn(
     "vacation_days_used",
-    when(
-        col("vacation_days_used").isNull() | (trim(col("vacation_days_used")) == 0),
-        0
-    ).otherwise(col("vacation_days_used"))
+    when(col("vacation_days_used").isNull(), 0).otherwise(col("vacation_days_used"))
 )
-
 df_employee = df_employee.withColumn(
     "vacation_days_remaining",
-    when(
-        col("vacation_days_remaining").isNull() | (trim(col("vacation_days_remaining")) == 0),
-        0
-    ).otherwise(col("vacation_days_remaining"))
+    when(col("vacation_days_remaining").isNull(), 0).otherwise(col("vacation_days_remaining"))
 )
-
 df_employee = df_employee.withColumn(
     "years_experience",
-    when(
-        col("years_experience").isNull() | (trim(col("years_experience")) == 0),
-        0
-    ).otherwise(col("years_experience"))
+    when(col("years_experience").isNull(), 0).otherwise(col("years_experience"))
 )
 
-# 5. Unknown/Other transformations
+# 7. Array/Other transformations
 df_employee = df_employee.withColumn(
     "skills",
-    when(
-        col("skills").isNull() | (size(col("skills")) == 0),
-        array(lit("No skills"))
-    ).otherwise(col("skills"))
+    when(col("skills").isNull() | (size(col("skills")) == 0), array(lit("No skills"))).otherwise(col("skills"))
 )
-
 df_employee = df_employee.withColumn(
     "is_manager",
-    when(
-        col("is_manager").isNull() | (trim(col("is_manager")) == 0),
-        False
-    ).otherwise(col("is_manager"))
+    when(col("is_manager").isNull(), False).otherwise(col("is_manager"))
 )
-
 df_employee = df_employee.withColumn(
     "position",
-    when(
-        col("position").isNull() | (trim(col("position")) == ""),
-        "Unknown"
-    ).otherwise(col("position"))
+    when(col("position").isNull(), "Unknown").otherwise(col("position"))
 )
-
 df_employee = df_employee.withColumn(
     "work_location",
-    when(
-        col("work_location").isNull() | (trim(col("work_location")) == ""),
-        "Unknown"
-    ).otherwise(col("work_location"))
+    when(col("work_location").isNull(), "Unknown").otherwise(col("work_location"))
 )
 
 # Write to parquet
