@@ -96,11 +96,23 @@ df_employee = df_employee.withColumn(
     when(col("years_experience").isNull(), 0).otherwise(col("years_experience"))
 )
 
-# 7. Array/Other transformations
+# 7. Array transformations
 df_employee = df_employee.withColumn(
     "skills",
-    when(col("skills").isNull() | (size(col("skills")) == 0), array(lit("No skills"))).otherwise(col("skills"))
+    when(
+        col("skills").isNull() | (size(col("skills")) == 0),
+        array(lit("No skills"))
+    ).otherwise(col("skills"))
 )
+df_employee = df_employee.withColumn(
+    "certifications",
+    when(
+        col("certifications").isNull() | (size(col("certifications")) == 0),
+        array(lit("No certifications"))
+    ).otherwise(col("certifications"))
+)
+
+# 8. String transformations
 df_employee = df_employee.withColumn(
     "is_manager",
     when(col("is_manager").isNull(), False).otherwise(col("is_manager"))
@@ -114,5 +126,5 @@ df_employee = df_employee.withColumn(
     when(col("work_location").isNull(), "Unknown").otherwise(col("work_location"))
 )
 
-# Write to parquet
+# 9. Write to parquet
 df_employee.write.parquet("hdfs:///opt/spark/data/silver_layer/employee.parquet", mode="overwrite")
