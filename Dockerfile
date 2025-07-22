@@ -15,8 +15,10 @@ RUN apt-get update && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
-ENV SPARK_HOME=${SPARK_HOME:-"/opt/spark"}
-ENV HADOOP_HOME=${HADOOP_HOME:-"/opt/hadoop"}
+ENV SPARK_HOME="/opt/spark"
+ENV HADOOP_HOME="/opt/hadoop"
+ENV LD_LIBRARY_PATH=""
+ENV PYTHONPATH=""
 
 RUN mkdir -p ${HADOOP_HOME} && mkdir -p ${SPARK_HOME}
 WORKDIR ${SPARK_HOME}
