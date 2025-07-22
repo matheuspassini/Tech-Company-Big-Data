@@ -3,7 +3,7 @@ from pyspark.sql.types import (
     StructType, StructField, StringType, IntegerType, FloatType
 )
 from pyspark.sql.functions import col, when, current_timestamp
-from bronze_to_silver.transformations.clients_transformations import clean_null_dates, clean_null_numbers, clean_null_floats, clean_null_strings
+from transformations.clients_transformations import clean_null_dates, clean_null_numbers, clean_null_floats, clean_null_strings
 
 spark = SparkSession.builder.appName('Clients-Tech-Company-Application').getOrCreate()
 
@@ -53,5 +53,5 @@ df_clients = clean_null_numbers(df_clients)
 df_clients = clean_null_floats(df_clients)
 df_clients = clean_null_strings(df_clients)
 
-# 6. Write to parquet
-df_clients.write.parquet("hdfs:///opt/spark/data/silver_layer/clients.parquet", mode="overwrite")
+# 6. Write to CSV
+df_clients.write.csv("hdfs:///opt/spark/data/silver_layer/clients.csv", mode="overwrite", header=True)
