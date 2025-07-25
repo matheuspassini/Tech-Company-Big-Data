@@ -7,15 +7,19 @@ def clean_null_dates(df: DataFrame) -> DataFrame:
     )
 
 def clean_null_numbers(df: DataFrame) -> DataFrame:
-    return (
-        df.withColumn("salary", when(col("salary").isNull(), 0).otherwise(col("salary")))
-          .withColumn("bonus_amount", when(col("bonus_amount").isNull(), 0).otherwise(col("bonus_amount")))
-          .withColumn("stock_options", when(col("stock_options").isNull(), 0).otherwise(col("stock_options")))
-    )
+    for col_name in [
+        "salary", 
+        "bonus_amount", 
+        "stock_options"
+    ]:
+        df = df.withColumn(col_name, when(col(col_name).isNull(), 0).otherwise(col(col_name)))
+    return df
 
 def clean_null_strings(df: DataFrame) -> DataFrame:
     for col_name in [
-        "change_reason", "position", "currency"
+        "change_reason", 
+        "position", 
+        "currency"
     ]:
         df = df.withColumn(col_name, when(col(col_name).isNull(), "Unknown").otherwise(col(col_name)))
     return df 
