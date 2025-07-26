@@ -11,6 +11,7 @@ services:
     volumes:
       - ./data:/opt/spark/data
       - ./jobs:/opt/spark/apps
+      - ./test:/opt/spark/test
       - data-lake-logs:/opt/spark/data-lake-events
     env_file:
       - .env.data-lake
@@ -43,6 +44,7 @@ services:
     volumes:
       - ./data:/opt/spark/data
       - ./jobs:/opt/spark/apps
+      - ./test:/opt/spark/test
       - data-lake-logs:/opt/spark/data-lake-events
 
 volumes:
