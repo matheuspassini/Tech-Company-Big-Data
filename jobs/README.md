@@ -1,18 +1,12 @@
 # Jobs Directory
 
-This directory contains all Spark applications for the data pipeline.
+This directory contains all Spark applications for the data pipeline. All jobs are designed to run in **cluster mode** with YARN for distributed processing.
 
 ## Structure
 
 ```
 jobs/
 ├── bronze_to_silver/         # Bronze to Silver transformations
-│   ├── transformations/      # Modular transformation functions
-│   │   ├── employees_transformations.py
-│   │   ├── departments_transformations.py
-│   │   ├── clients_transformations.py
-│   │   ├── tasks_transformations.py
-│   │   └── salary_history_transformations.py
 │   ├── employees_silver_layer.py
 │   ├── departments_silver_layer.py
 │   ├── clients_silver_layer.py
@@ -24,8 +18,8 @@ jobs/
 
 ## Bronze to Silver Layer
 
-### Transformation Functions
-Located in `bronze_to_silver/transformations/`, these modular functions handle data quality:
+### Self-contained Transformation Functions
+Each job file contains all necessary transformation functions for data quality:
 
 - **clean_null_dates()**: Handle null dates with default values ("0000-01-01")
 - **clean_null_numbers()**: Handle null numeric values with default (0)
@@ -35,7 +29,7 @@ Located in `bronze_to_silver/transformations/`, these modular functions handle d
 - **clean_arrays()**: Handle null array values with default text
 
 ### Silver Layer Jobs
-Each job processes one entity from bronze to silver:
+Each job processes one entity from bronze to silver in cluster mode:
 
 - **employees_silver_layer.py**: Process employee data
 - **departments_silver_layer.py**: Process department data
@@ -45,19 +39,58 @@ Each job processes one entity from bronze to silver:
 
 ## Execution
 
-### Individual Jobs
+### Individual Jobs (Cluster Mode)
 ```bash
-docker exec tech-data-lake-master spark-submit --deploy-mode client /opt/spark/jobs/bronze_to_silver/employees_silver_layer.py
+# Employees job
+docker exec tech-data-lake-master spark-submit --master yarn --deploy-mode cluster /opt/spark/apps/bronze_to_silver/employees_silver_layer.py
+
+# Departments job
+docker exec tech-data-lake-master spark-submit --master yarn --deploy-mode cluster /opt/spark/apps/bronze_to_silver/departments_silver_layer.py
+
+# Clients job
+docker exec tech-data-lake-master spark-submit --master yarn --deploy-mode cluster /opt/spark/apps/bronze_to_silver/clients_silver_layer.py
+
+# Tasks job
+docker exec tech-data-lake-master spark-submit --master yarn --deploy-mode cluster /opt/spark/apps/bronze_to_silver/tasks_silver_layer.py
+
+# Salary History job
+docker exec tech-data-lake-master spark-submit --master yarn --deploy-mode cluster /opt/spark/apps/bronze_to_silver/salary_history_silver_layer.py
 ```
 
-### Full Pipeline
+### Full Pipeline (Cluster Mode)
 ```bash
 docker exec tech-data-lake-master python3 /opt/spark/apps/run_pipeline_1.py
 ```
+
+## Cluster Mode Features
+
+- **Self-contained Jobs**: No external dependencies or imports
+- **Distributed Processing**: Driver runs in separate container managed by YARN
+- **Resource Management**: Dynamic allocation via YARN
+- **Fault Tolerance**: Automatic recovery from failures
+- **Monitoring**: Real-time tracking via YARN Web UI
+
+## Job Monitoring
+
+### View Active Applications
+```bash
+docker exec tech-data-lake-master yarn application -list
+```
+
+### View Job Logs
+```bash
+docker exec tech-data-lake-master yarn logs -applicationId <application_id>
+```
+
+### Web Interfaces
+- **YARN Web UI**: http://localhost:8081
+- **Spark History Server**: http://localhost:18081
 
 ## Features
 
 - **Partitioning**: Data partitioned by year/month/day
 - **Data Quality**: Null value handling with defaults
 - **Error Handling**: Comprehensive error tracking
-- **Modular Design**: Reusable transformation functions 
+- **Self-contained Design**: All transformation functions embedded in job files
+- **Cluster Mode**: Distributed processing with YARN
+- **Scalability**: Easy to add/remove worker nodes 

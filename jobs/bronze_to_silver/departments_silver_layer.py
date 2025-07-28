@@ -1,13 +1,54 @@
+#!/usr/bin/env python3
+
 from pyspark.sql import SparkSession
 from pyspark.sql.types import (
     StructType, StructField, StringType, IntegerType, FloatType, BooleanType, ArrayType
 )
 from pyspark.sql.functions import col, trim, when, regexp_replace, split, expr, size, array, lit, current_timestamp, year, month, dayofmonth
-from transformations.departments_transformations import clean_arrays, clean_null_floats, clean_null_dates, clean_null_numbers, clean_null_strings
 
-spark = SparkSession.builder.appName('Departments-Tech-Company-Application').getOrCreate()
+# Include transformation functions directly in the file to work in cluster mode
+def clean_null_dates(df):
+    for col_name in [
+        "founded_date",
+        "last_audit_date"
+    ]:
+        df = df.withColumn(col_name, when(col(col_name).isNull(), "0000-01-01").otherwise(col(col_name)))
+    return df
 
-# 0. Schema definition
+def clean_null_floats(df):
+    for col_name in [
+        "budget",
+        "quarterly_budget",
+        "yearly_revenue"
+    ]:
+        df = df.withColumn(col_name, when(col(col_name).isNull(), 0.0).otherwise(col(col_name)))
+    return df    
+    
+def clean_null_numbers(df):
+    for col_name in [
+        "headcount",
+        "office_size"
+    ]:
+        df = df.withColumn(col_name, when(col(col_name).isNull(), 0).otherwise(col(col_name)))
+    return df
+
+def clean_null_strings(df):
+    for col_name in [
+        "location",
+        "region",
+        "description"
+    ]:
+        df = df.withColumn(col_name, when(col(col_name).isNull(), "Unknown").otherwise(col(col_name)))
+    return df
+    
+def clean_arrays(df):
+    return (
+        df.withColumn("tech_stack", when(col("tech_stack").isNull(), "Not available").otherwise(col("tech_stack")))
+    )
+
+spark = SparkSession.builder.appName('Departments-Tech-Company-Application-Cluster').getOrCreate()
+
+# Schema definition
 departments_schema = StructType([
     StructField("id", StringType(), True),
     StructField("name", StringType(), True),
@@ -27,7 +68,7 @@ departments_schema = StructType([
 ])
 
 # 1. Read CSV file with header
-df_departments = spark.read.schema(departments_schema).csv('hdfs:///opt/spark/data/bronze_layer/departments.csv', header=True)
+df_departments = spark.read.schema(departments_schema).csv('hdfs://master:8080/opt/spark/data/bronze_layer/departments.csv', header=True)
 
 # 2. Transform empty strings in null values
 df_departments = df_departments.select([
@@ -54,4 +95,6 @@ df_departments = df_departments.withColumn("month_founded_date", month(col("foun
 df_departments = df_departments.withColumn("day_founded_date", dayofmonth(col("founded_date")))
 
 # 7. Write to parquet with partitioning
-df_departments.write.partitionBy("year_founded_date", "month_founded_date", "day_founded_date").parquet("hdfs:///opt/spark/data/silver_layer/departments.parquet", mode="overwrite")
+df_departments.write.partitionBy("year_founded_date", "month_founded_date", "day_founded_date").parquet("hdfs://master:8080/opt/spark/data/silver_layer/departments.parquet", mode="overwrite")
+
+spark.stop() 

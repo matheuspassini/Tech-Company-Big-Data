@@ -1,13 +1,38 @@
+#!/usr/bin/env python3
+
 from pyspark.sql import SparkSession
 from pyspark.sql.types import (
     StructType, StructField, StringType, IntegerType, DateType, LongType
 )
 from pyspark.sql.functions import col, when, current_timestamp, year, month, dayofmonth
-from transformations.salary_history_transformations import clean_null_dates, clean_null_numbers, clean_null_strings
 
-spark = SparkSession.builder.appName('Salary-History-Tech-Company-Application').getOrCreate()
+# Include transformation functions directly in the file to work in cluster mode
+def clean_null_dates(df):
+    return (
+        df.withColumn("effective_date", when(col("effective_date").isNull(), "0000-01-01").otherwise(col("effective_date")))
+    )
 
-# 0. Schema definition
+def clean_null_numbers(df):
+    for col_name in [
+        "salary", 
+        "bonus_amount", 
+        "stock_options"
+    ]:
+        df = df.withColumn(col_name, when(col(col_name).isNull(), 0).otherwise(col(col_name)))
+    return df
+
+def clean_null_strings(df):
+    for col_name in [
+        "change_reason", 
+        "position", 
+        "currency"
+    ]:
+        df = df.withColumn(col_name, when(col(col_name).isNull(), "Unknown").otherwise(col(col_name)))
+    return df
+
+spark = SparkSession.builder.appName('Salary-History-Tech-Company-Application-Cluster').getOrCreate()
+
+# Schema definition
 salary_history_schema = StructType([
     StructField("id", StringType(), True),
     StructField("employee_id", StringType(), True),
@@ -22,7 +47,7 @@ salary_history_schema = StructType([
 ])
 
 # 1. Read Parquet file
-df_salary_history = spark.read.schema(salary_history_schema).parquet("hdfs:///opt/spark/data/bronze_layer/salary_history.parquet")
+df_salary_history = spark.read.schema(salary_history_schema).parquet("hdfs://master:8080/opt/spark/data/bronze_layer/salary_history.parquet")
 
 # 2. Transform empty strings in null values
 df_salary_history = df_salary_history.select([
@@ -48,4 +73,6 @@ df_salary_history = df_salary_history.withColumn("month_effective_date", month(c
 df_salary_history = df_salary_history.withColumn("day_effective_date", dayofmonth(col("effective_date")))
 
 # 7. Write to parquet with partitioning
-df_salary_history.write.partitionBy("year_effective_date", "month_effective_date", "day_effective_date").parquet("hdfs:///opt/spark/data/silver_layer/salary_history.parquet", mode="overwrite") 
+df_salary_history.write.partitionBy("year_effective_date", "month_effective_date", "day_effective_date").parquet("hdfs://master:8080/opt/spark/data/silver_layer/salary_history.parquet", mode="overwrite")
+
+spark.stop() 

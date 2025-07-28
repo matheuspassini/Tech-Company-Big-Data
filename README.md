@@ -1,6 +1,6 @@
 # Tech Data Lake
 
-This project implements a Data Lake using Apache Spark and Hadoop, configured with Docker for easy development and deployment.
+This project implements a Data Lake using Apache Spark and Hadoop, configured with Docker for easy development and deployment. All jobs run in **cluster mode** with YARN for distributed processing.
 
 ## Architecture
 
@@ -23,12 +23,6 @@ project/
 ├── data/                          # Directory for data storage
 ├── jobs/                          # Spark applications
 │   ├── bronze_to_silver/         # Bronze to Silver transformations
-│   │   ├── transformations/      # Modular transformation functions
-│   │   │   ├── employees_transformations.py
-│   │   │   ├── departments_transformations.py
-│   │   │   ├── clients_transformations.py
-│   │   │   ├── tasks_transformations.py
-│   │   │   └── salary_history_transformations.py
 │   │   ├── employees_silver_layer.py
 │   │   ├── departments_silver_layer.py
 │   │   ├── clients_silver_layer.py
@@ -43,9 +37,17 @@ project/
 ├── Dockerfile                    # Docker image configuration
 ├── docker-compose.yml           # Service configuration
 ├── entrypoint.sh                # Container startup script
-├── convert_parquet_to_csv.py    # Utility script
 └── .env.data-lake              # Environment variables
 ```
+
+## Cluster Mode Implementation
+
+All Spark jobs are designed to run in **cluster mode** with the following characteristics:
+
+- **Self-contained Jobs**: Each job file contains all necessary transformation functions
+- **No External Dependencies**: Eliminates import issues in distributed environments
+- **YARN Resource Management**: Efficient resource allocation and monitoring
+- **Distributed Processing**: Driver runs in separate container managed by YARN
 
 ## HDFS Data Structure
 
@@ -108,8 +110,9 @@ The data lake is organized in layers following the medallion architecture:
 ### Key Features:
 - **Partitioning**: Data is partitioned by year/month/day for optimal query performance
 - **Data Quality**: Null values are handled with appropriate defaults
-- **Transformations**: Modular transformation functions for each data type
+- **Transformations**: Self-contained transformation functions in each job
 - **Format**: Parquet format for efficient storage and querying
+- **Cluster Mode**: All jobs run in distributed mode with YARN
 
 ## How to Use
 
@@ -124,11 +127,55 @@ cd projeto3
 docker-compose -p tech-data-lake -f docker-compose.yml up -d --scale worker=3
 ```
 
-3. Run the Python pipeline:
+3. Run the complete pipeline (cluster mode):
 ```bash
 docker exec tech-data-lake-master python3 /opt/spark/apps/run_pipeline_1.py
 ```
 
-4. Access the web interfaces:
+4. Run individual jobs (cluster mode):
+```bash
+# Employees job
+docker exec tech-data-lake-master spark-submit --master yarn --deploy-mode cluster /opt/spark/apps/bronze_to_silver/employees_silver_layer.py
+
+# Departments job
+docker exec tech-data-lake-master spark-submit --master yarn --deploy-mode cluster /opt/spark/apps/bronze_to_silver/departments_silver_layer.py
+
+# Clients job
+docker exec tech-data-lake-master spark-submit --master yarn --deploy-mode cluster /opt/spark/apps/bronze_to_silver/clients_silver_layer.py
+
+# Tasks job
+docker exec tech-data-lake-master spark-submit --master yarn --deploy-mode cluster /opt/spark/apps/bronze_to_silver/tasks_silver_layer.py
+
+# Salary History job
+docker exec tech-data-lake-master spark-submit --master yarn --deploy-mode cluster /opt/spark/apps/bronze_to_silver/salary_history_silver_layer.py
+```
+
+5. Monitor jobs and access web interfaces:
 - **YARN Web UI**: http://localhost:8081
 - **Spark History Server**: http://localhost:18081
+
+6. View job logs:
+```bash
+# List applications
+docker exec tech-data-lake-master yarn application -list
+
+# View logs for specific application
+docker exec tech-data-lake-master yarn logs -applicationId <application_id>
+```
+
+## Job Execution Details
+
+- **Deploy Mode**: All jobs run in `cluster` mode
+- **Master**: YARN resource manager
+- **Driver**: Runs in separate container managed by YARN
+- **Executors**: Distributed across worker nodes
+- **Logs**: Available through YARN logs command
+- **Monitoring**: Real-time tracking via YARN Web UI
+
+## Performance Benefits
+
+- **Distributed Processing**: Workload spread across multiple nodes
+- **Resource Optimization**: Dynamic resource allocation via YARN
+- **Scalability**: Easy to add/remove worker nodes
+- **Fault Tolerance**: Automatic recovery from node failures
+- **Monitoring**: Comprehensive job tracking and metrics

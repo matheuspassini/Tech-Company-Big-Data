@@ -1,11 +1,52 @@
+#!/usr/bin/env python3
+
 from pyspark.sql import SparkSession
 from pyspark.sql.types import (
     StructType, StructField, StringType, IntegerType, FloatType, BooleanType, ArrayType
 )
 from pyspark.sql.functions import col, trim, when, regexp_replace, split, expr, size, array, lit, current_timestamp, year, month, dayofmonth
-from transformations.employees_transformations import clean_null_dates, clean_null_numbers, clean_null_strings, clean_null_booleans, clean_arrays
 
-spark = SparkSession.builder.appName('Employees-Tech-Company-Application').getOrCreate()
+# Include transformation functions directly in the file to work in cluster mode
+def clean_null_dates(df):
+    for col_name in [
+        "hire_date", 
+        "last_review_date", 
+        "next_review_date"
+    ]:
+        df = df.withColumn(col_name, when(col(col_name).isNull(), "0000-01-01").otherwise(col(col_name)))
+    return df
+    
+def clean_null_numbers(df):
+    for col_name in [
+        "projects_assigned", 
+        "overtime_hours", 
+        "vacation_days_used", 
+        "vacation_days_remaining", 
+        "years_experience"
+    ]:
+        df = df.withColumn(col_name, when(col(col_name).isNull(), 0).otherwise(col(col_name)))
+    return df
+    
+def clean_null_strings(df):
+    for col_name in [
+        "position", 
+        "work_location"
+    ]:
+        df = df.withColumn(col_name, when(col(col_name).isNull(), "Unknown").otherwise(col(col_name)))
+    return df
+    
+def clean_null_booleans(df):
+    return (
+        df.withColumn("is_manager", when(col("is_manager").isNull(), False).otherwise(col("is_manager")))
+    )
+
+def clean_arrays(df):
+    return (
+        df.withColumn("skills", when(col("skills").isNull(), "No skills").otherwise(col("skills")))
+          .withColumn("certifications", when(col("certifications").isNull(), "No certifications").otherwise(col("certifications")))
+    )
+
+spark = SparkSession.builder.appName('Employees-Tech-Company-Application-Cluster').getOrCreate()
 
 # Schema definition
 employee_schema = StructType([
@@ -39,8 +80,8 @@ employee_schema = StructType([
     StructField("vacation_days_remaining", IntegerType(), True),
 ])
 
-# 1. Read JSON file with header
-df_employee = spark.read.schema(employee_schema).json('hdfs:///opt/spark/data/bronze_layer/employees.json', multiLine=True)
+# 0. Read JSON file with header
+df_employee = spark.read.schema(employee_schema).json('hdfs://master:8080/opt/spark/data/bronze_layer/employees.json', multiLine=True)
 
 # 1. Transform empty strings in null values
 df_employee = df_employee.select([
@@ -74,4 +115,6 @@ df_employee = df_employee.withColumn("month_hire_date", month(col("hire_date")))
 df_employee = df_employee.withColumn("day_hire_date", dayofmonth(col("hire_date")))
 
 # 7. Write to parquet with partitioning
-df_employee.write.partitionBy("year_hire_date", "month_hire_date", "day_hire_date").parquet("hdfs:///opt/spark/data/silver_layer/employee.parquet", mode="overwrite")
+df_employee.write.partitionBy("year_hire_date", "month_hire_date", "day_hire_date").parquet("hdfs://master:8080/opt/spark/data/silver_layer/employee.parquet", mode="overwrite")
+
+spark.stop() 

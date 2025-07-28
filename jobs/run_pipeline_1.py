@@ -15,7 +15,7 @@ failed_jobs = {}
 for job_name, job_file in jobs:
     print(f"Running {job_name}")
     try:
-        subprocess.run(['spark-submit', '--deploy-mode', 'client', job_file])
+        subprocess.run(['spark-submit', '--master', 'yarn', '--deploy-mode', 'cluster', job_file])
         print("Done")
     except Exception as e:
         print(f"Error: {e}")
