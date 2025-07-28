@@ -2,10 +2,10 @@ from pyspark.sql import SparkSession
 from pyspark.sql.types import (
     StructType, StructField, StringType, IntegerType, FloatType, BooleanType, ArrayType
 )
-from pyspark.sql.functions import col, trim, when, regexp_replace, split, expr, size, array, lit, current_timestamp
+from pyspark.sql.functions import col, trim, when, regexp_replace, split, expr, size, array, lit, current_timestamp, year, month, dayofmonth
 from transformations.employees_transformations import clean_null_dates, clean_null_numbers, clean_null_strings, clean_null_booleans, clean_arrays
 
-spark = SparkSession.builder.appName('Tech-Company-Application').getOrCreate()
+spark = SparkSession.builder.appName('Employees-Tech-Company-Application').getOrCreate()
 
 # Schema definition
 employee_schema = StructType([
@@ -68,6 +68,10 @@ df_employee = clean_null_strings(df_employee)
 df_employee = clean_null_booleans(df_employee)
 df_employee = clean_arrays(df_employee)
 
+# 6. Add partitioning columns
+df_employee = df_employee.withColumn("year_hire_date", year(col("hire_date")))
+df_employee = df_employee.withColumn("month_hire_date", month(col("hire_date")))
+df_employee = df_employee.withColumn("day_hire_date", dayofmonth(col("hire_date")))
 
-# 6. Write to parquet
-df_employee.write.parquet("hdfs:///opt/spark/data/silver_layer/employee.parquet", mode="overwrite")
+# 7. Write to parquet with partitioning
+df_employee.write.partitionBy("year_hire_date", "month_hire_date", "day_hire_date").parquet("hdfs:///opt/spark/data/silver_layer/employee.parquet", mode="overwrite")

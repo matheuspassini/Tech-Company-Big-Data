@@ -23,7 +23,8 @@ def clean_null_numbers(df: DataFrame) -> DataFrame:
     
 def clean_null_strings(df: DataFrame) -> DataFrame:
     for col_name in [
-        "position", "work_location"
+        "position", 
+        "work_location"
     ]:
         df = df.withColumn(col_name, when(col(col_name).isNull(), "Unknown").otherwise(col(col_name)))
     return df

@@ -2,7 +2,7 @@ from pyspark.sql import SparkSession
 from pyspark.sql.types import (
     StructType, StructField, StringType, IntegerType, DateType, LongType
 )
-from pyspark.sql.functions import col, when, current_timestamp
+from pyspark.sql.functions import col, when, current_timestamp, year, month, dayofmonth
 from transformations.salary_history_transformations import clean_null_dates, clean_null_numbers, clean_null_strings
 
 spark = SparkSession.builder.appName('Salary-History-Tech-Company-Application').getOrCreate()
@@ -42,5 +42,10 @@ df_salary_history = clean_null_dates(df_salary_history)
 df_salary_history = clean_null_numbers(df_salary_history)
 df_salary_history = clean_null_strings(df_salary_history)
 
-# 6. Write to parquet
-df_salary_history.write.parquet("hdfs:///opt/spark/data/silver_layer/salary_history.parquet", mode="overwrite") 
+# 6. Add partitioning columns
+df_salary_history = df_salary_history.withColumn("year_effective_date", year(col("effective_date")))
+df_salary_history = df_salary_history.withColumn("month_effective_date", month(col("effective_date")))
+df_salary_history = df_salary_history.withColumn("day_effective_date", dayofmonth(col("effective_date")))
+
+# 7. Write to parquet with partitioning
+df_salary_history.write.partitionBy("year_effective_date", "month_effective_date", "day_effective_date").parquet("hdfs:///opt/spark/data/silver_layer/salary_history.parquet", mode="overwrite") 

@@ -5,8 +5,6 @@ __pycache__/
 *.pyd
 .Python
 
-# Temporary conversion scripts
-convert_parquet_to_csv.py
 
 # IDE files
 .vscode/
@@ -15,3 +13,14 @@ convert_parquet_to_csv.py
 # OS files
 .DS_Store
 Thumbs.db 
+
+# Processed data files
+data-processed/
+*.parquet
+
+# Logs
+*.log
+
+# Temporary files
+*.tmp
+*.temp 

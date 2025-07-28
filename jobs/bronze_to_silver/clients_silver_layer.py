@@ -2,7 +2,7 @@ from pyspark.sql import SparkSession
 from pyspark.sql.types import (
     StructType, StructField, StringType, IntegerType, FloatType
 )
-from pyspark.sql.functions import col, when, current_timestamp
+from pyspark.sql.functions import col, when, current_timestamp, year, month, dayofmonth
 from transformations.clients_transformations import clean_null_dates, clean_null_numbers, clean_null_floats, clean_null_strings
 
 spark = SparkSession.builder.appName('Clients-Tech-Company-Application').getOrCreate()
@@ -53,5 +53,10 @@ df_clients = clean_null_numbers(df_clients)
 df_clients = clean_null_floats(df_clients)
 df_clients = clean_null_strings(df_clients)
 
-# 6. Write to CSV
-df_clients.write.csv("hdfs:///opt/spark/data/silver_layer/clients.csv", mode="overwrite", header=True)
+# 6. Add partitioning columns
+df_clients = df_clients.withColumn("year_contract_start", year(col("contract_start_date")))
+df_clients = df_clients.withColumn("month_contract_start", month(col("contract_start_date")))
+df_clients = df_clients.withColumn("day_contract_start", dayofmonth(col("contract_start_date")))
+
+# 7. Write to parquet with partitioning
+df_clients.write.partitionBy("year_contract_start", "month_contract_start", "day_contract_start").parquet("hdfs:///opt/spark/data/silver_layer/clients.parquet", mode="overwrite")
