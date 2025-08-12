@@ -12,7 +12,8 @@ jobs/
 │   ├── clients_silver_layer.py
 │   ├── tasks_silver_layer.py
 │   └── salary_history_silver_layer.py
-├── silver_to_gold/           # Silver to Gold transformations (future)
+├── silver_to_gold/           # Silver to Gold transformations
+│   └── department_analytics_gold.py
 └── run_pipeline_1.py        # Main pipeline execution script
 ```
 
@@ -37,10 +38,40 @@ Each job processes one entity from bronze to silver in cluster mode:
 - **tasks_silver_layer.py**: Process task data
 - **salary_history_silver_layer.py**: Process salary history data
 
+## Gold Layer Jobs
+The Gold layer transforms cleaned data into business intelligence insights:
+
+- **department_analytics_gold.py**: Creates comprehensive department analytics with aggregated metrics
+
+### Department Analytics Features
+- **Workforce Composition**: Headcount, positions, education levels
+- **Financial Performance**: Budget allocation, salary ratios, cost analysis
+- **Skills & Competencies**: Skills and certification analysis
+- **Experience & Performance**: Years of experience and performance metrics
+- **Project Management**: Project workload and assignment analysis
+- **Work-Life Balance**: Overtime and vacation metrics
+- **Data Quality Monitoring**: Automatic detection of data quality issues
+- **Department Health Assessment**: Budget and performance flags
+
+### Analytics Metrics
+- Employee counts and position diversity
+- Financial metrics (budget, salary ratios)
+- Skills and certification analysis
+- Experience and performance metrics
+- Workload and project metrics
+- Work-life balance indicators
+- Department health flags
+
+### Partitioning Strategy
+- **Region**: Geographic distribution analysis
+- **Department Name**: Department-specific insights
+- **Hire Year**: Temporal analysis and trends
+
 ## Execution
 
 ### Individual Jobs (Cluster Mode)
 ```bash
+# Bronze to Silver Jobs
 # Employees job
 docker exec tech-data-lake-master spark-submit --master yarn --deploy-mode cluster /opt/spark/apps/bronze_to_silver/employees_silver_layer.py
 
@@ -55,6 +86,10 @@ docker exec tech-data-lake-master spark-submit --master yarn --deploy-mode clust
 
 # Salary History job
 docker exec tech-data-lake-master spark-submit --master yarn --deploy-mode cluster /opt/spark/apps/bronze_to_silver/salary_history_silver_layer.py
+
+# Silver to Gold Jobs
+# Department Analytics job
+docker exec tech-data-lake-master spark-submit --master yarn --deploy-mode cluster /opt/spark/apps/silver_to_gold/department_analytics_gold.py
 ```
 
 ### Full Pipeline (Cluster Mode)
@@ -88,9 +123,11 @@ docker exec tech-data-lake-master yarn logs -applicationId <application_id>
 
 ## Features
 
-- **Partitioning**: Data partitioned by year/month/day
+- **Partitioning**: Data partitioned by year/month/day (Silver) and region/department/hire_year (Gold)
 - **Data Quality**: Null value handling with defaults
 - **Error Handling**: Comprehensive error tracking
 - **Self-contained Design**: All transformation functions embedded in job files
 - **Cluster Mode**: Distributed processing with YARN
-- **Scalability**: Easy to add/remove worker nodes 
+- **Scalability**: Easy to add/remove worker nodes
+- **Business Intelligence**: Advanced analytics and insights in Gold layer
+- **Data Quality Monitoring**: Automatic detection and flagging of data issues 

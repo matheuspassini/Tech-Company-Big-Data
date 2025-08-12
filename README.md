@@ -29,6 +29,7 @@ project/
 │   │   ├── tasks_silver_layer.py
 │   │   └── salary_history_silver_layer.py
 │   ├── silver_to_gold/           # Silver to Gold transformations
+│   │   └── department_analytics_gold.py
 │   └── run_pipeline_1.py        # Main pipeline execution script
 ├── yarn/                         # Hadoop/YARN configurations
 ├── ssh/                          # SSH configurations for node communication
@@ -101,6 +102,21 @@ The data lake is organized in layers following the medallion architecture:
     └── year=2025/
 ```
 
+### Gold Layer (Business Intelligence & Analytics)
+```
+/opt/spark/data/gold_layer/
+├── department_analytics.parquet/
+│   ├── region=Central/
+│   │   ├── department_name=Engineering/
+│   │   │   ├── hire_year=2020/
+│   │   │   ├── hire_year=2021/
+│   │   │   └── hire_year=2022/
+│   │   └── department_name=Marketing/
+│   └── region=South/
+│       ├── department_name=Sales/
+│       └── department_name=DevOps/
+```
+
 ### Data Quality Handling:
 - **Year 0 Partition**: Contains records with null or invalid dates
 - **Default Values**: Null dates are set to "0000-01-01" and partitioned as year=0
@@ -108,11 +124,12 @@ The data lake is organized in layers following the medallion architecture:
 - **Audit Trail**: Maintains original data while flagging quality issues
 
 ### Key Features:
-- **Partitioning**: Data is partitioned by year/month/day for optimal query performance
+- **Partitioning**: Data is partitioned by year/month/day and by region/department/hire year for optimal query performance
 - **Data Quality**: Null values are handled with appropriate defaults
 - **Transformations**: Self-contained transformation functions in each job
 - **Format**: Parquet format for efficient storage and querying
 - **Cluster Mode**: All jobs run in distributed mode with YARN
+- **Business Intelligence**: Gold layer provides aggregated analytics and insights
 
 ## How to Use
 
@@ -134,6 +151,7 @@ docker exec tech-data-lake-master python3 /opt/spark/apps/run_pipeline_1.py
 
 4. Run individual jobs (cluster mode):
 ```bash
+# Silver Jobs
 # Employees job
 docker exec tech-data-lake-master spark-submit --master yarn --deploy-mode cluster /opt/spark/apps/bronze_to_silver/employees_silver_layer.py
 
@@ -148,6 +166,10 @@ docker exec tech-data-lake-master spark-submit --master yarn --deploy-mode clust
 
 # Salary History job
 docker exec tech-data-lake-master spark-submit --master yarn --deploy-mode cluster /opt/spark/apps/bronze_to_silver/salary_history_silver_layer.py
+
+# Gold Jobs
+# Department Analytics job
+docker exec tech-data-lake-master spark-submit --master yarn --deploy-mode cluster /opt/spark/apps/silver_to_gold/department_analytics_gold.py
 ```
 
 5. Monitor jobs and access web interfaces:
@@ -179,3 +201,4 @@ docker exec tech-data-lake-master yarn logs -applicationId <application_id>
 - **Scalability**: Easy to add/remove worker nodes
 - **Fault Tolerance**: Automatic recovery from node failures
 - **Monitoring**: Comprehensive job tracking and metrics
+- **Business Intelligence**: Advanced analytics and insights in Gold layer
