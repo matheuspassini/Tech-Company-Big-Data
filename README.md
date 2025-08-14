@@ -30,6 +30,8 @@ project/
 │   │   └── salary_history_silver_layer.py
 │   ├── silver_to_gold/           # Silver to Gold transformations
 │   │   └── department_analytics_gold.py
+│   ├── data_quality/             # Data Quality Assessment
+│   │   └── data_quality_report.py
 │   └── run_pipeline_1.py        # Main pipeline execution script
 ├── yarn/                         # Hadoop/YARN configurations
 ├── ssh/                          # SSH configurations for node communication
