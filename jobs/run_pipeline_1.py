@@ -3,6 +3,7 @@
 import subprocess
 
 jobs = [
+    ("Data Quality Report", "/opt/spark/apps/data_quality/data_quality_report.py"),
     ("Employees", "/opt/spark/apps/bronze_to_silver/employees_silver_layer.py"),
     ("Departments", "/opt/spark/apps/bronze_to_silver/departments_silver_layer.py"),
     ("Clients", "/opt/spark/apps/bronze_to_silver/clients_silver_layer.py"),
