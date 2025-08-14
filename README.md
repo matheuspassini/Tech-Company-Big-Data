@@ -117,6 +117,16 @@ The data lake is organized in layers following the medallion architecture:
 │       └── department_name=DevOps/
 ```
 
+### Data Quality Layer (Quality Assessment & Monitoring)
+```
+/opt/spark/data/bronze_layer/data_quality/
+├── data_quality_report/
+│   ├── _SUCCESS
+│   ├── flag=Green/           # High quality data (0-10% missing values)
+│   ├── flag=Yellow/          # Medium quality data (10-30% missing values)
+│   └── flag=Red/             # Low quality data (>30% missing values)
+```
+
 ### Data Quality Handling:
 - **Year 0 Partition**: Contains records with null or invalid dates
 - **Default Values**: Null dates are set to "0000-01-01" and partitioned as year=0
@@ -130,6 +140,17 @@ The data lake is organized in layers following the medallion architecture:
 - **Format**: Parquet format for efficient storage and querying
 - **Cluster Mode**: All jobs run in distributed mode with YARN
 - **Business Intelligence**: Gold layer provides aggregated analytics and insights
+- **Quality Monitoring**: Automated data quality assessment with flag-based partitioning
+
+### Data Quality System:
+- **Quality Assessment**: Analyzes missing values across all columns in all data sources
+- **Quality Flags**: 
+  - **Green**: 0-10% missing values (high quality)
+  - **Yellow**: 10-30% missing values (medium quality)
+  - **Red**: >30% missing values (low quality)
+- **Partitioned Reports**: Quality reports are partitioned by flag for easy analysis
+- **Multi-Format Support**: Handles CSV, JSON, and Parquet files
+- **Comprehensive Coverage**: Analyzes all 6 data sources (departments, clients, employees, tasks, salary_history, projects)
 
 ## How to Use
 
@@ -170,7 +191,10 @@ docker exec tech-data-lake-master spark-submit --master yarn --deploy-mode clust
 # Gold Jobs
 # Department Analytics job
 docker exec tech-data-lake-master spark-submit --master yarn --deploy-mode cluster /opt/spark/apps/silver_to_gold/department_analytics_gold.py
-```
+
+# Data Quality Jobs
+# Data Quality Report job
+docker exec tech-data-lake-master spark-submit --master yarn --deploy-mode cluster /opt/spark/apps/data_quality/data_quality_report.py
 
 5. Monitor jobs and access web interfaces:
 - **YARN Web UI**: http://localhost:8081

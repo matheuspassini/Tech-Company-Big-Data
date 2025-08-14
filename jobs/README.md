@@ -14,6 +14,8 @@ jobs/
 │   └── salary_history_silver_layer.py
 ├── silver_to_gold/           # Silver to Gold transformations
 │   └── department_analytics_gold.py
+├── data_quality/             # Data Quality Assessment
+│   └── data_quality_report.py
 └── run_pipeline_1.py        # Main pipeline execution script
 ```
 
@@ -43,6 +45,11 @@ The Gold layer transforms cleaned data into business intelligence insights:
 
 - **department_analytics_gold.py**: Creates comprehensive department analytics with aggregated metrics
 
+## Data Quality Layer Jobs
+The Data Quality layer provides automated assessment and monitoring of data quality across all sources:
+
+- **data_quality_report.py**: Analyzes data quality and generates partitioned reports by quality flags
+
 ### Department Analytics Features
 - **Workforce Composition**: Headcount, positions, education levels
 - **Financial Performance**: Budget allocation, salary ratios, cost analysis
@@ -67,6 +74,16 @@ The Gold layer transforms cleaned data into business intelligence insights:
 - **Department Name**: Department-specific insights
 - **Hire Year**: Temporal analysis and trends
 
+### Data Quality Features
+- **Multi-Format Support**: Handles CSV, JSON, and Parquet files
+- **Quality Assessment**: Analyzes missing values across all columns
+- **Quality Flags**: 
+  - **Green**: 0-10% missing values (high quality)
+  - **Yellow**: 10-30% missing values (medium quality)
+  - **Red**: >30% missing values (low quality)
+- **Partitioned Reports**: Quality reports partitioned by flag for easy analysis
+- **Comprehensive Coverage**: Analyzes all 6 data sources (departments, clients, employees, tasks, salary_history, projects)
+
 ## Execution
 
 ### Individual Jobs (Cluster Mode)
@@ -90,7 +107,10 @@ docker exec tech-data-lake-master spark-submit --master yarn --deploy-mode clust
 # Silver to Gold Jobs
 # Department Analytics job
 docker exec tech-data-lake-master spark-submit --master yarn --deploy-mode cluster /opt/spark/apps/silver_to_gold/department_analytics_gold.py
-```
+
+# Data Quality Jobs
+# Data Quality Report job
+docker exec tech-data-lake-master spark-submit --master yarn --deploy-mode cluster /opt/spark/apps/data_quality/data_quality_report.py
 
 ### Full Pipeline (Cluster Mode)
 ```bash
@@ -130,4 +150,5 @@ docker exec tech-data-lake-master yarn logs -applicationId <application_id>
 - **Cluster Mode**: Distributed processing with YARN
 - **Scalability**: Easy to add/remove worker nodes
 - **Business Intelligence**: Advanced analytics and insights in Gold layer
-- **Data Quality Monitoring**: Automatic detection and flagging of data issues 
+- **Data Quality Monitoring**: Automatic detection and flagging of data issues
+- **Quality Assessment**: Comprehensive data quality analysis with flag-based partitioning 
