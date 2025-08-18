@@ -22,7 +22,7 @@ The project consists of the following components:
 project/
 ├── data/                          # Directory for data storage
 ├── jobs/                          # Spark applications
-│   ├── bronze_to_silver/         # Bronze to Silver transformations
+│   ├── bronze_to_silver/         # Bronze to Silver transformations (with comprehensive logging)
 │   │   ├── employees_silver_layer.py
 │   │   ├── departments_silver_layer.py
 │   │   ├── clients_silver_layer.py
@@ -143,6 +143,9 @@ The data lake is organized in layers following the medallion architecture:
 - **Cluster Mode**: All jobs run in distributed mode with YARN
 - **Business Intelligence**: Gold layer provides aggregated analytics and insights
 - **Quality Monitoring**: Automated data quality assessment with flag-based partitioning
+- **Comprehensive Logging**: Professional logging system with decorators for observability and debugging
+- **Performance Monitoring**: Automatic execution time tracking and record counting
+- **Production Ready**: Enterprise-grade logging for production environments
 
 ### Data Quality System:
 - **Quality Assessment**: Analyzes missing values across all columns in all data sources
@@ -209,7 +212,30 @@ docker exec tech-data-lake-master yarn application -list
 
 # View logs for specific application
 docker exec tech-data-lake-master yarn logs -applicationId <application_id>
+
+## Logging System
+The project implements a comprehensive logging system using Python decorators for enhanced observability and debugging:
+
+### **Logging Features:**
+- **Decorator-based Logging**: `@log_execution` decorator applied to all transformation functions
+- **Execution Timing**: Automatic measurement of function execution time
+- **Record Counting**: Automatic counting of records processed by each function
+- **Structured Logs**: Consistent log format with timestamps and log levels
+- **Docker-friendly**: Logs output to console for easy container monitoring
+
+### **Log Format:**
 ```
+2024-01-15 10:30:15,123 - __main__ - INFO - Starting execution of clean_null_dates
+2024-01-15 10:30:16,456 - __main__ - INFO - Function clean_null_dates processed 1000 records
+2024-01-15 10:30:17,789 - __main__ - INFO - Function clean_null_dates completed in 1.23 seconds
+```
+
+### **Benefits:**
+- **Observability**: Complete visibility into ETL pipeline execution
+- **Performance Monitoring**: Track execution time of each transformation
+- **Data Quality**: Monitor record counts and data processing
+- **Debugging**: Easy identification of bottlenecks and issues
+- **Production Ready**: Professional logging for production environments
 
 ## Job Execution Details
 
@@ -217,7 +243,7 @@ docker exec tech-data-lake-master yarn logs -applicationId <application_id>
 - **Master**: YARN resource manager
 - **Driver**: Runs in separate container managed by YARN
 - **Executors**: Distributed across worker nodes
-- **Logs**: Available through YARN logs command
+- **Logs**: Available through YARN logs command and comprehensive Python logging
 - **Monitoring**: Real-time tracking via YARN Web UI
 
 ## Performance Benefits

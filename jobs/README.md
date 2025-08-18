@@ -22,7 +22,7 @@ jobs/
 ## Bronze to Silver Layer
 
 ### Self-contained Transformation Functions
-Each job file contains all necessary transformation functions for data quality:
+Each job file contains all necessary transformation functions for data quality with comprehensive logging:
 
 - **clean_null_dates()**: Handle null dates with default values ("0000-01-01")
 - **clean_null_numbers()**: Handle null numeric values with default (0)
@@ -30,6 +30,14 @@ Each job file contains all necessary transformation functions for data quality:
 - **clean_null_strings()**: Handle null string values with default ("Unknown")
 - **clean_null_booleans()**: Handle null boolean values with default (False)
 - **clean_arrays()**: Handle null array values with default text
+
+### Logging System
+All transformation functions are decorated with `@log_execution` for enhanced observability:
+
+- **Execution Timing**: Automatic measurement of function execution time
+- **Record Counting**: Automatic counting of records processed by each function
+- **Structured Logs**: Consistent log format with timestamps and log levels
+- **Performance Monitoring**: Track execution time and data processing metrics
 
 ### Silver Layer Jobs
 Each job processes one entity from bronze to silver in cluster mode:
@@ -134,7 +142,14 @@ docker exec tech-data-lake-master yarn application -list
 
 ### View Job Logs
 ```bash
+# YARN logs (detailed cluster logs)
 docker exec tech-data-lake-master yarn logs -applicationId <application_id>
+
+### Log Format Example
+```
+2024-01-15 10:30:15,123 - __main__ - INFO - Starting execution of clean_null_dates
+2024-01-15 10:30:16,456 - __main__ - INFO - Function clean_null_dates processed 1000 records
+2024-01-15 10:30:17,789 - __main__ - INFO - Function clean_null_dates completed in 1.23 seconds
 ```
 
 ### Web Interfaces
@@ -151,4 +166,7 @@ docker exec tech-data-lake-master yarn logs -applicationId <application_id>
 - **Scalability**: Easy to add/remove worker nodes
 - **Business Intelligence**: Advanced analytics and insights in Gold layer
 - **Data Quality Monitoring**: Automatic detection and flagging of data issues
-- **Quality Assessment**: Comprehensive data quality analysis with flag-based partitioning 
+- **Quality Assessment**: Comprehensive data quality analysis with flag-based partitioning
+- **Comprehensive Logging**: Professional logging system with decorators for observability and debugging
+- **Performance Monitoring**: Automatic execution time tracking and record counting
+- **Production Ready**: Enterprise-grade logging for production environments 
