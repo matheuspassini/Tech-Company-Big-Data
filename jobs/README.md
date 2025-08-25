@@ -1,6 +1,6 @@
 # Jobs Directory
 
-This directory contains all Spark applications for the data pipeline. All jobs are designed to run in **cluster mode** with YARN for distributed processing.
+This directory contains all Spark applications for the data pipeline. All jobs are designed to run in **cluster mode** with YARN for distributed processing and use shared utilities for consistent operations.
 
 ## Structure
 
@@ -16,13 +16,25 @@ jobs/
 │   └── department_analytics_gold.py
 ├── data_quality/             # Data Quality Assessment
 │   └── data_quality_report.py
+├── utils/                    # Shared utilities
+│   ├── config.py
+│   ├── spark_utils.py
+│   └── __init__.py
 └── run_pipeline_1.py        # Main pipeline execution script
 ```
 
+## Shared Utilities
+
+All jobs use centralized utilities for consistent operations:
+
+- **config.py**: Centralized Spark configurations and paths
+- **spark_utils.py**: Common data processing and logging functions
+- **utils.zip**: Automatically created and distributed to all containers
+
 ## Bronze to Silver Layer
 
-### Self-contained Transformation Functions
-Each job file contains all necessary transformation functions for data quality with comprehensive logging:
+### Shared Transformation Functions
+All jobs use centralized transformation functions from shared utilities:
 
 - **clean_null_dates()**: Handle null dates with default values ("0000-01-01")
 - **clean_null_numbers()**: Handle null numeric values with default (0)
@@ -32,7 +44,7 @@ Each job file contains all necessary transformation functions for data quality w
 - **clean_arrays()**: Handle null array values with default text
 
 ### Logging System
-All transformation functions are decorated with `@log_execution` for enhanced observability:
+All transformation functions use centralized logging with `@log_execution` decorator:
 
 - **Execution Timing**: Automatic measurement of function execution time
 - **Record Counting**: Automatic counting of records processed by each function
@@ -98,27 +110,27 @@ The Data Quality layer provides automated assessment and monitoring of data qual
 ```bash
 # Bronze to Silver Jobs
 # Employees job
-docker exec tech-data-lake-master spark-submit --master yarn --deploy-mode cluster /opt/spark/apps/bronze_to_silver/employees_silver_layer.py
+docker exec tech-data-lake-master spark-submit --master yarn --deploy-mode cluster --py-files /opt/spark/apps/utils.zip /opt/spark/apps/bronze_to_silver/employees_silver_layer.py
 
 # Departments job
-docker exec tech-data-lake-master spark-submit --master yarn --deploy-mode cluster /opt/spark/apps/bronze_to_silver/departments_silver_layer.py
+docker exec tech-data-lake-master spark-submit --master yarn --deploy-mode cluster --py-files /opt/spark/apps/utils.zip /opt/spark/apps/bronze_to_silver/departments_silver_layer.py
 
 # Clients job
-docker exec tech-data-lake-master spark-submit --master yarn --deploy-mode cluster /opt/spark/apps/bronze_to_silver/clients_silver_layer.py
+docker exec tech-data-lake-master spark-submit --master yarn --deploy-mode cluster --py-files /opt/spark/apps/utils.zip /opt/spark/apps/bronze_to_silver/clients_silver_layer.py
 
 # Tasks job
-docker exec tech-data-lake-master spark-submit --master yarn --deploy-mode cluster /opt/spark/apps/bronze_to_silver/tasks_silver_layer.py
+docker exec tech-data-lake-master spark-submit --master yarn --deploy-mode cluster --py-files /opt/spark/apps/utils.zip /opt/spark/apps/bronze_to_silver/tasks_silver_layer.py
 
 # Salary History job
-docker exec tech-data-lake-master spark-submit --master yarn --deploy-mode cluster /opt/spark/apps/bronze_to_silver/salary_history_silver_layer.py
+docker exec tech-data-lake-master spark-submit --master yarn --deploy-mode cluster --py-files /opt/spark/apps/utils.zip /opt/spark/apps/bronze_to_silver/salary_history_silver_layer.py
 
 # Silver to Gold Jobs
 # Department Analytics job
-docker exec tech-data-lake-master spark-submit --master yarn --deploy-mode cluster /opt/spark/apps/silver_to_gold/department_analytics_gold.py
+docker exec tech-data-lake-master spark-submit --master yarn --deploy-mode cluster --py-files /opt/spark/apps/utils.zip /opt/spark/apps/silver_to_gold/department_analytics_gold.py
 
 # Data Quality Jobs
 # Data Quality Report job
-docker exec tech-data-lake-master spark-submit --master yarn --deploy-mode cluster /opt/spark/apps/data_quality/data_quality_report.py
+docker exec tech-data-lake-master spark-submit --master yarn --deploy-mode cluster --py-files /opt/spark/apps/utils.zip /opt/spark/apps/data_quality/data_quality_report.py
 
 ### Full Pipeline (Cluster Mode)
 ```bash
@@ -127,13 +139,23 @@ docker exec tech-data-lake-master python3 /opt/spark/apps/run_pipeline_1.py
 
 ## Cluster Mode Features
 
-- **Self-contained Jobs**: No external dependencies or imports
+- **Shared Utilities**: Centralized utilities distributed via utils.zip
 - **Distributed Processing**: Driver runs in separate container managed by YARN
 - **Resource Management**: Dynamic allocation via YARN
 - **Fault Tolerance**: Automatic recovery from failures
 - **Monitoring**: Real-time tracking via YARN Web UI
 
 ## Job Monitoring
+
+### Monitor Applications in Real-time
+```bash
+# Monitor YARN applications with watch (real-time updates every 3 seconds)
+watch -n 3 'docker exec tech-data-lake-master yarn application -list'
+
+# Monitor applications with different intervals
+watch -n 5 'docker exec tech-data-lake-master yarn application -list'  # 5 seconds
+watch -n 1 'docker exec tech-data-lake-master yarn application -list'  # 1 second
+```
 
 ### View Active Applications
 ```bash
@@ -161,7 +183,7 @@ docker exec tech-data-lake-master yarn logs -applicationId <application_id>
 - **Partitioning**: Data partitioned by year/month/day (Silver) and region/department/hire_year (Gold)
 - **Data Quality**: Null value handling with defaults
 - **Error Handling**: Comprehensive error tracking
-- **Self-contained Design**: All transformation functions embedded in job files
+- **Shared Utilities**: Centralized utilities for consistent operations
 - **Cluster Mode**: Distributed processing with YARN
 - **Scalability**: Easy to add/remove worker nodes
 - **Business Intelligence**: Advanced analytics and insights in Gold layer

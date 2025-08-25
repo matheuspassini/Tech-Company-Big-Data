@@ -1,131 +1,82 @@
-# Data Quality System
+# Data Quality Report
 
 ## Overview
-The Data Quality system provides automated assessment and monitoring of data quality across all data sources in the Bronze Layer. It analyzes missing values, assigns quality flags, and generates partitioned reports for easy analysis.
+
+This job performs data quality assessment on all files in the bronze layer, analyzing missing values and generating quality reports. Uses shared utilities and centralized configurations.
 
 ## Features
 
-### 🔍 **Multi-Format Support**
-- **CSV Files**: Handles comma-separated values with proper escaping
-- **JSON Files**: Processes JSON arrays with multiline support
-- **Parquet Files**: Reads optimized columnar format
+- **Multi-format Support**: Handles CSV, JSON, and Parquet files
+- **Quality Assessment**: Analyzes missing values across all columns
+- **Quality Flags**: 
+  - **Green**: 0-10% missing values (high quality)
+  - **Yellow**: 10-30% missing values (medium quality)
+  - **Red**: >30% missing values (low quality)
+- **Partitioned Reports**: Quality reports partitioned by flag for easy analysis
+- **Comprehensive Coverage**: Analyzes all 6 data sources (departments, clients, employees, tasks, salary_history, projects)
+- **Shared Utilities**: Uses centralized utilities for logging and data processing
 
-### 🏷️ **Quality Flags**
-- **🟢 Green**: 0-10% missing values (High Quality)
-- **🟡 Yellow**: 10-30% missing values (Medium Quality)  
-- **🔴 Red**: >30% missing values (Low Quality)
+## Execution
 
-### 📊 **Comprehensive Analysis**
-- **All Data Sources**: Analyzes 6 data sources (departments, clients, employees, tasks, salary_history, projects)
-- **All Columns**: Evaluates every column in each dataset
-- **Missing Value Detection**: Identifies null, empty, NaN, and other missing value patterns
-
-### 📁 **Partitioned Output**
-- **Flag-Based Partitioning**: Reports organized by quality flags
-- **Parquet Format**: Efficient storage and querying
-- **HDFS Storage**: Distributed storage in data lake
-
-## Files
-
-### `data_quality_report.py`
-Main job that performs comprehensive data quality assessment.
-
-**Features:**
-- Reads all data sources from Bronze Layer
-- Calculates missing value percentages
-- Assigns quality flags based on thresholds
-- Generates partitioned reports in HDFS
-
-**Output Structure:**
-```
-/opt/spark/data/bronze_layer/data_quality/data_quality_report/
-├── flag=Green/           # High quality data (0-10% missing)
-├── flag=Yellow/          # Medium quality data (10-30% missing)
-└── flag=Red/             # Low quality data (>30% missing)
-```
-
-## Usage
-
-### Run Data Quality Report
+### Individual Job (Cluster Mode)
 ```bash
-docker exec tech-data-lake-master spark-submit --master yarn --deploy-mode cluster /opt/spark/apps/data_quality/data_quality_report.py
+docker exec tech-data-lake-master spark-submit \
+  --master yarn \
+  --deploy-mode cluster \
+  --py-files /opt/spark/apps/utils.zip \
+  /opt/spark/apps/data_quality/data_quality_report.py
 ```
 
-### Run as Part of Pipeline
-The data quality report is automatically executed as the first step in the main pipeline:
+### Full Pipeline
 ```bash
-docker exec tech-data-lake-master spark-submit --master yarn --deploy-mode cluster /opt/spark/apps/run_pipeline_1.py
+docker exec tech-data-lake-master python3 /opt/spark/apps/run_pipeline_1.py
 ```
 
-## Report Schema
+## Output
 
-| Column | Type | Description |
-|--------|------|-------------|
-| `datasource` | String | Name of the data file |
-| `column` | String | Column name being analyzed |
-| `null_count` | Integer | Number of missing values |
-| `count` | Integer | Total number of rows |
-| `null_percentage` | Double | Percentage of missing values |
-| `flag` | String | Quality flag (Green/Yellow/Red) |
+The job generates partitioned quality reports in:
+```
+hdfs://master:8080/opt/spark/data/bronze_layer/data_quality/data_quality_report/
+├── flag=Green/
+├── flag=Yellow/
+└── flag=Red/
+```
 
-## Quality Thresholds
+## Algorithm
 
-| Flag | Missing Values | Description |
-|------|----------------|-------------|
-| 🟢 Green | 0-10% | High quality data, ready for processing |
-| 🟡 Yellow | 10-30% | Medium quality, may need attention |
-| 🔴 Red | >30% | Low quality, requires investigation |
+1. **File Processing**: Reads each file from bronze layer
+2. **Null Detection**: Identifies missing values using multiple conditions
+3. **Percentage Calculation**: Computes missing value percentage per column
+4. **Flag Assignment**: Assigns quality flags based on thresholds
+5. **Report Generation**: Creates partitioned output by quality flag
 
-## Integration
+## Data Sources
 
-### Pipeline Integration
-- **First Step**: Data quality assessment runs before all transformations
-- **Quality Monitoring**: Continuous monitoring of data health
-- **Proactive Detection**: Early identification of data issues
+- departments.csv
+- clients.csv
+- employees.json
+- tasks.json
+- salary_history.parquet
+- projects.parquet
 
-### Data Lake Architecture
-- **Bronze Layer**: Raw data quality assessment
-- **Quality Reports**: Stored in dedicated quality layer
-- **Flag Partitioning**: Enables efficient querying by quality level
+## Shared Utilities
 
-## Benefits
+This job uses the following shared utilities:
+- **Logging**: Centralized logging with execution tracking
+- **Data Processing**: Common data cleaning and transformation functions
+- **Configuration**: Centralized Spark configurations and paths
 
-### 📈 **Proactive Monitoring**
-- Early detection of data quality issues
-- Automated flagging of problematic datasets
-- Continuous quality assessment
+## Monitoring
 
-### 🎯 **Efficient Analysis**
-- Partitioned reports for quick access
-- Flag-based filtering for targeted analysis
-- Comprehensive coverage of all data sources
+### Monitor Job Execution in Real-time
+```bash
+# Monitor YARN applications with watch (real-time updates every 3 seconds)
+watch -n 3 'docker exec tech-data-lake-master yarn application -list'
 
-### 🔧 **Operational Excellence**
-- Reduced manual quality checks
-- Standardized quality metrics
-- Scalable quality monitoring
+# Monitor specific application logs
+docker exec tech-data-lake-master yarn logs -applicationId <application_id>
+```
 
-## Technical Details
-
-### Missing Value Detection
-The system identifies various types of missing values:
-- `NULL` values
-- Empty strings (`""`)
-- Whitespace-only strings
-- `"nan"`, `"null"`, `"NULL"`, `"None"`
-- `"N/A"`, `"n/a"`
-- Empty arrays (`[]`)
-- Empty objects (`{}`)
-- `"undefined"`, `"UNDEFINED"`
-
-### Array Column Handling
-Special logic for array-type columns:
-- Checks for `NULL` arrays
-- Validates empty arrays using `size()` function
-- Prevents data type mismatch errors
-
-### Performance Optimization
-- **Caching**: DataFrames cached for repeated access
-- **Partitioning**: Output partitioned by quality flags
-- **Parquet Format**: Efficient columnar storage
-- **Distributed Processing**: YARN cluster execution
+### Web Interfaces
+- **YARN Web UI**: http://localhost:8081
+- **Spark History Server**: http://localhost:18081

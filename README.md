@@ -205,13 +205,23 @@ docker exec tech-data-lake-master spark-submit --master yarn --deploy-mode clust
 - **YARN Web UI**: http://localhost:8081
 - **Spark History Server**: http://localhost:18081
 
-6. View job logs:
+6. Monitor applications in real-time:
+```bash
+# Monitor YARN applications with watch (real-time updates every 3 seconds)
+watch -n 3 'docker exec tech-data-lake-master yarn application -list'
+
+# Monitor specific application logs
+docker exec tech-data-lake-master yarn logs -applicationId <application_id>
+```
+
+7. View job logs:
 ```bash
 # List applications
 docker exec tech-data-lake-master yarn application -list
 
 # View logs for specific application
 docker exec tech-data-lake-master yarn logs -applicationId <application_id>
+```
 
 ## Logging System
 The project implements a comprehensive logging system using Python decorators for enhanced observability and debugging:
