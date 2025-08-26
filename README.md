@@ -2,6 +2,65 @@
 
 This project implements a Data Lake using Apache Spark and Hadoop, configured with Docker for easy development and deployment. All jobs run in **cluster mode** with YARN for distributed processing.
 
+## Project Purpose
+
+This project demonstrates a comprehensive **Enterprise Data Lake** implementation using modern big data technologies. It serves as a complete reference architecture for organizations looking to build scalable, production-ready data processing pipelines. The project showcases:
+
+- **Medallion Architecture**: Implementation of Bronze, Silver, and Gold data layers
+- **Distributed Processing**: Apache Spark with YARN cluster mode for scalable data processing
+- **Data Quality Management**: Automated quality assessment and monitoring systems
+- **Production-Ready Logging**: Comprehensive observability and debugging capabilities
+- **Containerized Deployment**: Docker-based infrastructure for consistent environments
+- **Business Intelligence**: Advanced analytics and insights generation
+
+The project provides a real-world example of how to transform raw business data into actionable insights through a well-structured, scalable data pipeline.
+
+## Target Audience
+
+This project is designed for:
+
+### **Data Engineers & Architects**
+- Professionals building enterprise data lakes and data platforms
+- Teams implementing medallion architecture patterns
+- Engineers working with Apache Spark and Hadoop ecosystems
+- Architects designing scalable data processing solutions
+
+### **Data Analysts**
+- Teams needing to understand data pipeline implementation
+- Analysts requiring clean, processed data for business intelligence
+
+### **DevOps & Platform Engineers**
+- Teams managing containerized big data infrastructure
+- Engineers implementing monitoring and observability systems
+- Professionals working with distributed computing environments
+
+### **Students & Learners**
+- Individuals studying big data technologies and architectures
+- Students learning Apache Spark, Hadoop, and data engineering concepts
+- Professionals transitioning into data engineering roles
+
+### **Organizations**
+- Companies implementing their first data lake
+- Enterprises scaling existing data processing capabilities
+- Organizations requiring production-ready data quality management
+- Teams needing reference implementations for best practices
+
+## License
+
+This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) file for details.
+
+The MIT License is a permissive license that allows for:
+- Commercial use
+- Modification
+- Distribution
+- Private use
+
+While providing:
+- No warranty
+- No liability
+
+This license is suitable for educational and commercial purposes, making it ideal for learning projects and enterprise implementations.
+
 ## Architecture
 
 The project consists of the following components:
@@ -19,28 +78,49 @@ The project consists of the following components:
 ## Project Structure
 
 ```
-project/
-├── data/                          # Directory for data storage
-├── jobs/                          # Spark applications
-│   ├── bronze_to_silver/         # Bronze to Silver transformations (with comprehensive logging)
+projeto3/
+├── data/                          # Raw data storage and sample datasets
+│   ├── employees.json            # Employee data (38K+ records)
+│   ├── departments.csv           # Department information
+│   ├── clients.csv               # Client data (566 records)
+│   ├── tasks.json                # Task assignments (1MB+ data)
+│   ├── salary_history.parquet    # Salary history data
+│   ├── projects.parquet          # Project information
+│   └── README.md                 # Data documentation
+├── jobs/                          # Spark applications and ETL pipelines
+│   ├── bronze_to_silver/         # Bronze to Silver transformations
 │   │   ├── employees_silver_layer.py
 │   │   ├── departments_silver_layer.py
 │   │   ├── clients_silver_layer.py
 │   │   ├── tasks_silver_layer.py
-│   │   └── salary_history_silver_layer.py
+│   │   ├── salary_history_silver_layer.py
+│   │   ├── projects_silver_layer.py    # Pending implementation
+│   │   └── README.md             # Bronze to Silver documentation
 │   ├── silver_to_gold/           # Silver to Gold transformations
-│   │   └── department_analytics_gold.py
+│   │   ├── department_analytics_gold.py
+│   │   └── README.md             # Silver to Gold documentation
 │   ├── data_quality/             # Data Quality Assessment
-│   │   └── data_quality_report.py
-│   └── run_pipeline_1.py        # Main pipeline execution script
+│   │   ├── data_quality_report.py
+│   │   └── README.md             # Data quality documentation
+│   ├── utils/                    # Utility functions and helpers
+│   ├── run_pipeline_1.py         # Main pipeline execution script
+│   ├── performance_baseline_departments.md  # Performance analysis
+│   ├── utils.zip                 # Utilities archive
+│   └── README.md                 # Jobs documentation
+├── data_processed/               # Processed data output directory
 ├── yarn/                         # Hadoop/YARN configurations
 ├── ssh/                          # SSH configurations for node communication
 ├── requirements/                  # Python dependencies
-├── test/                         # Test files
+│   ├── requirements.txt          # Python package requirements
+│   └── README.md                 # Requirements documentation
+├── test/                         # Test files and test data
 ├── Dockerfile                    # Docker image configuration
 ├── docker-compose.yml           # Service configuration
 ├── entrypoint.sh                # Container startup script
-└── .env.data-lake              # Environment variables
+├── .gitignore                   # Git ignore patterns
+├── README.md                    # Main project documentation
+├── CHANGELOG.md                 # Version history and changes
+└── LICENSE                      # MIT License
 ```
 
 ## Cluster Mode Implementation
@@ -59,11 +139,12 @@ The data lake is organized in layers following the medallion architecture:
 ### Bronze Layer (Raw Data)
 ```
 /opt/spark/data/bronze_layer/
-├── employees.json
-├── departments.csv
-├── clients.csv
-├── tasks.json
-└── salary_history.parquet
+├── employees.json              # 38K+ employee records
+├── departments.csv             # Department information
+├── clients.csv                 # 566 client records
+├── tasks.json                  # Task assignments (1MB+ data)
+├── salary_history.parquet      # Salary history data
+└── projects.parquet            # Project information (Silver pipeline pending)
 ```
 
 ### Silver Layer (Transformed & Partitioned Data)
@@ -156,6 +237,27 @@ The data lake is organized in layers following the medallion architecture:
 - **Partitioned Reports**: Quality reports are partitioned by flag for easy analysis
 - **Multi-Format Support**: Handles CSV, JSON, and Parquet files
 - **Comprehensive Coverage**: Analyzes all 6 data sources (departments, clients, employees, tasks, salary_history, projects)
+- **Note**: Projects data exists in Bronze layer but Silver layer processing pipeline is pending implementation
+
+## Documentation
+
+This project includes comprehensive documentation for each component:
+
+### **Component Documentation**
+- **Data Layer**: `data/README.md` - Raw data structure and format descriptions
+- **Bronze to Silver**: `jobs/bronze_to_silver/README.md` - ETL transformation details
+- **Silver to Gold**: `jobs/silver_to_gold/README.md` - Analytics and aggregation processes
+- **Data Quality**: `jobs/data_quality/README.md` - Quality assessment methodology
+- **Jobs Overview**: `jobs/README.md` - Complete pipeline documentation
+- **Requirements**: `requirements/README.md` - Dependencies and setup instructions
+
+### **Performance Analysis**
+- **Department Analytics**: `jobs/performance_baseline_departments.md` - Detailed performance analysis and optimization insights
+
+### **Project Documentation**
+- **Main Guide**: `README.md` - This comprehensive project overview
+- **Version History**: `CHANGELOG.md` - Complete change tracking and version history
+- **License**: `LICENSE` - MIT License terms and conditions
 
 ## How to Use
 
