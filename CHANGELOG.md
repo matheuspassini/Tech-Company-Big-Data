@@ -66,6 +66,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Enhanced documentation section with component-specific README files
   - Improved project structure visualization with accurate file listings
   - Added performance analysis documentation references
+  - **Added comprehensive explanatory comments** throughout README.md explaining design decisions
+  - **Added architectural justification** for cluster mode, partitioning strategies, and data formats
+  - **Enhanced technical explanations** for logging, data quality, and performance optimizations
 
 ### Fixed
 - **Documentation Accuracy**
@@ -73,6 +76,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Updated data source descriptions with real file sizes and record counts
   - Fixed missing files in project structure documentation
   - Ensured all existing README files are properly referenced
+  - Improved technical accuracy in feature descriptions and capabilities
 
 ### Technical Features
 - **Medallion Architecture Implementation**

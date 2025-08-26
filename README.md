@@ -69,6 +69,20 @@ The project consists of the following components:
 - **History Server**: Provides web interface for job monitoring
 - **Worker Nodes**: Execute distributed tasks (scalable as needed)
 
+### **Why This Architecture?**
+
+**Cluster Mode with YARN**: 
+- **Scalability**: YARN manages resources dynamically, allowing the cluster to scale up/down based on workload
+- **Resource Efficiency**: Prevents resource waste by allocating only what's needed for each job
+- **Fault Tolerance**: If a worker node fails, YARN automatically redistributes the workload
+- **Production Ready**: This is the standard architecture used in enterprise environments
+
+**Docker Containerization**:
+- **Consistency**: Ensures the same environment across development, testing, and production
+- **Isolation**: Each component runs in its own container, preventing conflicts
+- **Easy Deployment**: Can be deployed anywhere Docker is available
+- **Version Control**: Exact versions of all dependencies are locked in the container
+
 ## Requirements
 
 - Docker
@@ -132,6 +146,19 @@ All Spark jobs are designed to run in **cluster mode** with the following charac
 - **YARN Resource Management**: Efficient resource allocation and monitoring
 - **Distributed Processing**: Driver runs in separate container managed by YARN
 
+### **Why Cluster Mode?**
+
+**Self-contained Jobs**:
+- **Reliability**: No dependency on external modules that might not be available on worker nodes
+- **Portability**: Jobs can be moved between environments without worrying about missing imports
+- **Debugging**: Easier to troubleshoot when all code is in one place
+- **Deployment**: Simpler deployment process - just copy the job file
+
+**No External Dependencies**:
+- **Distributed Safety**: In cluster mode, worker nodes might not have access to the same file system as the driver
+- **Performance**: Avoids network overhead of transferring additional files
+- **Consistency**: Ensures all nodes use exactly the same code version
+
 ## HDFS Data Structure
 
 The data lake is organized in layers following the medallion architecture:
@@ -146,6 +173,12 @@ The data lake is organized in layers following the medallion architecture:
 ├── salary_history.parquet      # Salary history data
 └── projects.parquet            # Project information (Silver pipeline pending)
 ```
+
+**Why Multiple Formats?**
+- **JSON**: Flexible schema for complex nested data (employees, tasks)
+- **CSV**: Simple, human-readable format for tabular data (departments, clients)
+- **Parquet**: Columnar format optimized for analytics and query performance (salary_history, projects)
+- **Schema Evolution**: Different formats allow for different data evolution strategies
 
 ### Silver Layer (Transformed & Partitioned Data)
 ```
@@ -185,6 +218,26 @@ The data lake is organized in layers following the medallion architecture:
     └── year=2025/
 ```
 
+**Why This Partitioning Strategy?**
+
+**Time-based Partitioning**:
+- **Query Performance**: Queries filtering by date can skip irrelevant partitions
+- **Data Lifecycle**: Easy to implement data retention policies (delete old partitions)
+- **Incremental Processing**: Process only new data by targeting specific date partitions
+- **Parallel Processing**: Multiple partitions can be processed simultaneously
+
+**Year=0 Partition**:
+- **Data Quality**: Isolates records with invalid dates for separate analysis
+- **Audit Trail**: Maintains all original data while flagging quality issues
+- **Recovery**: Allows fixing and reprocessing problematic records
+- **Compliance**: Ensures no data is lost during the cleaning process
+
+**Parquet Format**:
+- **Compression**: Significantly reduces storage costs (up to 80% compression)
+- **Columnar Storage**: Optimized for analytical queries that read specific columns
+- **Schema Evolution**: Supports adding/removing columns without breaking existing queries
+- **Predicate Pushdown**: Spark can push filters to the storage level for better performance
+
 ### Gold Layer (Business Intelligence & Analytics)
 ```
 /opt/spark/data/gold_layer/
@@ -200,6 +253,20 @@ The data lake is organized in layers following the medallion architecture:
 │       └── department_name=DevOps/
 ```
 
+**Why Business-focused Partitioning?**
+
+**Multi-dimensional Partitioning**:
+- **Analytical Queries**: Optimized for business questions like "Show me Engineering performance by region and hire year"
+- **Drill-down Capability**: Supports hierarchical analysis (region → department → year)
+- **Performance**: Pre-aggregated data reduces query time for common business questions
+- **Scalability**: Can handle complex analytical workloads efficiently
+
+**Analytics Foundation**:
+- **Pre-aggregated Data**: Common business metrics are pre-calculated for faster queries
+- **Structured for Analysis**: Data is organized to support typical business questions
+- **Performance Optimized**: Partitioning and format choices enable efficient analytical queries
+- **Extensible Design**: Structure supports adding new analytical dimensions as needed
+
 ### Data Quality Layer (Quality Assessment & Monitoring)
 ```
 /opt/spark/data/bronze_layer/data_quality/
@@ -209,6 +276,20 @@ The data lake is organized in layers following the medallion architecture:
 │   ├── flag=Yellow/          # Medium quality data (10-30% missing values)
 │   └── flag=Red/             # Low quality data (>30% missing values)
 ```
+
+**Why Flag-based Quality Assessment?**
+
+**Traffic Light System**:
+- **Visual Clarity**: Green/Yellow/Red provides immediate visual feedback on data quality
+- **Actionable Insights**: Clear thresholds help determine appropriate actions
+- **Automated Monitoring**: Can trigger alerts based on quality flags
+- **Business Communication**: Non-technical stakeholders can easily understand data quality status
+
+**Partitioned by Quality**:
+- **Selective Processing**: Can prioritize high-quality data for critical processes
+- **Quality-based Routing**: Different quality levels can be processed differently
+- **Historical Tracking**: Monitor quality trends over time
+- **Compliance**: Maintain audit trail of data quality assessments
 
 ### Data Quality Handling:
 - **Year 0 Partition**: Contains records with null or invalid dates
@@ -227,6 +308,20 @@ The data lake is organized in layers following the medallion architecture:
 - **Comprehensive Logging**: Professional logging system with decorators for observability and debugging
 - **Performance Monitoring**: Automatic execution time tracking and record counting
 - **Production Ready**: Enterprise-grade logging for production environments
+
+### **Why These Design Decisions?**
+
+**Decorator-based Logging**:
+- **Separation of Concerns**: Logging logic is separated from business logic
+- **Consistency**: All functions use the same logging format and behavior
+- **Maintainability**: Easy to modify logging behavior across all functions
+- **Performance**: Minimal overhead with automatic timing and record counting
+
+**Self-contained Transformations**:
+- **Testability**: Each transformation can be tested independently
+- **Reusability**: Transformations can be reused across different jobs
+- **Debugging**: Easier to isolate and fix issues in specific transformations
+- **Documentation**: Each function has a clear, single responsibility
 
 ### Data Quality System:
 - **Quality Assessment**: Analyzes missing values across all columns in all data sources
