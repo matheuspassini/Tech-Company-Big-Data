@@ -275,13 +275,15 @@ projeto3/
 │   │   ├── data_quality_report.py
 │   │   └── README.md             # Data quality documentation
 │   ├── utils/                    # Utility functions and helpers
+│   │   └── README.md             # Utils documentation
 │   ├── run_pipeline_1.py         # Main pipeline execution script
-│   ├── performance_baseline_departments.md  # Performance analysis
 │   ├── utils.zip                 # Utilities archive
 │   └── README.md                 # Jobs documentation
 ├── data_processed/               # Processed data output directory
 ├── yarn/                         # Hadoop/YARN configurations
+│   └── README.md                 # YARN configuration documentation
 ├── ssh/                          # SSH configurations for node communication
+│   └── README.md                 # SSH setup documentation
 ├── requirements/                  # Python dependencies
 │   ├── requirements.txt          # Python package requirements
 │   └── README.md                 # Requirements documentation
@@ -503,9 +505,11 @@ This project includes comprehensive documentation for each component:
 - **Data Quality**: `jobs/data_quality/README.md` - Quality assessment methodology
 - **Jobs Overview**: `jobs/README.md` - Complete pipeline documentation
 - **Requirements**: `requirements/README.md` - Dependencies and setup instructions
+- **YARN Configuration**: `yarn/README.md` - Hadoop/YARN configuration details
+- **SSH Configuration**: `ssh/README.md` - SSH setup for node communication
+- **Utils**: `jobs/utils/README.md` - Utility functions and helpers
 
-### **Performance Analysis**
-- **Department Analytics**: `jobs/performance_baseline_departments.md` - Detailed performance analysis and optimization insights
+
 
 ### **Project Documentation**
 - **Main Guide**: `README.md` - This comprehensive project overview

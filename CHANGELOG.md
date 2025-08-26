@@ -55,8 +55,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - MIT License for open-source distribution
   - Detailed usage instructions and architecture descriptions
   - Troubleshooting and monitoring guides
-  - Component-specific documentation for each layer
-  - Performance analysis documentation
+  - Component-specific documentation for each layer (9 README files)
   - Complete project structure documentation
 
 ### Changed
@@ -65,7 +64,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Added detailed data source information
   - Enhanced documentation section with component-specific README files
   - Improved project structure visualization with accurate file listings
-  - Added performance analysis documentation references
   - **Added comprehensive explanatory comments** throughout README.md explaining design decisions
   - **Added architectural justification** for cluster mode, partitioning strategies, and data formats
   - **Enhanced technical explanations** for logging, data quality, and performance optimizations
