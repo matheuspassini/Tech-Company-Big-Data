@@ -69,6 +69,164 @@ The project consists of the following components:
 - **History Server**: Provides web interface for job monitoring
 - **Worker Nodes**: Execute distributed tasks (scalable as needed)
 
+### **Infrastructure Diagram**
+
+```mermaid
+graph TB
+    subgraph "Master Container"
+        M[tech-data-lake-master]
+        M --> YARN[YARN ResourceManager]
+        M --> HDFS[HDFS NameNode]
+    end
+    
+    subgraph "History Server Container"
+        HS[tech-data-lake-historyserver]
+        HS --> HISTORY[Spark History Server]
+    end
+    
+    subgraph "Worker Containers"
+        W1[tech-data-lake-worker-1]
+        W2[tech-data-lake-worker-2]
+        W3[tech-data-lake-worker-3]
+    end
+    
+    subgraph "Data Storage"
+        STORAGE[HDFS Distributed Storage]
+        STORAGE --> BRONZE[Bronze Layer]
+        STORAGE --> SILVER[Silver Layer]
+        STORAGE --> GOLD[Gold Layer]
+    end
+    
+    subgraph "Web Access"
+        WEB1[YARN Web UI<br/>localhost:8081]
+        WEB2[Spark History<br/>localhost:18081]
+        WEB3[HDFS NameNode<br/>localhost:9871]
+    end
+    
+    YARN -.-> W1
+    YARN -.-> W2
+    YARN -.-> W3
+    HDFS -.-> W1
+    HDFS -.-> W2
+    HDFS -.-> W3
+    
+    WEB1 -.-> YARN
+    WEB2 -.-> HISTORY
+    WEB3 -.-> HDFS
+```
+
+### **Container Details**
+
+| Container | Service | Internal Port | External Port | Purpose |
+|-----------|---------|---------------|---------------|---------|
+| `tech-data-lake-master` | YARN ResourceManager | 8088 | 8081 | Resource management |
+| `tech-data-lake-master` | HDFS NameNode | 9870 | 9871 | HDFS metadata |
+| `tech-data-lake-master` | HDFS SecondaryNameNode | 9868 | - | HDFS backup |
+| `tech-data-lake-master` | SSH Server | 22 | - | Container access |
+| `tech-data-lake-historyserver` | Spark History Server | 18080 | 18081 | Job monitoring |
+| `tech-data-lake-worker-*` | HDFS DataNode | 9864 | - | Data storage |
+| `tech-data-lake-worker-*` | YARN NodeManager | 8042 | - | Local resource management |
+| `tech-data-lake-worker-*` | Spark Executor | Dynamic | - | Data processing |
+
+### **Data Flow Diagram**
+
+```mermaid
+flowchart LR
+    subgraph "Data Sources"
+        E[employees.json<br/>38,092 records<br/>996KB]
+        D[departments.csv<br/>12 records<br/>2.9KB]
+        C[clients.csv<br/>565 records<br/>84KB]
+        T[tasks.json<br/>35,963 records<br/>1.1MB]
+        S[salary_history.parquet<br/>5,000 records<br/>312KB]
+        P[projects.parquet<br/>200 records<br/>66KB]
+    end
+    
+    subgraph "Bronze Layer"
+        B1[Raw Data Storage<br/>Original Format]
+    end
+    
+    subgraph "Silver Layer Processing"
+        SP1[employees_silver_layer.py<br/>Cluster Mode]
+        SP2[departments_silver_layer.py<br/>Cluster Mode]
+        SP3[clients_silver_layer.py<br/>Cluster Mode]
+        SP4[tasks_silver_layer.py<br/>Cluster Mode]
+        SP5[salary_history_silver_layer.py<br/>Cluster Mode]
+        SP6[projects_silver_layer.py<br/>Pending]
+    end
+    
+    subgraph "Silver Layer"
+        S1[employee.parquet<br/>Partitioned by Date]
+        S2[departments.parquet<br/>Partitioned by Date]
+        S3[clients.parquet<br/>Partitioned by Date]
+        S4[tasks.parquet<br/>Partitioned by Date]
+        S5[salary_history.parquet<br/>Partitioned by Date]
+        S6[projects.parquet<br/>Not Implemented]
+    end
+    
+    subgraph "Gold Layer Processing"
+        GP1[department_analytics_gold.py<br/>Cluster Mode]
+    end
+    
+    subgraph "Gold Layer"
+        G1[department_analytics.parquet<br/>Business Intelligence]
+    end
+    
+    subgraph "Data Quality"
+        DQ1[data_quality_report.py<br/>Cluster Mode]
+        DQ2[Quality Reports<br/>Green/Yellow/Red Flags]
+    end
+    
+    E --> B1
+    D --> B1
+    C --> B1
+    T --> B1
+    S --> B1
+    P --> B1
+    
+    B1 --> SP1
+    B1 --> SP2
+    B1 --> SP3
+    B1 --> SP4
+    B1 --> SP5
+    B1 --> SP6
+    
+    SP1 --> S1
+    SP2 --> S2
+    SP3 --> S3
+    SP4 --> S4
+    SP5 --> S5
+    SP6 -.-> S6
+    
+    S1 --> GP1
+    S2 --> GP1
+    S5 --> GP1
+    GP1 --> G1
+    
+    B1 --> DQ1
+    DQ1 --> DQ2
+```
+
+### **Job Execution Flow**
+
+```mermaid
+sequenceDiagram
+    participant U as User
+    participant M as Master Node
+    participant Y as YARN ResourceManager
+    participant W as Worker Nodes
+    participant H as HDFS
+    
+    U->>M: Submit Spark Job
+    M->>Y: Request Resources
+    Y->>W: Allocate Executors
+    W->>H: Read Data (Bronze Layer)
+    W->>W: Process Data (Transformations)
+    W->>H: Write Results (Silver/Gold Layer)
+    W->>Y: Release Resources
+    Y->>M: Job Complete
+    M->>U: Return Results
+```
+
 ### **Why This Architecture?**
 
 **Cluster Mode with YARN**: 
@@ -94,12 +252,12 @@ The project consists of the following components:
 ```
 projeto3/
 ├── data/                          # Raw data storage and sample datasets
-│   ├── employees.json            # Employee data (38K+ records)
-│   ├── departments.csv           # Department information
-│   ├── clients.csv               # Client data (566 records)
-│   ├── tasks.json                # Task assignments (1MB+ data)
-│   ├── salary_history.parquet    # Salary history data
-│   ├── projects.parquet          # Project information
+│   ├── employees.json            # Employee data (38,092 records, 996KB)
+│   ├── departments.csv           # Department data (12 records, 2.9KB)
+│   ├── clients.csv               # Client data (565 records, 84KB)
+│   ├── tasks.json                # Task assignments (35,963 records, 1.1MB)
+│   ├── salary_history.parquet    # Salary history data (5,000 records, 312KB)
+│   ├── projects.parquet          # Project data (200 records, 66KB)
 │   └── README.md                 # Data documentation
 ├── jobs/                          # Spark applications and ETL pipelines
 │   ├── bronze_to_silver/         # Bronze to Silver transformations
@@ -166,12 +324,12 @@ The data lake is organized in layers following the medallion architecture:
 ### Bronze Layer (Raw Data)
 ```
 /opt/spark/data/bronze_layer/
-├── employees.json              # 38K+ employee records
-├── departments.csv             # Department information
-├── clients.csv                 # 566 client records
-├── tasks.json                  # Task assignments (1MB+ data)
-├── salary_history.parquet      # Salary history data
-└── projects.parquet            # Project information (Silver pipeline pending)
+├── employees.json              # 38,092 employee records (996KB)
+├── departments.csv             # 12 department records (2.9KB)
+├── clients.csv                 # 565 client records (84KB)
+├── tasks.json                  # 35,963 task records (1.1MB)
+├── salary_history.parquet      # 5,000 salary records (312KB)
+└── projects.parquet            # 200 project records (66KB) - Silver pipeline pending
 ```
 
 **Why Multiple Formats?**

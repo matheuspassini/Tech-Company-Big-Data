@@ -62,13 +62,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - **Documentation Improvements**
   - Updated project structure to reflect actual file organization
-  - Added detailed data source information (38K+ employee records, 566 client records, 1MB+ task data)
+  - Added detailed data source information
   - Enhanced documentation section with component-specific README files
   - Improved project structure visualization with accurate file listings
   - Added performance analysis documentation references
   - **Added comprehensive explanatory comments** throughout README.md explaining design decisions
   - **Added architectural justification** for cluster mode, partitioning strategies, and data formats
   - **Enhanced technical explanations** for logging, data quality, and performance optimizations
+  - **Infrastructure diagrams** for better clarity and understanding
 
 ### Fixed
 - **Documentation Accuracy**
