@@ -460,6 +460,59 @@ The data lake is organized in layers following the medallion architecture:
 - **Historical Tracking**: Monitor quality trends over time
 - **Compliance**: Maintain audit trail of data quality assessments
 
+### Data Quality Metrics & Results
+
+The data quality job provides comprehensive numerical metrics for data reliability assessment:
+
+#### **Overall Quality Metrics**
+- **Total Quality Records**: 111
+- **Datasets Analyzed**: 6 (departments, clients, employees, tasks, salary_history, projects)
+- **Columns Analyzed**: 89
+
+#### **Quality Distribution by Flag**
+- **Green Flag (≤10% nulls)**: 80 columns (72.1%) - High quality data
+- **Yellow Flag (10-30% nulls)**: 24 columns (21.6%) - Data requiring attention
+- **Red Flag (>30% nulls)**: 7 columns (6.3%) - Critical quality issues
+
+#### **Dataset Quality Analysis**
+
+| Dataset | Columns | Avg % Nulls | Max % Nulls | Distribution |
+|---------|---------|-------------|-------------|--------------|
+| **departments.csv** | 15 | 0.00% | 0.00% | 15 Green |
+| **salary_history.parquet** | 10 | 0.00% | 0.00% | 10 Green |
+| **clients.csv** | 21 | 10.00% | 13.00% | 12 Green, 9 Yellow |
+| **tasks.json** | 13 | 11.64% | 77.65% | 11 Green, 2 Red |
+| **employees.json** | 28 | 14.49% | 24.60% | 13 Green, 15 Yellow |
+| **projects.parquet** | 24 | 16.31% | 81.50% | 19 Green, 5 Red |
+
+#### **Top 5 Columns with Most Issues**
+
+| Dataset | Column | % Nulls | Flag |
+|---------|--------|---------|------|
+| **projects.parquet** | estimated_completion_date | 81.50% | Red |
+| **tasks.json** | due_date | 77.65% | Red |
+| **projects.parquet** | end_date | 77.50% | Red |
+| **projects.parquet** | actual_cost | 77.50% | Red |
+| **projects.parquet** | quality_score | 77.50% | Red |
+
+#### **Ranges Numéricos por Flag**
+
+**Green Flag (≤10%):**
+- Null percentage: 0.00% - 10.00%
+
+**Yellow Flag (10-30%):**
+- Null percentage: 10.33% - 24.60%
+
+**Red Flag (>30%):**
+- Null percentage: 73.65% - 81.50%
+
+#### **Key Insights**
+- **72.1% of columns** have excellent quality (Green)
+- **21.6% of columns** require attention (Yellow)
+- **6.3% of columns** have critical issues (Red)
+- **Most problematic datasets**: projects.parquet and tasks.json
+- **Cleanest datasets**: departments.csv and salary_history.parquet
+
 ### Data Quality Handling:
 - **Year 0 Partition**: Contains records with null or invalid dates
 - **Default Values**: Null dates are set to "0000-01-01" and partitioned as year=0
