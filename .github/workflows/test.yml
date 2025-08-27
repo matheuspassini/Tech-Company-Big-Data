@@ -1,0 +1,62 @@
+name: Test Pipeline
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test:
+    name: Run Tests
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+        
+    - name: Install dependencies
+      run: |
+        pip install -r requirements-dev.txt
+        
+    - name: Run linting
+      run: |
+        flake8 jobs/ --max-line-length=100 --ignore=E501,W503
+        black --check jobs/ --line-length=100
+        
+    - name: Run security scan
+      run: |
+        bandit -r jobs/ -f json -o bandit-report.json || true
+        
+    - name: Run tests with coverage
+      run: |
+        docker-compose -p tech-data-lake -f docker-compose.yml up -d --scale worker=3
+        sleep 30
+        docker exec tech-data-lake-master pip install pytest pytest-cov
+        docker exec tech-data-lake-master python -m pytest /opt/spark/test/ --cov=utils --cov-report=term-missing --cov-report=html --cov-fail-under=60
+        
+    - name: Upload coverage reports
+      uses: actions/upload-artifact@v3
+      if: always()
+      with:
+        name: coverage-reports
+        path: htmlcov/
+        retention-days: 30
+        
+    - name: Upload security reports
+      uses: actions/upload-artifact@v3
+      if: always()
+      with:
+        name: security-reports
+        path: bandit-report.json
+        retention-days: 30
+        
+    - name: Stop Docker Compose
+      if: always()
+      run: |
+        docker-compose -p tech-data-lake down
