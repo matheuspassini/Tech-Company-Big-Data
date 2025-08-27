@@ -288,6 +288,15 @@ projeto3/
 │   ├── requirements.txt          # Python package requirements
 │   └── README.md                 # Requirements documentation
 ├── test/                         # Test files and test data
+│   ├── test_data_quality.py     # Data quality testing
+│   ├── test_dataframe_creation.py # DataFrame creation tests
+│   ├── test_logging.py          # Logging functionality tests
+│   ├── test_schema.py           # Schema validation tests
+│   └── .coveragerc              # Coverage configuration
+├── .github/                      # GitHub Actions CI/CD
+│   └── workflows/
+│       └── test.yml             # Automated testing pipeline
+├── requirements-dev.txt          # Development dependencies
 ├── Dockerfile                    # Docker image configuration
 ├── docker-compose.yml           # Service configuration
 ├── entrypoint.sh                # Container startup script
@@ -582,6 +591,43 @@ docker exec tech-data-lake-master yarn application -list
 docker exec tech-data-lake-master yarn logs -applicationId <application_id>
 ```
 
+## Testing
+
+The project includes a comprehensive test suite to ensure code quality and reliability:
+
+### **Running Tests Locally:**
+```bash
+# Start the cluster
+docker-compose -p tech-data-lake -f docker-compose.yml up -d --scale worker=3
+
+# Run all tests with coverage
+docker exec tech-data-lake-master python -m pytest /opt/spark/test/ --cov=utils --cov-report=html
+
+# Run specific test file
+docker exec tech-data-lake-master python -m pytest /opt/spark/test/test_data_quality.py -v
+
+# Run tests with verbose output
+docker exec tech-data-lake-master python -m pytest /opt/spark/test/ -v
+```
+
+### **Test Categories:**
+- **Data Quality Tests**: Test data quality assessment functions
+- **DataFrame Creation Tests**: Test DataFrame creation and schema validation
+- **Logging Tests**: Test logging functionality and decorators
+- **Schema Tests**: Test data type handling and schema validation
+
+### **Test Coverage:**
+- **Current Coverage**: 61% (9 tests passing)
+- **Minimum Required**: 60%
+- **Coverage Reports**: Available in HTML format
+- **Coverage Location**: `htmlcov/index.html` after test execution
+
+### **CI/CD Integration:**
+- **Automated Testing**: Tests run automatically on every push and pull request
+- **Quality Gates**: Build fails if coverage drops below 60%
+- **Artifact Generation**: Test reports and coverage data available for download
+- **Fast Feedback**: Immediate notification of test failures or quality issues
+
 ## Logging System
 The project implements a comprehensive logging system using Python decorators for enhanced observability and debugging:
 
@@ -623,3 +669,49 @@ The project implements a comprehensive logging system using Python decorators fo
 - **Fault Tolerance**: Automatic recovery from node failures
 - **Monitoring**: Comprehensive job tracking and metrics
 - **Business Intelligence**: Advanced analytics and insights in Gold layer
+
+## CI/CD Pipeline
+
+The project includes a comprehensive CI/CD pipeline using GitHub Actions for automated testing and quality assurance:
+
+### **Pipeline Features:**
+- **Automated Testing**: Runs on every push and pull request
+- **Code Quality Checks**: Linting with flake8 and black
+- **Security Scanning**: Automated security analysis with bandit
+- **Test Coverage**: Minimum 60% coverage requirement with detailed reports
+- **Docker Integration**: Tests run in the same containerized environment as production
+- **Artifact Generation**: Test reports and coverage data available for download
+
+### **Pipeline Workflow:**
+1. **Code Checkout**: Retrieves latest code from repository
+2. **Environment Setup**: Configures Python and Docker environments
+3. **Code Quality**: Runs linting and formatting checks
+4. **Security Scan**: Performs automated security analysis
+5. **Test Execution**: Runs comprehensive test suite with coverage
+6. **Artifact Upload**: Generates and uploads test reports
+7. **Cleanup**: Stops containers and cleans up resources
+
+### **Quality Gates:**
+- **Test Coverage**: Minimum 60% code coverage required
+- **Code Quality**: All linting checks must pass
+- **Security**: No high-severity security issues allowed
+- **Test Results**: All tests must pass successfully
+
+### **Development Workflow:**
+- **Local Development**: Use existing Docker setup for local testing
+- **Continuous Integration**: Automated testing on every code change
+- **Quality Assurance**: Automated quality checks prevent regressions
+- **Feedback Loop**: Immediate feedback on code quality and test results
+
+### **Monitoring and Reports:**
+- **Test Results**: Detailed test execution reports
+- **Coverage Reports**: HTML coverage reports with line-by-line analysis
+- **Security Reports**: JSON security analysis reports
+- **Build Logs**: Complete execution logs for debugging
+
+### **Benefits:**
+- **Reliability**: Automated testing ensures code quality
+- **Efficiency**: Fast feedback on code changes
+- **Consistency**: Same testing environment across development and CI
+- **Transparency**: Clear visibility into code quality and test coverage
+- **Maintainability**: Automated quality gates reduce technical debt

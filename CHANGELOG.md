@@ -8,6 +8,46 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
+- **CI/CD Pipeline Implementation**
+  - GitHub Actions workflow for automated testing
+  - Automated test execution with pytest and coverage reporting
+  - Code quality checks with flake8 and black
+  - Security scanning with bandit
+  - Docker container testing in CI environment
+  - Artifact generation for test reports and coverage
+  - Integration with existing Spark cluster infrastructure
+
+- **Testing Infrastructure**
+  - Comprehensive test suite with 9 test cases
+  - Data quality testing with mock data scenarios
+  - DataFrame creation and schema validation tests
+  - Logging functionality testing
+  - Coverage reporting with minimum 60% threshold
+  - Test automation for continuous integration
+
+- **Development Workflow**
+  - Automated testing on push to main and develop branches
+  - Automated testing on pull requests
+  - Development dependencies management (requirements-dev.txt)
+  - Containerized test execution environment
+  - Quality gate enforcement through CI pipeline
+
+### Changed
+- **Development Process**
+  - Added automated testing to development workflow
+  - Integrated code quality checks into CI pipeline
+  - Enhanced development experience with automated feedback
+  - Improved code reliability through automated testing
+
+### Fixed
+- **CI/CD Pipeline**
+  - Fixed deprecated upload-artifact version (v3 → v4)
+  - Corrected Docker Compose commands (V1 → V2)
+  - Fixed container execution paths for linting and security scanning
+  - Resolved artifact upload paths for coverage and security reports
+  - Optimized workflow for GitHub Actions environment
+
+### Technical Features
 - **Core Data Lake Architecture**
   - Bronze layer implementation for raw data ingestion
   - Silver layer for data transformation and cleaning
