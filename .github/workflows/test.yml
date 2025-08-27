@@ -20,6 +20,9 @@ jobs:
       with:
         python-version: '3.11'
         
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v3
+        
     - name: Install dependencies
       run: |
         pip install -r requirements-dev.txt
@@ -35,7 +38,7 @@ jobs:
         
     - name: Run tests with coverage
       run: |
-        docker-compose -p tech-data-lake -f docker-compose.yml up -d --scale worker=3
+        docker compose -p tech-data-lake -f docker-compose.yml up -d --scale worker=3
         sleep 30
         docker exec tech-data-lake-master pip install pytest pytest-cov
         docker exec tech-data-lake-master python -m pytest /opt/spark/test/ --cov=utils --cov-report=term-missing --cov-report=html:/tmp/htmlcov --cov-fail-under=60
@@ -59,4 +62,4 @@ jobs:
     - name: Stop Docker Compose
       if: always()
       run: |
-        docker-compose -p tech-data-lake down
+        docker compose -p tech-data-lake down
