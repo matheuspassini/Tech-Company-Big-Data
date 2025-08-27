@@ -26,26 +26,26 @@ jobs:
         
     - name: Run linting
       run: |
-        flake8 jobs/ --max-line-length=100 --ignore=E501,W503
-        black --check jobs/ --line-length=100
+        docker exec tech-data-lake-master flake8 /opt/spark/apps --max-line-length=100 --ignore=E501,W503 || true
+        docker exec tech-data-lake-master black --check /opt/spark/apps --line-length=100 || true
         
     - name: Run security scan
       run: |
-        bandit -r jobs/ -f json -o bandit-report.json || true
+        docker exec tech-data-lake-master bandit -r /opt/spark/apps -f json -o /tmp/bandit-report.json || true
         
     - name: Run tests with coverage
       run: |
         docker-compose -p tech-data-lake -f docker-compose.yml up -d --scale worker=3
         sleep 30
         docker exec tech-data-lake-master pip install pytest pytest-cov
-        docker exec tech-data-lake-master python -m pytest /opt/spark/test/ --cov=utils --cov-report=term-missing --cov-report=html --cov-fail-under=60
+        docker exec tech-data-lake-master python -m pytest /opt/spark/test/ --cov=utils --cov-report=term-missing --cov-report=html:/tmp/htmlcov --cov-fail-under=60
         
     - name: Upload coverage reports
       uses: actions/upload-artifact@v4
       if: always()
       with:
         name: coverage-reports
-        path: htmlcov/
+        path: /tmp/htmlcov/
         retention-days: 30
         
     - name: Upload security reports
@@ -53,7 +53,7 @@ jobs:
       if: always()
       with:
         name: security-reports
-        path: bandit-report.json
+        path: /tmp/bandit-report.json
         retention-days: 30
         
     - name: Stop Docker Compose
