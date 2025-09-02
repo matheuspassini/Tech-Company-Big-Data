@@ -71,48 +71,52 @@ The project consists of the following components:
 
 ### **Infrastructure Diagram**
 
-```mermaid
-graph TB
-    subgraph "Master Container"
-        M[tech-data-lake-master]
-        M --> YARN[YARN ResourceManager]
-        M --> HDFS[HDFS NameNode]
-    end
-    
-    subgraph "History Server Container"
-        HS[tech-data-lake-historyserver]
-        HS --> HISTORY[Spark History Server]
-    end
-    
-    subgraph "Worker Containers"
-        W1[tech-data-lake-worker-1]
-        W2[tech-data-lake-worker-2]
-        W3[tech-data-lake-worker-3]
-    end
-    
-    subgraph "Data Storage"
-        STORAGE[HDFS Distributed Storage]
-        STORAGE --> BRONZE[Bronze Layer]
-        STORAGE --> SILVER[Silver Layer]
-        STORAGE --> GOLD[Gold Layer]
-    end
-    
-    subgraph "Web Access"
-        WEB1[YARN Web UI<br/>localhost:8081]
-        WEB2[Spark History<br/>localhost:18081]
-        WEB3[HDFS NameNode<br/>localhost:9871]
-    end
-    
-    YARN -.-> W1
-    YARN -.-> W2
-    YARN -.-> W3
-    HDFS -.-> W1
-    HDFS -.-> W2
-    HDFS -.-> W3
-    
-    WEB1 -.-> YARN
-    WEB2 -.-> HISTORY
-    WEB3 -.-> HDFS
+```
+┌────────────────────────────────────────────────────────────────┐
+│                    Master Container                            │
+│  ┌─────────────────┐ ┌─────────────────────────────────────┐   │
+│  │   YARN RM       │ │            HDFS NameNode            │   │
+│  │ ResourceManager │ │         (Metadata Management)       │   │
+│  │   Port: 8088   │ │           Port: 9870                 │   │
+│  └─────────────────┘ └─────────────────────────────────────┘   │
+│  ┌─────────────────┐ ┌─────────────────────────────────────┐   │
+│  │  HDFS Secondary │ │            SSH Server               │   │
+│  │   NameNode      │ │         (Container Access)          │   │
+│  │   Port: 9868   │ │           Port: 22                   │   │
+│  └─────────────────┘ └─────────────────────────────────────┘   │
+└────────────────────────────────────────────────────────────────┘
+                                │
+                                ▼
+┌────────────────────────────────────────────────────────────────┐
+│                    Worker Containers                           │
+│  ┌─────────────┐ ┌─────────────┐ ┌─────────────┐               │
+│  │   Worker 1  │ │   Worker 2  │ │   Worker 3  │               │
+│  │HDFS DataNode│ │HDFS DataNode│ │HDFS DataNode│               │
+│  │YARN NodeMgr │ │YARN NodeMgr │ │YARN NodeMgr │               │
+│  │Spark Exec   │ │Spark Exec   │ │Spark Exec   │               │
+│  └─────────────┘ └─────────────┘ └─────────────┘               │
+└────────────────────────────────────────────────────────────────┘
+                                │
+                                ▼
+┌────────────────────────────────────────────────────────────────┐
+│                    Data Storage (HDFS)                         │
+│  ┌─────────────┐ ┌─────────────┐ ┌─────────────┐               │
+│  │ Bronze Layer│ │ Silver Layer│ │  Gold Layer │               │
+│  │ (Raw Data)  │ │(Processed)  │ │(Analytics)  │               │
+│  │ CSV, JSON,  │ │  Parquet    │ │  Parquet    │               │
+│  │  Parquet    │ │ Partitioned │ │  Aggregated │               │
+│  └─────────────┘ └─────────────┘ └─────────────┘               │
+└────────────────────────────────────────────────────────────────┘
+                                │
+                                ▼
+┌───────────────────────────────────────────────────────────────┐
+│                    Web Access (External)                      │
+│  ┌─────────────┐ ┌─────────────┐ ┌─────────────┐              │
+│  │ YARN Web UI │ │Spark History│ │HDFS NameNode│              │
+│  │ localhost:  │ │ localhost:  │ │ localhost:  │              │
+│  │    8081     │ │   18081     │ │    9871     │              │
+│  └─────────────┘ └─────────────┘ └─────────────┘              │
+└───────────────────────────────────────────────────────────────┘
 ```
 
 ### **Container Details**
@@ -130,80 +134,87 @@ graph TB
 
 ### **Data Flow Diagram**
 
-```mermaid
-flowchart LR
-    subgraph "Data Sources"
-        E[employees.json<br/>38,092 records<br/>996KB]
-        D[departments.csv<br/>12 records<br/>2.9KB]
-        C[clients.csv<br/>565 records<br/>84KB]
-        T[tasks.json<br/>35,963 records<br/>1.1MB]
-        S[salary_history.parquet<br/>5,000 records<br/>312KB]
-        P[projects.parquet<br/>200 records<br/>66KB]
-    end
-    
-    subgraph "Bronze Layer"
-        B1[Raw Data Storage<br/>Original Format]
-    end
-    
-    subgraph "Silver Layer Processing"
-        SP1[employees_silver_layer.py<br/>Cluster Mode]
-        SP2[departments_silver_layer.py<br/>Cluster Mode]
-        SP3[clients_silver_layer.py<br/>Cluster Mode]
-        SP4[tasks_silver_layer.py<br/>Cluster Mode]
-        SP5[salary_history_silver_layer.py<br/>Cluster Mode]
-        SP6[projects_silver_layer.py<br/>Pending]
-    end
-    
-    subgraph "Silver Layer"
-        S1[employee.parquet<br/>Partitioned by Date]
-        S2[departments.parquet<br/>Partitioned by Date]
-        S3[clients.parquet<br/>Partitioned by Date]
-        S4[tasks.parquet<br/>Partitioned by Date]
-        S5[salary_history.parquet<br/>Partitioned by Date]
-        S6[projects.parquet<br/>Not Implemented]
-    end
-    
-    subgraph "Gold Layer Processing"
-        GP1[department_analytics_gold.py<br/>Cluster Mode]
-    end
-    
-    subgraph "Gold Layer"
-        G1[department_analytics.parquet<br/>Business Intelligence]
-    end
-    
-    subgraph "Data Quality"
-        DQ1[data_quality_report.py<br/>Cluster Mode]
-        DQ2[Quality Reports<br/>Green/Yellow/Red Flags]
-    end
-    
-    E --> B1
-    D --> B1
-    C --> B1
-    T --> B1
-    S --> B1
-    P --> B1
-    
-    B1 --> SP1
-    B1 --> SP2
-    B1 --> SP3
-    B1 --> SP4
-    B1 --> SP5
-    B1 --> SP6
-    
-    SP1 --> S1
-    SP2 --> S2
-    SP3 --> S3
-    SP4 --> S4
-    SP5 --> S5
-    SP6 -.-> S6
-    
-    S1 --> GP1
-    S2 --> GP1
-    S5 --> GP1
-    GP1 --> G1
-    
-    B1 --> DQ1
-    DQ1 --> DQ2
+```
+┌────────────────────────────────────────────────────────────────┐
+│                    Data Sources                                │
+│  ┌───────────── ┐ ┌─────────────┐ ┌─────────────┐              │
+│  │employees.json│ │departments  │ │ clients.csv │              │
+│  │38,092 rec    │ │   .csv      │ │  565 rec    │              │
+│  │  996KB       │ │  12 rec     │ │   84KB      │              │
+│  └───────────── ┘ └─────────────┘ └─────────────┘              │
+│  ┌─────────────┐ ┌─────────────┐ ┌─────────────┐               │
+│  │ tasks.json  │ │salary_hist  │ │projects.parq│               │
+│  │35,963 rec   │ │  .parquet   │ │  200 rec    │               │
+│  │  1.1MB      │ │ 5,000 rec   │ │   66KB      │               │
+│  └─────────────┘ └─────────────┘ └─────────────┘               │
+└────────────────────────────────────────────────────────────────┘
+                                │
+                                ▼
+┌────────────────────────────────────────────────────────────────┐
+│                    Bronze Layer                                │
+│  ┌───────────────────────────────────────────────────────────┐ │
+│  │              Raw Data Storage                             │ │
+│  │           (Original Format - CSV, JSON, Parquet)          │ │
+│  └───────────────────────────────────────────────────────────┘ │
+└────────────────────────────────────────────────────────────────┘
+                                │
+                                ▼
+┌────────────────────────────────────────────────────────────────┐
+│                Silver Layer Processing                         │
+│  ┌─────────────┐ ┌───────────── ┐ ┌─────────────┐              │
+│  │employees_sl │ │departments_sl│ │clients_sl   │              │
+│  │  .py        │ │  .py         │ │  .py        │              │
+│  │Cluster Mode │ │Cluster Mode  │ │Cluster Mode │              │
+│  └─────────────┘ └───────────── ┘ └─────────────┘              │
+│  ┌─────────────┐ ┌───────────── ┐ ┌─────────────┐              │
+│  │ tasks_sl    │ │salary_hist_sl│ │projects_sl  │              │
+│  │  .py        │ │  .py         │ │  .py        │              │
+│  │Cluster Mode │ │Cluster Mode  │ │  Pending    │              │
+│  └─────────────┘ └───────────── ┘ └─────────────┘              │
+└────────────────────────────────────────────────────────────────┘
+                                │
+                                ▼
+┌───────────────────────────────────────────────────────────────┐
+│                    Silver Layer                               │
+│  ┌─────────────┐ ┌─────────────┐ ┌─────────────┐              │
+│  │employee.parq│ │departments  │ │clients.parq │              │
+│  │Partitioned  │ │  .parquet   │ │Partitioned  │              │
+│  │  by Date    │ │Partitioned  │ │  by Date    │              │
+│  └─────────────┘ └─────────────┘ └─────────────┘              │
+│  ┌─────────────┐ ┌─────────────┐ ┌─────────────┐              │
+│  │tasks.parquet│ │salary_hist  │ │projects.parq│              │
+│  │Partitioned  │ │  .parquet   │ │Not Implement│              │
+│  │  by Date    │ │Partitioned  │ │             │              │
+│  └─────────────┘ └─────────────┘ └─────────────┘              │
+└───────────────────────────────────────────────────────────────┘
+                                │
+                                ▼
+┌────────────────────────────────────────────────────────────────┐
+│                Gold Layer Processing                           │
+│  ┌───────────────────────────────────────────────────────────┐ │
+│  │           department_analytics_gold.py                    │ │
+│  │                    Cluster Mode                           │ │
+│  └───────────────────────────────────────────────────────────┘ │
+└────────────────────────────────────────────────────────────────┘
+                                │
+                                ▼
+┌─────────────────────────────────────────────────────────────────┐
+│                    Gold Layer                                   │
+│  ┌────────────────────────────────────────────────────────────┐ │
+│  │           department_analytics.parquet                     │ │
+│  │                Business Intelligence                       │ │
+│  └────────────────────────────────────────────────────────────┘ │
+└─────────────────────────────────────────────────────────────────┘
+                                │
+                                ▼
+┌─────────────────────────────────────────────────────────────────┐
+│                    Data Quality                                 │
+│  ┌────────────────────────────────────────────────────────────┐ │
+│  │              data_quality_report.py                        │ │
+│  │                    Cluster Mode                            │ │
+│  │              Quality Reports (Green/Yellow/Red)            │ │
+│  └────────────────────────────────────────────────────────────┘ │
+└─────────────────────────────────────────────────────────────────┘
 ```
 
 ### **Job Execution Flow**
