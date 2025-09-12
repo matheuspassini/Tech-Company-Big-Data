@@ -11,6 +11,7 @@ bronze_to_silver/
 ├── clients_silver_layer.py        # Client data transformation
 ├── tasks_silver_layer.py          # Task data transformation
 ├── salary_history_silver_layer.py # Salary history transformation
+├── projects_silver_layer.py       # Project data transformation
 └── README.md                      # This file
 ```
 
@@ -96,6 +97,26 @@ Transforms salary history data from Parquet format to structured Parquet.
 - Currency standardization
 - Historical data cleaning
 
+### `projects_silver_layer.py`
+Transforms project data from Parquet format to structured Parquet with comprehensive project management features.
+
+**Features:**
+- **Input**: `projects.parquet` from bronze layer
+- **Output**: Partitioned Parquet files in silver layer
+- **Data Quality**: Project data validation and referential integrity
+- **Partitioning**: `status`, `year_start_date`, `month_start_date`, `day_start_date`
+- **Records**: Project records with comprehensive metadata
+
+**Transformations:**
+- Project status standardization
+- Budget and cost validation
+- Technology stack array processing
+- Date range validation and processing
+- Referential integrity with departments and clients
+- Risk level and priority standardization
+- Project complexity and milestone tracking
+- Quality score and resource utilization processing
+
 ## Execution
 
 ### Individual Jobs (Cluster Mode)
@@ -134,6 +155,13 @@ docker exec tech-data-lake-master spark-submit \
   --deploy-mode cluster \
   --py-files /opt/spark/apps/utils.zip \
   /opt/spark/apps/bronze_to_silver/salary_history_silver_layer.py
+
+# Projects job
+docker exec tech-data-lake-master spark-submit \
+  --master yarn \
+  --deploy-mode cluster \
+  --py-files /opt/spark/apps/utils.zip \
+  /opt/spark/apps/bronze_to_silver/projects_silver_layer.py
 ```
 
 ### Full Pipeline

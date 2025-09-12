@@ -30,7 +30,8 @@ SPARK_CONFIGS = {
     "employees": "Employees-Tech-Company-Application-Cluster",
     "salary_history": "Salary-History-Tech-Company-Application-Cluster",
     "clients": "Clients-Tech-Company-Application-Cluster",
-    "tasks": "Tasks-Tech-Company-Application-Cluster"
+    "tasks": "Tasks-Tech-Company-Application-Cluster",
+    "projects": "Projects-Tech-Company-Application-Cluster"
 }
 
 # Input paths
@@ -39,7 +40,8 @@ INPUT_PATHS = {
     "employees": f"{BRONZE_LAYER_PATH}/employees.json",
     "salary_history": f"{BRONZE_LAYER_PATH}/salary_history.parquet",
     "clients": f"{BRONZE_LAYER_PATH}/clients.csv",
-    "tasks": f"{BRONZE_LAYER_PATH}/tasks.json"
+    "tasks": f"{BRONZE_LAYER_PATH}/tasks.json",
+    "projects": f"{BRONZE_LAYER_PATH}/projects.parquet"
 }
 
 # Output paths
@@ -49,7 +51,8 @@ OUTPUT_PATHS = {
     "employees": f"{HDFS_BASE_PATH}/silver_layer/employee.parquet",
     "salary_history": f"{HDFS_BASE_PATH}/silver_layer/salary_history.parquet",
     "clients": f"{HDFS_BASE_PATH}/silver_layer/clients.parquet",
-    "tasks": f"{HDFS_BASE_PATH}/silver_layer/tasks.parquet"
+    "tasks": f"{HDFS_BASE_PATH}/silver_layer/tasks.parquet",
+    "projects": f"{HDFS_BASE_PATH}/silver_layer/projects.parquet"
 }
 
 # Data cleaning rules for different tables
@@ -85,6 +88,13 @@ CLEANING_RULES = {
         "null_integers": ["estimated_hours", "actual_hours", "dependencies"],
         "null_strings": ["name", "description", "status", "priority"],
         "arrays": ["tags"]
+    },
+    "projects": {
+        "null_dates": ["start_date", "end_date", "estimated_completion_date"],
+        "null_floats": ["budget", "actual_cost", "quality_score", "resource_utilization"],
+        "null_integers": ["team_size", "milestones_completed", "total_milestones", "dependencies"],
+        "null_strings": ["name", "status", "priority", "description", "risk_level", "success_metrics", "project_type", "complexity", "customer_feedback"],
+        "arrays": ["technologies"]
     }
 }
 
@@ -97,7 +107,8 @@ COLUMNS_TO_DROP = {
     ],
     "salary_history": [],  # No columns to drop for salary_history
     "clients": [],  # No columns to drop for clients
-    "tasks": []  # No columns to drop for tasks
+    "tasks": [],  # No columns to drop for tasks
+    "projects": [],  # No columns to drop for projects
 }
 
 # Referential integrity constraints
@@ -106,5 +117,6 @@ REFERENTIAL_INTEGRITY = {
     "employees": ["id", "department_id", "employment_type", "education", "hire_date"],
     "salary_history": ["id", "employee_id", "department_id"],
     "clients": ["id", "account_manager_id"],
-    "tasks": ["id", "project_id", "assigned_to"]
+    "tasks": ["id", "project_id", "assigned_to"],
+    "projects": ['id', 'department_id', 'client_id']
 }

@@ -5,7 +5,8 @@ import time
 import functools
 from typing import Dict, Any
 from pyspark.sql import SparkSession, DataFrame
-from pyspark.sql.functions import col, when, trim, lower, size
+from pyspark.sql.functions import col, when, trim, lower, size, array, expr, current_timestamp
+from pyspark.sql.types import ArrayType
 
 def setup_logging(name: str = __name__) -> logging.Logger:
     """Setup logging configuration for Spark jobs"""
@@ -177,7 +178,20 @@ def clean_dataframe(df: DataFrame, cleaning_rules: Dict[str, Any]) -> DataFrame:
     # Clean arrays
     if "arrays" in cleaning_rules:
         for col_name in cleaning_rules["arrays"]:
-            df = df.withColumn(col_name, when(col(col_name).isNull(), "Not available").otherwise(col(col_name)))
+            if col_name in df.columns:
+                if isinstance(df.schema[col_name].dataType, ArrayType):
+                    # For real arrays: replace null arrays with empty arrays and filter out null/empty elements
+                    df = df.withColumn(col_name,
+                        when(col(col_name).isNull(), array()).otherwise(
+                            expr(f"filter({col_name}, x -> x is not null and trim(x) != '')")
+                        )
+                    )
+                    logger.info(f"Cleaned array column: {col_name} (integrated)")
+                else:
+                    # For arrays stored as strings: replace null with "Not available"
+                    df = df.withColumn(col_name, 
+                        when(col(col_name).isNull(), "Not available").otherwise(col(col_name))
+                    )
     
     return df
 
@@ -217,7 +231,6 @@ def add_timestamp_column(df: DataFrame, column_name: str = "received_at") -> Dat
     Returns:
         DataFrame with timestamp column
     """
-    from pyspark.sql.functions import current_timestamp
     logger = setup_logging()
     logger.info(f"Adding timestamp column: {column_name}")
     
@@ -236,10 +249,28 @@ def transform_empty_strings(df: DataFrame) -> DataFrame:
     logger = setup_logging()
     logger.info("Transforming empty strings to null values")
     
+    # Get column types to skip array columns
+    
     return df.select([
-        when((col(c) == "") | (col(c) == "[]"), None).otherwise(col(c)).alias(c) 
+        when(
+            (col(c) == "") |
+            (col(c) == "[]") |
+            (col(c) == "{}") |
+            (col(c) == "null") |
+            (col(c) == "NULL") |
+            (col(c) == "None") |
+            (col(c) == "N/A") |
+            (col(c) == " ") |
+            (col(c) == "n/a") |
+            (col(c) == "undefined") |
+            (col(c) == "UNDEFINED"),
+            None
+        ).otherwise(col(c)).alias(c) 
+        if not isinstance(df.schema[c].dataType, ArrayType)
+        else col(c)  # Skip transformation for array columns
         for c in df.columns
     ])
+
 
 @log_execution
 def drop_unnecessary_columns(df: DataFrame, columns_to_drop: list) -> DataFrame:

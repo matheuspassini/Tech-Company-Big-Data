@@ -277,7 +277,7 @@ projeto3/
 │   │   ├── clients_silver_layer.py
 │   │   ├── tasks_silver_layer.py
 │   │   ├── salary_history_silver_layer.py
-│   │   ├── projects_silver_layer.py    # Pending implementation
+│   │   ├── projects_silver_layer.py
 │   │   └── README.md             # Bronze to Silver documentation
 │   ├── silver_to_gold/           # Silver to Gold transformations
 │   │   ├── department_analytics_gold.py
@@ -565,7 +565,7 @@ The data quality job provides comprehensive numerical metrics for data reliabili
 - **Partitioned Reports**: Quality reports are partitioned by flag for easy analysis
 - **Multi-Format Support**: Handles CSV, JSON, and Parquet files
 - **Comprehensive Coverage**: Analyzes all 6 data sources (departments, clients, employees, tasks, salary_history, projects)
-- **Note**: Projects data exists in Bronze layer but Silver layer processing pipeline is pending implementation
+- **Note**: All data sources have complete Bronze to Silver processing pipelines implemented
 
 ## Documentation
 
@@ -624,6 +624,9 @@ docker exec tech-data-lake-master spark-submit --master yarn --deploy-mode clust
 
 # Salary History job
 docker exec tech-data-lake-master spark-submit --master yarn --deploy-mode cluster /opt/spark/apps/bronze_to_silver/salary_history_silver_layer.py
+
+# Projects job
+docker exec tech-data-lake-master spark-submit --master yarn --deploy-mode cluster /opt/spark/apps/bronze_to_silver/projects_silver_layer.py
 
 # Gold Jobs
 # Department Analytics job

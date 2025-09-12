@@ -11,7 +11,8 @@ jobs/
 │   ├── departments_silver_layer.py
 │   ├── clients_silver_layer.py
 │   ├── tasks_silver_layer.py
-│   └── salary_history_silver_layer.py
+│   ├── salary_history_silver_layer.py
+│   └── projects_silver_layer.py
 ├── silver_to_gold/           # Silver to Gold transformations
 │   └── department_analytics_gold.py
 ├── data_quality/             # Data Quality Assessment
@@ -59,6 +60,7 @@ Each job processes one entity from bronze to silver in cluster mode:
 - **clients_silver_layer.py**: Process client data
 - **tasks_silver_layer.py**: Process task data
 - **salary_history_silver_layer.py**: Process salary history data
+- **projects_silver_layer.py**: Process project data
 
 ## Gold Layer Jobs
 The Gold layer transforms cleaned data into business intelligence insights:

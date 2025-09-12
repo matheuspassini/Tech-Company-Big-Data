@@ -50,6 +50,7 @@ jobs = [
     ("Salary History", "/opt/spark/apps/bronze_to_silver/salary_history_silver_layer.py"), 
     ("Tasks", "/opt/spark/apps/bronze_to_silver/tasks_silver_layer.py"),                    
     ("Employees", "/opt/spark/apps/bronze_to_silver/employees_silver_layer.py"),           
+    ("Projects", "/opt/spark/apps/bronze_to_silver/projects_silver_layer.py"),              
     ("Clients", "/opt/spark/apps/bronze_to_silver/clients_silver_layer.py"),               
     ("Departments", "/opt/spark/apps/bronze_to_silver/departments_silver_layer.py"),        
     ("Data Quality Report", "/opt/spark/apps/data_quality/data_quality_report.py")         
