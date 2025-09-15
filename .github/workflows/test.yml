@@ -38,7 +38,7 @@ jobs:
         
     - name: Run tests with coverage
       run: |
-        docker compose -p tech-data-lake -f docker-compose.yml up -d --scale worker=3
+        docker compose -p tech-data-lake -f docker-compose.yml up -d --no-pull --scale worker=3
         sleep 30
         docker exec tech-data-lake-master pip install pytest pytest-cov
         docker exec tech-data-lake-master python -m pytest /opt/spark/test/ --cov=utils --cov-report=term-missing --cov-report=html:/tmp/htmlcov --cov-fail-under=60
