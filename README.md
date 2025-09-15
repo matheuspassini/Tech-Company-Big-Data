@@ -667,7 +667,10 @@ The project includes a comprehensive test suite to ensure code quality and relia
 # Start the cluster
 docker-compose -p tech-data-lake -f docker-compose.yml up -d --scale worker=3
 
-# Run all tests with coverage
+# Run all tests with coverage (terminal output)
+docker exec tech-data-lake-master python -m pytest /opt/spark/test/ --cov=utils --cov-report=term-missing
+
+# Run all tests with HTML coverage report
 docker exec tech-data-lake-master python -m pytest /opt/spark/test/ --cov=utils --cov-report=html
 
 # Run specific test file
@@ -682,12 +685,29 @@ docker exec tech-data-lake-master python -m pytest /opt/spark/test/ -v
 - **DataFrame Creation Tests**: Test DataFrame creation and schema validation
 - **Logging Tests**: Test logging functionality and decorators
 - **Schema Tests**: Test data type handling and schema validation
+- **Missing Values Treatment Tests**: Test null value handling and data cleaning
+- **File Reading Tests**: Test CSV, JSON, and Parquet file reading functionality
 
 ### **Test Coverage:**
-- **Current Coverage**: 61% (9 tests passing)
-- **Minimum Required**: 60%
-- **Coverage Reports**: Available in HTML format
-- **Coverage Location**: `htmlcov/index.html` after test execution
+- **Current Coverage**: 79% (11 tests passing)
+- **Coverage Breakdown**:
+  - `utils/__init__.py`: 100% coverage (3 lines)
+  - `utils/config.py`: 100% coverage (11 lines)
+  - `utils/spark_utils.py`: 77% coverage (120 lines, 28 uncovered)
+- **Uncovered Lines**: Primarily debug logging statements and untested utility functions
+
+### **Test Results Summary:**
+
+```
+======================== 11 passed in 76.80s =========================
+Name                        Stmts   Miss  Cover   Missing
+---------------------------------------------------------
+apps/utils/__init__.py          3      0   100%
+apps/utils/config.py           11      0   100%
+apps/utils/spark_utils.py     120     28    77%   53, 60-61, 63-64, 66-67, 92-93, 119, 158-159, 163-164, 178-179, 188-200, 242-245, 296-299
+---------------------------------------------------------
+TOTAL                         134     28    79%
+```
 
 ### **CI/CD Integration:**
 - **Automated Testing**: Tests run automatically on every push and pull request
