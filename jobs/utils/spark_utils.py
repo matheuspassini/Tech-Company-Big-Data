@@ -268,10 +268,12 @@ def transform_empty_strings(df: DataFrame) -> DataFrame:
             (col(c) == "NULL") |
             (col(c) == "None") |
             (col(c) == "N/A") |
-            (col(c) == " ") |
             (col(c) == "n/a") |
+            (col(c) == "nan") |
+            (col(c) == "NaN") |
             (col(c) == "undefined") |
-            (col(c) == "UNDEFINED"),
+            (col(c) == "UNDEFINED") |
+            (trim(col(c)) == ""),
             None
         ).otherwise(col(c)).alias(c) 
         if not isinstance(df.schema[c].dataType, ArrayType)
