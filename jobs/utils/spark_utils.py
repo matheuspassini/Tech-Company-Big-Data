@@ -148,32 +148,40 @@ def clean_dataframe(df: DataFrame, cleaning_rules: Dict[str, Any]) -> DataFrame:
         Cleaned DataFrame
     """
     logger = setup_logging()
-    logger.info("Applying generic data cleaning rules")
+    logger.info("Applying data cleaning rules with fillna()")
+    
+    # Build fillna dictionary for batch processing
+    fillna_dict = {}
     
     # Clean null dates
     if "null_dates" in cleaning_rules:
         for col_name in cleaning_rules["null_dates"]:
-            df = df.withColumn(col_name, when(col(col_name).isNull(), "0000-01-01").otherwise(col(col_name)))
+            fillna_dict[col_name] = "0000-01-01"
     
     # Clean null floats
     if "null_floats" in cleaning_rules:
         for col_name in cleaning_rules["null_floats"]:
-            df = df.withColumn(col_name, when(col(col_name).isNull(), 0.0).otherwise(col(col_name)))
+            fillna_dict[col_name] = 0.0
     
     # Clean null integers
     if "null_integers" in cleaning_rules:
         for col_name in cleaning_rules["null_integers"]:
-            df = df.withColumn(col_name, when(col(col_name).isNull(), 0).otherwise(col(col_name)))
+            fillna_dict[col_name] = 0
     
     # Clean null strings
     if "null_strings" in cleaning_rules:
         for col_name in cleaning_rules["null_strings"]:
-            df = df.withColumn(col_name, when(col(col_name).isNull(), "Unknown").otherwise(col(col_name)))
+            fillna_dict[col_name] = "Unknown"
     
     # Clean null booleans
     if "null_booleans" in cleaning_rules:
         for col_name in cleaning_rules["null_booleans"]:
-            df = df.withColumn(col_name, when(col(col_name).isNull(), False).otherwise(col(col_name)))
+            fillna_dict[col_name] = False
+    
+    # Apply all null replacements in a single operation
+    if fillna_dict:
+        logger.info(f"Applying fillna() to {len(fillna_dict)} columns in single operation")
+        df = df.fillna(fillna_dict)
     
     # Clean arrays
     if "arrays" in cleaning_rules:
@@ -197,7 +205,7 @@ def clean_dataframe(df: DataFrame, cleaning_rules: Dict[str, Any]) -> DataFrame:
 
 @log_execution
 def apply_referential_integrity(df: DataFrame, required_columns: list) -> DataFrame:
-    """Apply referential integrity constraints
+    """Apply referential integrity constraints using dropna()
     
     Args:
         df: DataFrame to apply constraints
@@ -211,8 +219,8 @@ def apply_referential_integrity(df: DataFrame, required_columns: list) -> DataFr
     
     initial_count = df.count()
     
-    for col_name in required_columns:
-        df = df.filter(col(col_name).isNotNull())
+    # Use dropna() - single operation
+    df = df.dropna(subset=required_columns)
     
     final_count = df.count()
     dropped_count = initial_count - final_count
