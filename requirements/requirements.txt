@@ -1,2 +1,7 @@
 py4j==0.10.9.7
 pyspark==3.5.1
+
+# Testing dependencies
+pytest>=8.0.0
+pytest-cov>=6.0.0
+pytest-mock>=3.10.0
