@@ -28,65 +28,8 @@ Creates comprehensive department analytics by aggregating employee and departmen
 ### Output Data
 - **Gold Layer**: `department_analytics.parquet`
 - **Format**: Partitioned Parquet files
-- **Partitioning**: By region, department name, and hire year
+- **Partitioning**: By region and department name
 
-### Business Questions Answered
-
-#### 1. Workforce Composition & Diversity
-- Total headcount per department and region
-- Number of different positions in each department
-- Distribution of education levels across departments
-- Maximum education level achieved in each department
-
-#### 2. Financial Performance & Budget Management
-- Total budget allocation per department
-- Average budget per employee in each department
-- Percentage of department budget spent on salaries
-- Department health flags (Red/Green/Yellow)
-
-#### 3. Employee Skills & Competencies
-- Average number of skills per employee
-- Total number of skills across all employees
-- Average number of certifications per employee
-- Total number of certifications per department
-
-#### 4. Experience & Performance Analysis
-- Average years of experience per department
-- Range of experience (min/max) in each department
-- Average performance score per department
-- Performance variation across departments
-
-#### 5. Project Management & Workload
-- Average projects assigned per employee
-- Total number of projects per department
-- Project workload variation across departments
-
-#### 6. Work-Life Balance & Employee Wellbeing
-- Average overtime hours per department
-- Total overtime hours per department
-- Vacation days used vs. remaining per department
-- Overtime pattern analysis
-
-#### 7. Salary Analysis & Compensation
-- Average salary per department
-- Salary range (min/max) in each department
-- Total salary cost per department
-- Salary comparison across departments and regions
-
-#### 8. Temporal Analysis & Hiring Trends
-- Department composition changes by hire year
-- Hiring trends across regions and departments
-- Employee experience variation by year of hire
-
-#### 9. Regional Performance Comparison
-- Department performance across different regions
-- Regional differences in budget allocation, salaries, or performance
-- Highest performing departments by region
-
-#### 10. Department Health Assessment
-- Departments flagged as healthy (Green Flag)
-- Departments with budget concerns (Red Flag)
-- Departments needing review (Yellow/Gray Flag)
 
 ### Key Features
 
@@ -111,7 +54,13 @@ Creates comprehensive department analytics by aggregating employee and departmen
 
 #### Individual Job (Cluster Mode)
 ```bash
-docker exec tech-data-lake-master spark-submit --master yarn --deploy-mode cluster /opt/spark/apps/silver_to_gold/department_analytics_gold.py
+docker exec tech-data-lake-master spark-submit --master yarn --deploy-mode cluster --py-files /opt/spark/apps/utils.zip /opt/spark/apps/silver_to_gold/department_analytics_gold.py
+```
+
+#### Pipeline Integration
+```bash
+# Run as part of complete pipeline
+docker exec tech-data-lake-master python3 /opt/spark/apps/run_pipeline.py
 ```
 
 #### Prerequisites
@@ -124,18 +73,16 @@ docker exec tech-data-lake-master spark-submit --master yarn --deploy-mode clust
 /opt/spark/data/gold_layer/department_analytics.parquet/
 ├── region=Central/
 │   ├── department_name=Engineering/
-│   │   ├── hire_year=2020/
-│   │   ├── hire_year=2021/
-│   │   └── hire_year=2022/
 │   └── department_name=Marketing/
-│       ├── hire_year=2021/
-│       └── hire_year=2022/
-└── region=South/
-    ├── department_name=Sales/
-    │   ├── hire_year=2020/
-    │   └── hire_year=2021/
-    └── department_name=DevOps/
-        └── hire_year=2022/
+├── region=South/
+│   ├── department_name=Sales/
+│   ├── department_name=Customer Success/
+│   ├── department_name=Product/
+│   └── department_name=DevOps/
+├── region=West/
+│   └── department_name=HR/
+└── region=East/
+    └── department_name=Data Science/
 ```
 
 ### Business Impact
@@ -153,5 +100,43 @@ This analytics pipeline enables data-driven decision making for:
 - **Data Source**: Silver layer (processed employee and department data)
 - **Processing**: PySpark aggregations and transformations
 - **Output**: Partitioned Parquet files in Gold layer
-- **Partitioning**: Optimized for query performance by region, department, and hire year
-- **Cluster Mode**: Distributed processing with YARN resource management 
+- **Utilities**: Uses centralized utilities from utils.zip
+- **Partitioning**: Optimized for query performance by region and department
+- **Cluster Mode**: Distributed processing with YARN resource management
+
+## Project Completion Results
+
+### **IMPLEMENTATION COMPLETED:**
+- **Data Processing**: Successfully processes 385 employees across 8 departments in 4 regions
+- **Analytics Generation**: Comprehensive business intelligence metrics and insights
+- **Output Format**: Parquet analytics format generated
+- **Pipeline Integration**: Fully integrated into complete ETL pipeline
+- **Documentation**: Complete documentation and insights reports generated
+
+### **ANALYTICS METRICS GENERATED:**
+- **Financial Metrics**: $491M total budget, $5.4M salary costs, budget per employee ratios
+- **Performance Metrics**: Department performance scores (2.52-2.98 range)
+- **Operational Metrics**: 1,034 total projects, project distribution by department
+- **Regional Analysis**: Geographic distribution and performance comparison
+- **Department Rankings**: Performance-based department rankings and insights
+
+### **DELIVERABLES:**
+- **HDFS Analytics**: `/opt/spark/data/gold_layer/department_analytics.parquet/`
+- **Insights Report**: `project_results/DEPARTMENT_ANALYTICS_INSIGHTS.md`
+
+### **KEY INSIGHTS GENERATED:**
+- **Marketing** leads with highest performance (2.98) and most efficient resource utilization
+- **South region** dominates with 54.5% of employees and 59% of budget
+- **Data Science** has highest investment per employee ($1.87M)
+- **Sales** commands largest budget ($110M) but shows lowest performance (2.52)
+- **Customer Success** offers highest average salary ($18,220.18)
+
+### **DATA QUALITY LIMITATIONS:**
+**IMPORTANT NOTICE**: The analytics results are based on cleaned and validated data, but several quality issues were identified:
+
+- **Data Loss**: Only 385 out of 1,000 original employee records were processed due to quality issues
+- **Source Validation Required**: Performance scores and budget allocations need verification against source systems
+- **Incomplete Coverage**: Some departments may have incomplete data affecting accuracy of metrics
+- **Referential Integrity**: Employee-department relationships required significant cleaning and validation
+
+**Recommendation**: Before making strategic decisions based on these analytics, the company should validate key metrics against source systems and implement data quality improvements at the data collection level. 

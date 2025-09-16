@@ -5,6 +5,8 @@ from typing import Dict, List
 # HDFS paths
 HDFS_BASE_PATH = "hdfs://master:8080/opt/spark/data"
 BRONZE_LAYER_PATH = f"{HDFS_BASE_PATH}/bronze_layer"
+SILVER_LAYER_PATH = f"{HDFS_BASE_PATH}/silver_layer/"
+GOLD_LAYER_PATH = f"{HDFS_BASE_PATH}/gold_layer/"
 
 # Data quality thresholds
 QUALITY_THRESHOLDS = {
@@ -31,7 +33,8 @@ SPARK_CONFIGS = {
     "salary_history": "Salary-History-Tech-Company-Application-Cluster",
     "clients": "Clients-Tech-Company-Application-Cluster",
     "tasks": "Tasks-Tech-Company-Application-Cluster",
-    "projects": "Projects-Tech-Company-Application-Cluster"
+    "projects": "Projects-Tech-Company-Application-Cluster",
+    "department_analytics": "Department-Analytics-Gold-Layer-Application-Cluster"
 }
 
 # Input paths
@@ -41,18 +44,21 @@ INPUT_PATHS = {
     "salary_history": f"{BRONZE_LAYER_PATH}/salary_history.parquet",
     "clients": f"{BRONZE_LAYER_PATH}/clients.csv",
     "tasks": f"{BRONZE_LAYER_PATH}/tasks.json",
-    "projects": f"{BRONZE_LAYER_PATH}/projects.parquet"
+    "projects": f"{BRONZE_LAYER_PATH}/projects.parquet",
+    "department_analytics_employees": f"{SILVER_LAYER_PATH}employee.parquet",
+    "department_analytics_departments": f"{SILVER_LAYER_PATH}departments.parquet"
 }
 
 # Output paths
 OUTPUT_PATHS = {
     "data_quality": f"{BRONZE_LAYER_PATH}/data_quality/data_quality_report",
-    "departments": f"{HDFS_BASE_PATH}/silver_layer/departments.parquet",
-    "employees": f"{HDFS_BASE_PATH}/silver_layer/employee.parquet",
-    "salary_history": f"{HDFS_BASE_PATH}/silver_layer/salary_history.parquet",
-    "clients": f"{HDFS_BASE_PATH}/silver_layer/clients.parquet",
-    "tasks": f"{HDFS_BASE_PATH}/silver_layer/tasks.parquet",
-    "projects": f"{HDFS_BASE_PATH}/silver_layer/projects.parquet"
+    "departments": f"{SILVER_LAYER_PATH}departments.parquet",
+    "employees": f"{SILVER_LAYER_PATH}employee.parquet",
+    "salary_history": f"{SILVER_LAYER_PATH}salary_history.parquet",
+    "clients": f"{SILVER_LAYER_PATH}clients.parquet",
+    "tasks": f"{SILVER_LAYER_PATH}tasks.parquet",
+    "projects": f"{SILVER_LAYER_PATH}projects.parquet",
+    "department_analytics": f"{GOLD_LAYER_PATH}department_analytics.parquet"
 }
 
 # Data cleaning rules for different tables

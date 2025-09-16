@@ -53,13 +53,14 @@ jobs = [
     ("Projects", "/opt/spark/apps/bronze_to_silver/projects_silver_layer.py"),              
     ("Clients", "/opt/spark/apps/bronze_to_silver/clients_silver_layer.py"),               
     ("Departments", "/opt/spark/apps/bronze_to_silver/departments_silver_layer.py"),        
-    ("Data Quality Report", "/opt/spark/apps/data_quality/data_quality_report.py")         
+    ("Department Analytics", "/opt/spark/apps/silver_to_gold/department_analytics_gold.py"),
+    ("Data Quality Report", "/opt/spark/apps/data_quality/data_quality_report.py")
 ]
 
 failed_jobs = {}
 
 print("=" * 80)
-print("PIPELINE 1 - BRONZE TO SILVER ETL JOBS")
+print("PIPELINE 1 - BRONZE TO SILVER & SILVER TO GOLD ETL JOBS")
 print("=" * 80)
 print("Using shared utilities and centralized configurations")
 print("Jobs ordered by data volume (heaviest first) for optimal resource usage")

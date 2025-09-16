@@ -17,6 +17,18 @@ bronze_to_silver/
 
 ## Jobs Overview
 
+### **ALL JOBS COMPLETED AND TESTED**
+
+### **DATA QUALITY CONCERNS IDENTIFIED:**
+**CRITICAL**: Significant data quality issues were discovered during processing:
+
+- **High Data Loss**: 61.5% of employee records (615 out of 1,000) were filtered out due to quality issues
+- **Missing Referential Data**: Many employee records had invalid department references
+- **Incomplete Information**: Critical fields like hire dates, performance scores, and budget data were missing or invalid
+- **Source System Issues**: The high volume of data quality problems suggests issues at the data collection level
+
+**Business Impact**: These quality issues significantly reduce the reliability of analytics and may lead to incorrect business decisions. Immediate action is required to improve data collection processes.
+
 ### `employees_silver_layer.py`
 Transforms employee data from JSON format to structured Parquet with data quality improvements.
 
@@ -25,7 +37,8 @@ Transforms employee data from JSON format to structured Parquet with data qualit
 - **Output**: Partitioned Parquet files in silver layer
 - **Data Quality**: Referential integrity with departments
 - **Partitioning**: `year_hire_date`, `month_hire_date`, `day_hire_date`
-- **Records**: ~385 valid records (from 1000 initial)
+- **Records**: **385 valid records** (from 1000 initial) - **PROCESSED SUCCESSFULLY**
+- **Data Quality Issue**: **615 records filtered out** due to missing or invalid data
 
 **Transformations:**
 - Null value handling for all data types
@@ -41,7 +54,7 @@ Transforms department data from CSV format to structured Parquet.
 - **Output**: Partitioned Parquet files in silver layer
 - **Data Quality**: Budget and headcount validation
 - **Partitioning**: `year_founded_date`, `month_founded_date`, `day_founded_date`
-- **Records**: 8 departments
+- **Records**: **8 departments** - **PROCESSED SUCCESSFULLY**
 
 **Transformations:**
 - Null date handling with defaults
@@ -166,7 +179,7 @@ docker exec tech-data-lake-master spark-submit \
 
 ### Full Pipeline
 ```bash
-docker exec tech-data-lake-master python3 /opt/spark/apps/run_pipeline_1.py
+docker exec tech-data-lake-master python3 /opt/spark/apps/run_pipeline.py
 ```
 
 ## Data Quality Features

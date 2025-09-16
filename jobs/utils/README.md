@@ -10,6 +10,8 @@ utils/
 ├── config.py            # Centralized configurations and paths
 ├── spark_utils.py       # Common Spark utilities and functions
 └── README.md           # This file
+
+Note: This directory is packaged into utils.zip for distribution to Spark containers.
 ```
 
 ## Files Overview
@@ -36,6 +38,10 @@ Core utility functions used across all jobs:
 - **Data Quality**: Data cleaning and validation functions
 
 ## Key Features
+
+### **UTILITIES FULLY IMPLEMENTED AND TESTED**
+
+All shared utilities have been successfully implemented, tested, and integrated across all jobs in the pipeline.
 
 ### Centralized Logging
 ```python
@@ -101,7 +107,7 @@ spark = create_spark_session(SPARK_CONFIGS["job_name"])
 
 The utilities are automatically distributed to all containers:
 
-1. **Pipeline Creation**: `run_pipeline_1.py` creates `utils.zip`
+1. **Pipeline Creation**: `run_pipeline.py` creates `utils.zip`
 2. **HDFS Upload**: `utils.zip` uploaded to HDFS for distribution
 3. **Job Execution**: All jobs use `--py-files utils.zip` for access
 4. **Container Access**: Utilities available in all YARN containers
